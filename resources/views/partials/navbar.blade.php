@@ -14,10 +14,10 @@
                     <li>
                         <div class="user-account">
                             <div class="user_div">
-                                <img src="/assets/images/user.png" class="user-photo" alt="User Profile Picture">
+                                <img src="/storage/avatars/{{ $user->avatar }}" class="user-photo" alt="User Profile Picture">
                             </div>
                             <div class="dropdown">
-                                <a href="javascript:void(0);" class="dropdown-toggle user-name" data-toggle="dropdown" aria-expanded="false"><strong>Louis Pierce</strong></a>
+                                <a href="javascript:void(0);" class="dropdown-toggle user-name" data-toggle="dropdown" aria-expanded="false"><strong>{{ $user->profile->name }}</strong></a>
                                 <ul class="dropdown-menu dropdown-menu-right account vivify flipInY" x-placement="bottom-end" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(-59px, 42px, 0px);">
                                     <li><a href="profile.html"><i class="icon-user"></i>My Profile</a></li>
                                     <li><a href="app-inbox.html"><i class="icon-envelope-open"></i>Messages</a></li>

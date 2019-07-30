@@ -81,8 +81,22 @@
 }
 .profile-complete {
     padding-top: 100px;
+    .reset-btn {
+        width: 46%;
+        padding: 7px 15px;
+        background-color: $main_color;
+        border: none;
+        margin-top: 0px;
+    }
+    a {
+        color: #fff !important;
+        cursor: pointer;
+    }
     .btn-save-continue {
         width: 100%;
+        padding: 7px 15px;
+        background-color: $main_color;
+        border: none;
     }
     #avatarFile, #backgroundFile {
         display: none;
@@ -135,6 +149,9 @@
     }
     .left-btn {
         width: 46%;
+        padding: 7px 15px;
+        background-color: $main_color;
+        border: none;
     }
     input {
         display: inline-block;

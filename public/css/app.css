@@ -10682,7 +10682,6 @@ main.dashboard {
 
 .login-container {
   margin-top: 50px;
-  border: 1px solid #f5f5f5;
 }
 
 .login-container .login-caps {
@@ -10777,7 +10776,6 @@ main.dashboard {
   padding: 7px 15px;
   background-color: #22ade4;
   border: none;
-  height: 50px;
 }
 
 .reset-btn {
@@ -10785,7 +10783,6 @@ main.dashboard {
   padding: 7px 15px;
   background-color: #22ade4;
   border: none;
-  height: 50px;
   margin-top: 30px;
 }
 
@@ -10960,8 +10957,24 @@ main.dashboard {
   padding-top: 100px;
 }
 
+.profile-complete .reset-btn {
+  width: 46%;
+  padding: 7px 15px;
+  background-color: #22ade4;
+  border: none;
+  margin-top: 0px;
+}
+
+.profile-complete a {
+  color: #fff !important;
+  cursor: pointer;
+}
+
 .profile-complete .btn-save-continue {
   width: 100%;
+  padding: 7px 15px;
+  background-color: #22ade4;
+  border: none;
 }
 
 .profile-complete #avatarFile,
@@ -11024,6 +11037,9 @@ main.dashboard {
 
 .profile-complete .left-btn {
   width: 46%;
+  padding: 7px 15px;
+  background-color: #22ade4;
+  border: none;
 }
 
 .profile-complete input {

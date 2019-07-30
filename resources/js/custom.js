@@ -1,14 +1,24 @@
-/*
-$('.Log-In').click(function(){
-    $('.login-container').addClass('log-in');
-    $('.login-container').removeClass('sign-up');
+function readURL(input, target) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+
+      reader.onload = function(e) {
+        console.log(e.target.result);
+        $('.' + target).attr('src', e.target.result);
+      }
+
+      reader.readAsDataURL(input.files[0]);
+    }
+}
+
+$("#avatarFile").change(function() {
+    readURL(this, 'img_profile');
 });
 
-$('.Join-Us').click(function(){
-    $('.login-container').removeClass('log-in');
-    $('.login-container').addClass('sign-up');
+$("#backgroundFile").change(function() {
+    readURL(this, 'img_profile_back');
 });
-*/
+
 $('#checkbox_agree').click(function(){
     if(this.checked) {
         $('.register-btn').prop('disabled', false);
@@ -16,3 +26,4 @@ $('#checkbox_agree').click(function(){
         $('.register-btn').prop('disabled', true);
     }
 })
+

@@ -28,3 +28,4 @@ Route::get('/profile-complete', 'ProfileController@complete');
 Route::get('/account', 'AccountController@index');
 Route::get('/logout', 'Auth\LoginController@logout');
 
+Route::post('/saveComplete', 'ProfileController@saveComplete')->name('saveComplete');
