@@ -1,0 +1,307 @@
+html, body {
+    background-color: #fff;
+}
+
+.Incentavize-Logo-Design-PNG {
+    width: 200px;
+    height: 58px;
+    object-fit: contain;
+}
+
+main.login {
+    background-color: #fff;
+    &::before {
+        background: url('img/group-7.png') left center no-repeat;
+        position: absolute;
+        width: 400px;
+        height: 100%;
+        left: 100px;
+        top: 0;
+        content: '';
+    }
+    &::after {
+        background: url('img/group-5.png') right center no-repeat;
+        position: absolute;
+        width: 400px;
+        height: 100%;
+        right: 100px;
+        top: 0;
+        content: '';
+    }
+}
+
+main.dashboard {
+    background-color: #fff;
+}
+
+.login-container {
+    max-width: 450px;
+    .invalid-feedback {
+        width: auto;
+        float: right;
+        display: inline;
+    }
+    &.reset {
+        .Log-In {
+            border-bottom-width: 1px;
+            opacity: 0.3;
+            a {
+                color: $black;
+                text-decoration: none;
+            }
+        }
+        .Join-Us {
+            border-bottom-width: 1px;
+            opacity: 0.3;
+            a {
+                color: $black;
+                text-decoration: none;
+            }
+        }
+    }
+    &.sign-up {
+        .Log-In {
+            border-bottom-width: 1px;
+            opacity: 0.3;
+            a {
+                color: $black;
+                text-decoration: none;
+            }
+        }
+        .Join-Us {
+            border-bottom-width: 3px;
+            opacity: 1;
+            a {
+                color: $black;
+                text-decoration: none;
+            }
+        }
+        .card {
+            display: none;
+        }
+        .card-signup {
+            display: block;
+        }
+    }
+    &.log-in {
+        .Join-Us {
+            border-bottom-width: 1px;
+            opacity: 0.3;
+            a {
+                text-decoration: none;
+            }
+        }
+        .Log-In {
+            border-bottom-width: 3px;
+            opacity: 1;
+            a {
+                text-decoration: none;
+            }
+        }
+        .card {
+            display: block;
+        }
+        .card-signup {
+            display: none;
+        }
+    }
+}
+
+.navbar-brand {
+    margin: auto;
+    padding-top: 45px;
+}
+
+.card, .card-signup {
+    border: none;
+    padding-top: 50px;
+    text-align: center;
+}
+
+.card-header {
+    background-color: transparent;
+    text-align: center;
+    padding: 0px;
+    border: none;
+}
+
+.Log-In {
+    border-bottom: 3px solid $black;
+    font-family: Gilroy;
+    font-size: 22px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $black;
+    width: 49%;
+    display: inline-block;
+    padding: 15px 10px;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.Join-Us {
+    border-bottom: 1px solid $black;
+    opacity: 0.3;
+    font-family: Gilroy;
+    font-size: 22px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $black;
+    width: 49%;
+    display: inline-block;
+    padding: 15px 10px;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.Member-Login {
+    font-family: Gilroy;
+    font-size: 32px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: $black;
+    margin-bottom: 20px;
+}
+
+.Reset-your-password {
+    font-family: Gilroy;
+    font-size: 32px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: $black;
+    margin-bottom: 70px;
+}
+
+.Youre-already-livin {
+    font-family: Gilroy;
+    font-size: 18px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $black;
+    margin-bottom: 80px;
+}
+
+.terms-div {
+    text-align: left;
+    span {
+        font-family: Gilroy;
+        font-size: 13px;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.38;
+        letter-spacing: normal;
+        color: rgba(68, 68, 68, 0.69);
+        padding: 7px 15px;
+    }
+    a {
+        text-decoration: underline;
+        cursor: pointer;
+        padding: 7px 15px;
+    }
+}
+
+.agree-div {
+    padding: 7px 15px;
+    #checkbox_agree {
+        height: 15px;
+        width: 20px;
+        display: inline-block;
+    }
+}
+
+.login-btn {
+    width: 100%;
+    padding: 7px 15px;
+    background-color: $iris;
+    border: none;
+    height: 50px;
+}
+.reset-btn {
+    width: 100%;
+    padding: 7px 15px;
+    background-color: $iris;
+    border: none;
+    height: 50px;
+    margin-top: 30px;
+}
+.register-btn {
+    width: 100%;
+    padding: 7px 15px;
+    background-color: $iris;
+    border: none;
+    height: 50px;
+    margin-bottom: 150px;
+}
+
+.forget-pass {
+    padding-top: 40px;
+    font-family: Gilroy;
+    font-size: 16px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $black;
+    padding-bottom: 90px;
+    .btn-link {
+        color: $black;
+    }
+}
+
+.login-footer {
+    font-family: Gilroy;
+    font-size: 15px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $black;
+    a {
+        cursor: pointer;
+    }
+}
+
+.Group-5 {
+    width: 400px;
+    height: 438px;
+    object-fit: contain;
+}
+
+.Group-7 {
+    width: 400px;
+    height: 464px;
+    object-fit: contain;
+}
+
+@media only screen and (max-width: 1500px) {
+    main {
+        &::before {
+            display: none;
+        }
+        &::after {
+            display: none;
+        }
+    }
+}

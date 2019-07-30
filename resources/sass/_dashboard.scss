@@ -1,0 +1,74 @@
+.pt-4, .py-4 {
+    padding-top: 0px !important;
+}
+.home, .faq, .invites {
+    .top-navbar {
+        display: none;
+        background: $white;
+    }
+    #left-sidebar {
+        box-shadow: 2px 0 6px 0 rgba(0, 0, 0, 0.1);
+        .dropdown ul {
+            left: 230px !important;
+            li {
+                padding: 5px 10px;
+            }
+        }
+        .navbar-brand {
+            .Incentavize-Logo-Design-PNG {
+                width: 175px;
+            }
+        }
+        .metismenu {
+            a {
+                color: $black;
+            }
+        }
+        .bottommenu {
+            position: fixed;
+            bottom: 30px;
+            li {
+                -webkit-box-flex: 1;
+                -ms-flex: 1 1 0%;
+                flex: 1 1 0%;
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-box-orient: vertical;
+                -webkit-box-direction: normal;
+                -ms-flex-direction: column;
+                flex-direction: column;
+                position: relative;
+            }
+            a {
+                display: block;
+                vertical-align: middle;
+                font-size: 15px;
+                position: relative;
+                outline-width: 0px;
+                transition: all 0.3s ease-out 0s;
+                border-radius: 0.1875rem;
+                padding: 7px 0px;
+                color: $black;
+            }
+            i {
+                position: relative;
+                top: 1px;
+                width: 28px;
+                line-height: 28px;
+                text-align: center;
+                border-radius: 3px;
+                margin-right: 10px;
+                display: inline-block;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .home {
+        .top-navbar {
+            display: block;
+        }
+    }
+}
