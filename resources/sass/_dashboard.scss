@@ -81,7 +81,7 @@
 }
 .profile-complete {
     padding-top: 100px;
-    .reset-btn {
+    .profile-reset-btn {
         width: 46%;
         padding: 7px 15px;
         background-color: $main_color;
@@ -97,6 +97,24 @@
         padding: 7px 15px;
         background-color: $main_color;
         border: none;
+    }
+    .btn-add-department {
+        width: 100%;
+        padding: 7px;
+        background-color: $main_color;
+        border: none;
+    }
+    .department-list {
+        list-style: none;
+        column-count: 2;
+        input {
+            width: 80%;
+        }
+        i {
+            color: #f00;
+            font-size: 25px;
+            padding: 7px 15px;
+        }
     }
     #avatarFile, #backgroundFile {
         display: none;

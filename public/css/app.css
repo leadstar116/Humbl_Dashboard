@@ -10957,7 +10957,7 @@ main.dashboard {
   padding-top: 100px;
 }
 
-.profile-complete .reset-btn {
+.profile-complete .profile-reset-btn {
   width: 46%;
   padding: 7px 15px;
   background-color: #22ade4;
@@ -10975,6 +10975,29 @@ main.dashboard {
   padding: 7px 15px;
   background-color: #22ade4;
   border: none;
+}
+
+.profile-complete .btn-add-department {
+  width: 100%;
+  padding: 7px;
+  background-color: #22ade4;
+  border: none;
+}
+
+.profile-complete .department-list {
+  list-style: none;
+  -moz-column-count: 2;
+       column-count: 2;
+}
+
+.profile-complete .department-list input {
+  width: 80%;
+}
+
+.profile-complete .department-list i {
+  color: #f00;
+  font-size: 25px;
+  padding: 7px 15px;
 }
 
 .profile-complete #avatarFile,

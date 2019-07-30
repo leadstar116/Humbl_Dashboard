@@ -42,9 +42,9 @@ class User extends Authenticatable
         return $this->hasOne('App\Profile');
     }
 
-    public function payment()
+    public function departments()
     {
-        return $this->hasOne('App\PaymentMethod');
+        return $this->hasMany('App\Departments');
     }
 
     public function social()

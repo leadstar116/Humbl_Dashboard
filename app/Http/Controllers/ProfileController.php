@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use App\Profile;
+use App\Departments;
 
 class ProfileController extends Controller
 {
@@ -42,13 +43,16 @@ class ProfileController extends Controller
     public function saveComplete(Request $request) {
         $user = Auth::user();
 
-        $avatarName = $user->id.'_avatar'.time().'.'.request()->avatar->getClientOriginalExtension();
-        $request->avatar->storeAs('public/avatars', $avatarName);
-        $user->avatar = $avatarName;
-
-        $avatarBackName = $user->id.'_avatar'.time().'.'.request()->avatar_back->getClientOriginalExtension();
-        $request->avatar_back->storeAs('public/avatars', $avatarBackName);
-        $user->avatar_back = $avatarBackName;
+        if ($request->hasFile('avatar')) {
+            $avatarName = $user->id.'_avatar'.time().'.'.request()->avatar->getClientOriginalExtension();
+            $request->avatar->storeAs('avatars', $avatarName);
+            $user->avatar = $avatarName;
+        }
+        if ($request->hasFile('avatar_back')) {
+            $avatarBackName = $user->id.'_avatar_back'.time().'.'.request()->avatar_back->getClientOriginalExtension();
+            $request->avatar_back->storeAs('avatars', $avatarBackName);
+            $user->avatar_back = $avatarBackName;
+        }
 
         $profile = $user->profile;
         if(!$profile) {
@@ -64,8 +68,17 @@ class ProfileController extends Controller
         $profile->state = $request->input('state');
         $profile->zipcode = $request->input('zipcode');
         $profile->biz_description = $request->input('business');
-
         $user->profile()->save($profile);
+
+        $departments = [];
+        foreach($request->department as $depart) {
+            $department = new Departments;
+            $department->department = $depart;
+            $departments[] = $department;
+        }
+        $user->departments()->saveMany($departments);
+
+        $user->profile_completed = 1;
         $user->save();
 
         return view('home')->with('user', Auth::user());

@@ -50,7 +50,7 @@
                         <a class="btn btn-primary left-btn">
                             Save
                         </a>
-                        <a class="btn btn-primary reset-btn">
+                        <a class="btn btn-primary profile-reset-btn">
                             Reset
                         </a>
                     </div>
@@ -346,9 +346,8 @@
                             <div class="col-lg-12 col-md-12">
                                 <div class="form-group">
                                 <ul class="department-list">
-
                                 </ul>
-                                <a class="btn btn-primary btn-save-continue">
+                                <a class="btn btn-primary btn-add-department">
                                     Add Department
                                 </a>
                                 </div>
@@ -358,7 +357,7 @@
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <textarea type="text" placeholder="About your business" name="business">
+                                    <textarea type="text" placeholder="About your business" name="business" required>
                                     </textarea>
                                 </div>
                             </div>
