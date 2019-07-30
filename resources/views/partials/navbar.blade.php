@@ -3,10 +3,7 @@
         <div class="navbar-left">
             <div class="navbar-btn">
                 <a class="logo" href="{{ url('/') }}">
-                    <img src="/img/incentavize-logo-design-png.png"
-                        srcset="/img/incentavize-logo-design-png@2x.png 2x,
-                                /img/incentavize-logo-design-png@3x.png 3x"
-                        class="Incentavize-Logo-Design-PNG">
+                    <img src="/img/humbl-black.png" class="navbar-logo" alt="">
                 </a>
             </div>
         </div>

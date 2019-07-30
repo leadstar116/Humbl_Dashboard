@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Incentavize') }}</title>
+    <title>{{ config('app.name', 'Partner Dashboard') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -22,18 +22,28 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white">
+        <nav class="navbar top-navbar">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="/img/incentavize-logo-design-png.png"
-                        srcset="/img/incentavize-logo-design-png@2x.png 2x,
-                                /img/incentavize-logo-design-png@3x.png 3x"
-                        class="Incentavize-Logo-Design-PNG">
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                <div class="navbar-left">
+                    <div class="navbar-btn">
+                        <a class="logo" href="{{ url('/') }}">
+                            <img src="/img/humbl-black.png" class="navbar-logo" alt="">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="navbar-right">
+                    <div id="navbar-menu">
+                        <ul class="nav navbar-nav">
+                            <li>
+                                <a href="/login">Sign In</a>
+                                <a href="/register">Sign Up</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
+            <div class="progress-container"><div class="progress-bar" id="myBar"></div></div>
         </nav>
 
         <main class="py-4 login">

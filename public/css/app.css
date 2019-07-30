@@ -1627,16 +1627,16 @@ pre code {
 .table td {
   padding: 0.75rem;
   vertical-align: top;
-  border-top: 1px solid #dee2e6;
+  border-top: 1px solid #f5f5f5;
 }
 
 .table thead th {
   vertical-align: bottom;
-  border-bottom: 2px solid #dee2e6;
+  border-bottom: 2px solid #f5f5f5;
 }
 
 .table tbody + tbody {
-  border-top: 2px solid #dee2e6;
+  border-top: 2px solid #f5f5f5;
 }
 
 .table-sm th,
@@ -1645,12 +1645,12 @@ pre code {
 }
 
 .table-bordered {
-  border: 1px solid #dee2e6;
+  border: 1px solid #f5f5f5;
 }
 
 .table-bordered th,
 .table-bordered td {
-  border: 1px solid #dee2e6;
+  border: 1px solid #f5f5f5;
 }
 
 .table-bordered thead th,
@@ -1874,7 +1874,7 @@ pre code {
 .table .thead-light th {
   color: #495057;
   background-color: #e9ecef;
-  border-color: #dee2e6;
+  border-color: #f5f5f5;
 }
 
 .table-dark {
@@ -6047,7 +6047,7 @@ a.close.disabled {
   align-items: flex-start;
   justify-content: space-between;
   padding: 1rem 1rem;
-  border-bottom: 1px solid #dee2e6;
+  border-bottom: 1px solid #f5f5f5;
   border-top-left-radius: 0.3rem;
   border-top-right-radius: 0.3rem;
 }
@@ -6073,7 +6073,7 @@ a.close.disabled {
   align-items: center;
   justify-content: flex-end;
   padding: 1rem;
-  border-top: 1px solid #dee2e6;
+  border-top: 1px solid #f5f5f5;
   border-bottom-right-radius: 0.3rem;
   border-bottom-left-radius: 0.3rem;
 }
@@ -6814,23 +6814,23 @@ button.bg-dark:focus {
 }
 
 .border {
-  border: 1px solid #dee2e6 !important;
+  border: 1px solid #f5f5f5 !important;
 }
 
 .border-top {
-  border-top: 1px solid #dee2e6 !important;
+  border-top: 1px solid #f5f5f5 !important;
 }
 
 .border-right {
-  border-right: 1px solid #dee2e6 !important;
+  border-right: 1px solid #f5f5f5 !important;
 }
 
 .border-bottom {
-  border-bottom: 1px solid #dee2e6 !important;
+  border-bottom: 1px solid #f5f5f5 !important;
 }
 
 .border-left {
-  border-left: 1px solid #dee2e6 !important;
+  border-left: 1px solid #f5f5f5 !important;
 }
 
 .border-0 {
@@ -10635,12 +10635,12 @@ a.text-dark:focus {
   .table-dark td,
   .table-dark thead th,
   .table-dark tbody + tbody {
-    border-color: #dee2e6;
+    border-color: #f5f5f5;
   }
 
   .table .thead-dark th {
     color: inherit;
-    border-color: #dee2e6;
+    border-color: #f5f5f5;
   }
 }
 
@@ -10649,35 +10649,31 @@ body {
   background-color: #fff;
 }
 
-.Incentavize-Logo-Design-PNG {
-  width: 200px;
-  height: 58px;
+.navbar-logo {
   -o-object-fit: contain;
      object-fit: contain;
 }
 
+.navbar {
+  padding: 30px 0px;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.navbar .navbar-right li a {
+  text-decoration: none;
+  font-size: 24px;
+  color: #444444;
+  padding: 7px 15px;
+}
+
+.navbar .navbar-right li a:hover {
+  background-color: #22ade4;
+  color: #fff;
+  border-radius: 15px;
+}
+
 main.login {
   background-color: #fff;
-}
-
-main.login::before {
-  background: url(/images/group-7.png?b19933a45495f699c28aeead0320f00e) left center no-repeat;
-  position: absolute;
-  width: 400px;
-  height: 100%;
-  left: 100px;
-  top: 0;
-  content: "";
-}
-
-main.login::after {
-  background: url(/images/group-5.png?8d721ca1083e1e9dfe6669c566253269) right center no-repeat;
-  position: absolute;
-  width: 400px;
-  height: 100%;
-  right: 100px;
-  top: 0;
-  content: "";
 }
 
 main.dashboard {
@@ -10685,7 +10681,13 @@ main.dashboard {
 }
 
 .login-container {
-  max-width: 450px;
+  margin-top: 50px;
+  border: 1px solid #f5f5f5;
+}
+
+.login-container .login-caps {
+  width: 150px;
+  margin-bottom: 40px;
 }
 
 .login-container .invalid-feedback {
@@ -10694,136 +10696,20 @@ main.dashboard {
   display: inline;
 }
 
-.login-container.reset .Log-In {
-  border-bottom-width: 1px;
-  opacity: 0.3;
+.login-container .card-body {
+  padding: 40px;
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
 }
 
-.login-container.reset .Log-In a {
-  color: #444444;
-  text-decoration: none;
-}
-
-.login-container.reset .Join-Us {
-  border-bottom-width: 1px;
-  opacity: 0.3;
-}
-
-.login-container.reset .Join-Us a {
-  color: #444444;
-  text-decoration: none;
-}
-
-.login-container.sign-up .Log-In {
-  border-bottom-width: 1px;
-  opacity: 0.3;
-}
-
-.login-container.sign-up .Log-In a {
-  color: #444444;
-  text-decoration: none;
-}
-
-.login-container.sign-up .Join-Us {
-  border-bottom-width: 3px;
-  opacity: 1;
-}
-
-.login-container.sign-up .Join-Us a {
-  color: #444444;
-  text-decoration: none;
-}
-
-.login-container.sign-up .card {
-  display: none;
-}
-
-.login-container.sign-up .card-signup {
-  display: block;
-}
-
-.login-container.log-in .Join-Us {
-  border-bottom-width: 1px;
-  opacity: 0.3;
-}
-
-.login-container.log-in .Join-Us a {
-  text-decoration: none;
-}
-
-.login-container.log-in .Log-In {
-  border-bottom-width: 3px;
-  opacity: 1;
-}
-
-.login-container.log-in .Log-In a {
-  text-decoration: none;
-}
-
-.login-container.log-in .card {
-  display: block;
-}
-
-.login-container.log-in .card-signup {
-  display: none;
+.login-container .form-control {
+  border-radius: 10px;
 }
 
 .navbar-brand {
   margin: auto;
   padding-top: 45px;
-}
-
-.card,
-.card-signup {
-  border: none;
-  padding-top: 50px;
-  text-align: center;
-}
-
-.card-header {
-  background-color: transparent;
-  text-align: center;
-  padding: 0px;
-  border: none;
-}
-
-.Log-In {
-  border-bottom: 3px solid #444444;
-  font-family: Gilroy;
-  font-size: 22px;
-  font-weight: bold;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  color: #444444;
-  width: 49%;
-  display: inline-block;
-  padding: 15px 10px;
-}
-
-.Log-In:hover {
-  cursor: pointer;
-}
-
-.Join-Us {
-  border-bottom: 1px solid #444444;
-  opacity: 0.3;
-  font-family: Gilroy;
-  font-size: 22px;
-  font-weight: bold;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  color: #444444;
-  width: 49%;
-  display: inline-block;
-  padding: 15px 10px;
-}
-
-.Join-Us:hover {
-  cursor: pointer;
 }
 
 .Member-Login {
@@ -10836,7 +10722,7 @@ main.dashboard {
   letter-spacing: normal;
   text-align: center;
   color: #444444;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 .Reset-your-password {
@@ -10852,35 +10738,23 @@ main.dashboard {
   margin-bottom: 70px;
 }
 
-.Youre-already-livin {
-  font-family: Gilroy;
-  font-size: 18px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  color: #444444;
-  margin-bottom: 80px;
-}
-
-.terms-div {
+.remember-div {
   text-align: left;
 }
 
-.terms-div span {
+.remember-div span {
   font-family: Gilroy;
-  font-size: 13px;
-  font-weight: normal;
+  font-size: 15px;
+  font-weight: 500;
   font-style: normal;
   font-stretch: normal;
   line-height: 1.38;
   letter-spacing: normal;
   color: rgba(68, 68, 68, 0.69);
-  padding: 7px 15px;
+  padding: 7px;
 }
 
-.terms-div a {
+.remember-div a {
   text-decoration: underline;
   cursor: pointer;
   padding: 7px 15px;
@@ -10898,8 +10772,9 @@ main.dashboard {
 
 .login-btn {
   width: 100%;
+  margin-top: 20px;
   padding: 7px 15px;
-  background-color: #725ac1;
+  background-color: #22ade4;
   border: none;
   height: 50px;
 }
@@ -10907,7 +10782,7 @@ main.dashboard {
 .reset-btn {
   width: 100%;
   padding: 7px 15px;
-  background-color: #725ac1;
+  background-color: #22ade4;
   border: none;
   height: 50px;
   margin-top: 30px;
@@ -10916,30 +10791,30 @@ main.dashboard {
 .register-btn {
   width: 100%;
   padding: 7px 15px;
-  background-color: #725ac1;
+  background-color: #22ade4;
   border: none;
   height: 50px;
   margin-bottom: 150px;
 }
 
 .forget-pass {
-  padding-top: 40px;
   font-family: Gilroy;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 500;
   font-style: normal;
   font-stretch: normal;
   line-height: normal;
   letter-spacing: normal;
-  color: #444444;
-  padding-bottom: 90px;
 }
 
 .forget-pass .btn-link {
-  color: #444444;
+  color: #22ade4;
+  padding: 0px;
+  text-decoration: none;
 }
 
 .login-footer {
+  margin-top: 30px;
   font-family: Gilroy;
   font-size: 15px;
   font-weight: 500;
@@ -10952,6 +10827,8 @@ main.dashboard {
 
 .login-footer a {
   cursor: pointer;
+  color: #22ade4;
+  text-decoration: none;
 }
 
 .Group-5 {
@@ -10968,13 +10845,10 @@ main.dashboard {
      object-fit: contain;
 }
 
-@media only screen and (max-width: 1500px) {
-  main::before {
-    display: none;
-  }
-
-  main::after {
-    display: none;
+@media only screen and (max-width: 500px) {
+  .forget-pass {
+    text-align: left;
+    margin-top: 20px;
   }
 }
 
