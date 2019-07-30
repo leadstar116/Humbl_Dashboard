@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateNotificationSettingTable extends Migration
+class CreateEmployeesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreateNotificationSettingTable extends Migration
      */
     public function up()
     {
-        Schema::create('notification_setting', function (Blueprint $table) {
+        Schema::create('employees', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->boolean('payment_issued');
-            $table->boolean('unread_msg');
-            $table->boolean('new_invite_opportunity');
-            $table->boolean('campaign_duedate');
+            $table->integer('user_id');
+            $table->string('first_name', 255);
+            $table->string('last_name', 255);
+            $table->string('email', 255);
+            $table->integer('department_id');
             $table->timestamps();
         });
     }
@@ -30,6 +31,6 @@ class CreateNotificationSettingTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('notification_setting');
+        Schema::dropIfExists('employees');
     }
 }

@@ -13,9 +13,11 @@ class ChangeUsersTable extends Migration
      */
     public function up()
     {
-        if (Schema::hasTable('users') && !Schema::hasColumn('users', 'user_type')) {
+        //
+        if (Schema::hasTable('users') && !Schema::hasColumn('users', 'avatar')) {
             Schema::table('users', function (Blueprint $table) {
-                $table->enum('user_type', ['Biz', 'user']);
+                $table->string('avatar')->default('profile_default.png');
+                $table->string('avatar_back')->default('profile_back.png');
             });
         }
     }

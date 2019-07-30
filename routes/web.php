@@ -26,4 +26,5 @@ Route::get('/messages', 'MessagesController@index');
 Route::get('/payments', 'PaymentsController@index');
 Route::get('/profile', 'ProfileController@index');
 Route::get('/account', 'AccountController@index');
+Route::get('/logout', 'Auth\LoginController@logout');
 

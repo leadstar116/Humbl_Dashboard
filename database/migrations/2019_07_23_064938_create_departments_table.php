@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePaymentMethodTable extends Migration
+class CreateDepartmentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreatePaymentMethodTable extends Migration
      */
     public function up()
     {
-        Schema::create('payment_method', function (Blueprint $table) {
+        Schema::create('departments', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('paypal_email', 255);
-            $table->integer('venmo_id');
-            $table->string('venmo_email', 255);
+            $table->integer('user_id');
+            $table->string('department', 255);
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ class CreatePaymentMethodTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('payment_method');
+        Schema::dropIfExists('departments');
     }
 }
