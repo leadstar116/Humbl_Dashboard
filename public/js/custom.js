@@ -130,6 +130,22 @@ $('.profile-reset-btn').click(function () {
   $('.profile-complete textarea').val('');
   $('.profile-complete .department-list').empty();
 });
+$('.btn-add-staff').click(function () {
+  var optionValues = '';
+  $('.department-select:first option').each(function () {
+    if ($(this).val() == '') {
+      optionValues += "<option value=\"\" disabled selected>Department</option>";
+    } else {
+      optionValues += "<option value='" + $(this).val() + "'>" + $(this).text() + "</option>";
+    }
+  });
+  $('.staff-body').append("<div class=\"form-group row\">\n        <div class=\"col-md-3\">\n            <input type=\"text\" placeholder=\"First Name\" name=\"first_name[]\" required>\n        </div>\n        <div class=\"col-md-3\">\n            <input type=\"text\" placeholder=\"Last Name\" name=\"last_name[]\" required>\n        </div>\n        <div class=\"col-md-3\">\n            <input type=\"text\" placeholder=\"name@example.com\" name=\"email[]\" required>\n        </div>\n        <div class=\"col-md-3\">\n            <select name=\"department[]\" class=\"department-select\" required>" + optionValues + "\n            </select>\n            <a class=\"btn-remove-staff\"><i aria-hidden=\"true\" class=\"fa fa-trash\"></i></a>\n        </div>\n    </div>\n    ");
+});
+$(document).on('click', '.btn-remove-staff', function () {
+  if ($('.staff-body div.form-group').length > 1) {
+    $(this).closest('div.form-group').remove();
+  }
+});
 
 /***/ }),
 

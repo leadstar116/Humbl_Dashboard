@@ -21,7 +21,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/faq', 'HelpController@faq');
 Route::get('/invites', 'InvitesController@index');
 Route::get('/campaigns', 'CampaignsController@index');
-Route::get('/proof', 'ProofController@index');
+Route::get('/invite-new', 'InvitesController@new');
 Route::get('/messages', 'MessagesController@index');
 Route::get('/payments', 'PaymentsController@index');
 Route::get('/profile-complete', 'ProfileController@complete');
@@ -29,3 +29,4 @@ Route::get('/account', 'AccountController@index');
 Route::get('/logout', 'Auth\LoginController@logout');
 
 Route::post('/saveComplete', 'ProfileController@saveComplete')->name('saveComplete');
+Route::post('/inviteNew', 'InvitesController@inviteNew')->name('inviteNew');

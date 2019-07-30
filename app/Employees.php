@@ -4,14 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class SocialNetwork extends Model
+class Employees extends Model
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'social_network';
+    protected $table = 'employees';
 
     public function user()
     {

@@ -47,9 +47,9 @@ class User extends Authenticatable
         return $this->hasMany('App\Departments');
     }
 
-    public function social()
+    public function employees()
     {
-        return $this->hasOne('App\SocialNetwork');
+        return $this->hasOne('App\Employees');
     }
 
     public function notification()

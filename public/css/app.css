@@ -11096,6 +11096,90 @@ main.dashboard {
   border: 1px solid #f5f5f5 !important;
 }
 
+.invite-new {
+  padding-top: 100px;
+}
+
+.invite-new .department-select {
+  height: 35px;
+  width: 80%;
+  background: transparent;
+  border: 1px solid #DCDFE6;
+  color: #444444;
+}
+
+.invite-new .error {
+  margin-top: 100px;
+  text-align: center;
+}
+
+.invite-new .error h4 {
+  color: #444444;
+  margin-top: 40px;
+}
+
+.invite-new .error p {
+  color: #444444;
+}
+
+.invite-new .btn-add-staff {
+  color: #444444 !important;
+  font-size: 18px;
+}
+
+.invite-new .btn-add-staff i {
+  padding: 7px 15px;
+}
+
+.invite-new .btn-invite-skip {
+  width: 46%;
+  max-width: 100px;
+  padding: 7px 15px;
+  background-color: #22ade4;
+  border: none;
+  margin-top: 0px;
+  margin-right: 30px;
+}
+
+.invite-new .btn-save {
+  width: 46%;
+  max-width: 100px;
+  padding: 7px 15px;
+  background-color: #22ade4;
+  border: none;
+}
+
+.invite-new .btn-remove-staff {
+  font-size: 20px;
+}
+
+.invite-new .btn-remove-staff i {
+  color: #f00;
+  padding: 0px 7px;
+}
+
+.invite-new a {
+  color: #fff !important;
+  cursor: pointer;
+}
+
+.invite-new input {
+  display: inline-block;
+  width: 100%;
+  background: transparent;
+  border: 1px solid #DCDFE6;
+  -webkit-appearance: none;
+  border-radius: 6px;
+  padding: 12px 5px 12px 15px;
+  color: #444444;
+  height: 35px;
+}
+
+.invite-new input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #fff inset !important;
+  -webkit-text-fill-color: #000 !important;
+}
+
 @media only screen and (max-width: 500px) {
   .home .top-navbar {
     display: block;

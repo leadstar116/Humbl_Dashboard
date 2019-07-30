@@ -203,6 +203,76 @@
     border: 1px solid $border_color !important;
 }
 
+.invite-new {
+    padding-top: 100px;
+    .department-select {
+        height: 35px;
+        width: 80%;
+        background: transparent;
+        border: 1px solid #DCDFE6;;
+        color: $black;
+    }
+    .error {
+        margin-top: 100px;
+        text-align: center;
+        h4 {
+            color: $black;
+            margin-top: 40px;
+        }
+        p {
+            color: $black;
+        }
+    }
+    .btn-add-staff {
+        color: $black !important;
+        font-size: 18px;
+        i {
+            padding: 7px 15px;
+        }
+    }
+    .btn-invite-skip {
+        width: 46%;
+        max-width: 100px;
+        padding: 7px 15px;
+        background-color: $main_color;
+        border: none;
+        margin-top: 0px;
+        margin-right: 30px;
+    }
+    .btn-save {
+        width: 46%;
+        max-width: 100px;
+        padding: 7px 15px;
+        background-color: $main_color;
+        border: none;
+    }
+    .btn-remove-staff {
+        font-size: 20px;
+        i {
+            color: #f00;
+            padding: 0px 7px;
+        }
+    }
+    a {
+        color: #fff !important;
+        cursor: pointer;
+    }
+    input {
+        display: inline-block;
+        width: 100%;
+        background: transparent;
+        border: 1px solid #DCDFE6;;
+        -webkit-appearance: none;
+        border-radius: 6px;
+        padding: 12px 5px 12px 15px;
+        color: $black;
+        height: 35px;
+        &:-webkit-autofill {
+            -webkit-box-shadow: 0 0 0px 1000px $bg inset !important;
+            -webkit-text-fill-color: #000 !important;
+        }
+    }
+}
 @media only screen and (max-width: 500px) {
     .home {
         .top-navbar {
