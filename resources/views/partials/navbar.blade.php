@@ -1,5 +1,5 @@
 <nav class="navbar top-navbar">
-    <div class="container-fluid">
+    <div class="container">
         <div class="navbar-left">
             <div class="navbar-btn">
                 <a class="logo" href="{{ url('/') }}">
@@ -12,8 +12,21 @@
             <div id="navbar-menu">
                 <ul class="nav navbar-nav">
                     <li>
-                        <button type="button" class="btn-toggle-offcanvas"><i class="lnr lnr-menu fa fa-bars"></i>
-                        </button>
+                        <div class="user-account">
+                            <div class="user_div">
+                                <img src="/assets/images/user.png" class="user-photo" alt="User Profile Picture">
+                            </div>
+                            <div class="dropdown">
+                                <a href="javascript:void(0);" class="dropdown-toggle user-name" data-toggle="dropdown" aria-expanded="false"><strong>Louis Pierce</strong></a>
+                                <ul class="dropdown-menu dropdown-menu-right account vivify flipInY" x-placement="bottom-end" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(-59px, 42px, 0px);">
+                                    <li><a href="profile.html"><i class="icon-user"></i>My Profile</a></li>
+                                    <li><a href="app-inbox.html"><i class="icon-envelope-open"></i>Messages</a></li>
+                                    <li><a href="javascript:void(0);"><i class="icon-settings"></i>Settings</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="page-login.html"><i class="icon-power"></i>Logout</a></li>
+                                </ul>
+                            </div>
+                        </div>
                     </li>
                 </ul>
             </div>

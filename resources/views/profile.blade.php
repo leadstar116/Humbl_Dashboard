@@ -5,7 +5,7 @@
 <!-- Overlay For Sidebars -->
 <div class="overlay"></div>
 
-<div id="wrapper" class="profile">
+<div id="wrapper" class="payments">
     @include('partials.navbar')
     @include('partials.sidebar')
 
@@ -14,7 +14,7 @@
             <div class="block-header">
                 <div class="row clearfix">
                     <div class="col-md-6 col-sm-12">
-                        <h1>Profile</h1>
+                        <h1>Payments</h1>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#">Oculux</a></li>

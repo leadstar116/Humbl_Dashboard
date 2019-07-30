@@ -10858,6 +10858,16 @@ main.dashboard {
   padding-top: 0px !important;
 }
 
+.top-navbar {
+  background: #fff !important;
+  z-index: 99999 !important;
+  width: 100% !important;
+}
+
+.top-navbar .navbar-btn {
+  display: block !important;
+}
+
 .home .top-navbar,
 .faq .top-navbar,
 .invites .top-navbar {
@@ -10936,6 +10946,115 @@ main.dashboard {
   border-radius: 3px;
   margin-right: 10px;
   display: inline-block;
+}
+
+.form-control {
+  border-color: #DCDFE6 !important;
+}
+
+.navbar .navbar-right li a {
+  font-size: 16px;
+}
+
+.profile-complete {
+  padding-top: 100px;
+}
+
+.profile-complete .btn-save-continue {
+  width: 100%;
+}
+
+.profile-complete #avatarFile,
+.profile-complete #backgroundFile {
+  display: none;
+}
+
+.profile-complete textarea {
+  border-radius: 10px;
+  padding: 10px;
+  border-color: #DCDFE6;
+  width: 100%;
+  height: 100px;
+}
+
+.profile-complete .img_profile {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 3px solid #eee;
+  position: absolute;
+  z-index: 999;
+  top: 10%;
+  left: 27%;
+  cursor: pointer;
+}
+
+.profile-complete .img_profile_btn {
+  width: 33px;
+  position: absolute;
+  z-index: 9999;
+  top: 19%;
+  left: 60%;
+  cursor: pointer;
+}
+
+.profile-complete .img_profile_btn img {
+  width: 33px;
+  border-radius: 50%;
+}
+
+.profile-complete .img_back_btn {
+  width: 33px;
+  position: absolute;
+  z-index: 9999;
+  bottom: 7%;
+  right: 7%;
+  cursor: pointer;
+}
+
+.profile-complete .img_back_btn img {
+  width: 33px;
+  border-radius: 50%;
+}
+
+.profile-complete .img_profile_back {
+  width: 100%;
+  opacity: 0.8;
+}
+
+.profile-complete .left-btn {
+  width: 46%;
+}
+
+.profile-complete input {
+  display: inline-block;
+  height: 47px;
+  width: 100%;
+  background: transparent;
+  border: 1px solid #DCDFE6;
+  -webkit-appearance: none;
+  border-radius: 6px;
+  padding: 12px 5px 12px 15px;
+  color: #444444;
+  height: 35px;
+}
+
+.profile-complete input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #fff inset !important;
+  -webkit-text-fill-color: #000 !important;
+}
+
+.profile-header h3 {
+  color: #000;
+}
+
+.card .body,
+.card .card-body {
+  background: #fff !important;
+}
+
+.card {
+  border: 1px solid #f5f5f5 !important;
 }
 
 @media only screen and (max-width: 500px) {

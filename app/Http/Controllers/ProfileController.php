@@ -25,4 +25,14 @@ class ProfileController extends Controller
     {
         return view('profile');
     }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function complete()
+    {
+        return view('profile-complete');
+    }
 }

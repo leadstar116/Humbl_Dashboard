@@ -29,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/profile-complete';
 
     /**
      * Create a new controller instance.
@@ -68,6 +68,7 @@ class RegisterController extends Controller
             'name' => '',
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'profile_completed' => 0,
         ]);
     }
 }

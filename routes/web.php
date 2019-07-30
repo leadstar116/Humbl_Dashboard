@@ -24,7 +24,7 @@ Route::get('/campaigns', 'CampaignsController@index');
 Route::get('/proof', 'ProofController@index');
 Route::get('/messages', 'MessagesController@index');
 Route::get('/payments', 'PaymentsController@index');
-Route::get('/profile', 'ProfileController@index');
+Route::get('/profile-complete', 'ProfileController@complete');
 Route::get('/account', 'AccountController@index');
 Route::get('/logout', 'Auth\LoginController@logout');
 

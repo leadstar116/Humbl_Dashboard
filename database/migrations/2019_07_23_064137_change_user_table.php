@@ -15,11 +15,9 @@ class ChangeUserTable extends Migration
     {
         if (Schema::hasTable('users') && !Schema::hasColumn('users', 'profile_id')) {
             Schema::table('users', function (Blueprint $table) {
-                $table->integer('profile_id');
-                $table->boolean('profile_completed');
+                $table->boolean('profile_completed')->default(0);
             });
         }
-
     }
 
     /**
@@ -30,7 +28,6 @@ class ChangeUserTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('profile_id');
             $table->dropColumn('profile_completed');
         });
     }
