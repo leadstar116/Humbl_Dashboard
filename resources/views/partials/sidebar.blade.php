@@ -25,7 +25,7 @@
             <ul id="main-menu" class="metismenu">
                 <li><a href="/home"><i class="icon-speedometer"></i><span>Dashboard</span></a></li>
                 <li><a href="/activity"><i class="icon-equalizer"></i><span>Activity</span></a></li>
-                <li><a href="/employee"><i class="icon-users"></i><span>Manage Staff</span></a></li>
+                <li><a href="/employees"><i class="icon-users"></i><span>Manage Staff</span></a></li>
                 <li><a href="/profile"><i class="icon-user"></i><span>Business Profile</span></a></li>
             </ul>
         </nav>

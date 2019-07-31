@@ -6,7 +6,6 @@
 <div class="overlay"></div>
 
 <div id="wrapper" class="faq">
-    @include('partials.navbar')
     @include('partials.sidebar')
 
     <div id="main-content">

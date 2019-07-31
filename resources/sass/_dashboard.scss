@@ -10,7 +10,7 @@
     display: block !important;
 }
 
-.home, .faq, .invites {
+.home, .profile, .activity {
     #left-sidebar {
         box-shadow: 2px 0 6px 0 rgba(0, 0, 0, 0.1);
         .dropdown ul {
@@ -102,6 +102,64 @@
             padding: 15px;
             h2 {
                 font-size: 25px;
+            }
+        }
+        .tab-menu {
+            list-style: none;
+            color: $black;
+            font-size: 17px;
+            padding-top: 50px;
+            padding-left: 0px;
+            li {
+                text-align: center;
+                width: 200px;
+                margin: 0px 10px;
+                display: inline-block;
+                padding: 7px 15px;
+                cursor: pointer;
+                &:hover {
+                    color: $white;
+                    background: $select-color;
+                    border-radius: 10px;
+                }
+            }
+            .selected {
+                background: $blue;
+                color: $white;
+                border-radius: 10px;
+            }
+        }
+
+        .div-all-activity {
+            display: none;
+        }
+        .div-payments {
+            display: none;
+        }
+        .div-tips {
+            display: none;
+        }
+        .div-feedback {
+            display: none;
+        }
+        &.all-selected {
+            .div-all-activity {
+                display: block;
+            }
+        }
+        &.payments-selected {
+            .div-payments {
+                display: block;
+            }
+        }
+        &.tips-selected {
+            .div-tips {
+                display: block;
+            }
+        }
+        &.feedback-selected {
+            .div-feedback {
+                display: block;
             }
         }
     }

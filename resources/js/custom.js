@@ -1,3 +1,10 @@
+$('.tab-menu li').click(function(){
+    $('.tab-menu li').removeClass('selected');
+    $(this).addClass('selected');
+    $('#main-content').removeClass();
+    $('#main-content').addClass($(this).attr('attr-type'));
+});
+
 function readURL(input, target) {
     if (input.files && input.files[0]) {
       var reader = new FileReader();
