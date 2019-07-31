@@ -12,7 +12,7 @@
         <div class="container-fluid">
             <div class="block-header">
                 <div class="row clearfix">
-                    <div class="col-md-6 col-sm-12">
+                    <div class="col-md-12 col-sm-12">
                         <h1>Your Businesses Most Recent Activity</h1>
                     </div>
                     <ul class="tab-menu">

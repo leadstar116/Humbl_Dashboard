@@ -12,7 +12,7 @@
         <div class="container-fluid">
             <div class="block-header">
                 <div class="row clearfix">
-                    <div class="col-md-6 col-sm-12">
+                    <div class="col-md-12 col-sm-12">
                         <h1>Dashboard</h1>
                     </div>
                 </div>
