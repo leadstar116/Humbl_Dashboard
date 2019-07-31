@@ -11,14 +11,10 @@
 }
 
 .home, .faq, .invites {
-    .top-navbar {
-        display: none;
-        background: $white;
-    }
     #left-sidebar {
         box-shadow: 2px 0 6px 0 rgba(0, 0, 0, 0.1);
         .dropdown ul {
-            left: 230px !important;
+            left: 0px !important;
             li {
                 padding: 5px 10px;
             }
@@ -69,6 +65,43 @@
                 border-radius: 3px;
                 margin-right: 10px;
                 display: inline-block;
+            }
+        }
+    }
+    #main-content {
+        .block-header {
+            h1 {
+                color: $black;
+                font-size: 36px;
+            }
+        }
+        .card {
+            .body {
+                text-align: center;
+                h2 {
+                    color: $main_color;
+                }
+                span {
+                    font-size: 20px;
+                    color: $black;
+                }
+            }
+            th {
+                background: transparent;
+            }
+            tr {
+                background: transparent;
+                border: none;
+                td {
+                    border-top: 1px solid #f5f5f5;
+                }
+            }
+        }
+        .header {
+            width: 100%;
+            padding: 15px;
+            h2 {
+                font-size: 25px;
             }
         }
     }

@@ -6,7 +6,6 @@
 <div class="overlay"></div>
 
 <div id="wrapper" class="home">
-    @include('partials.navbar')
     @include('partials.sidebar')
 
     <div id="main-content">
@@ -15,12 +14,6 @@
                 <div class="row clearfix">
                     <div class="col-md-6 col-sm-12">
                         <h1>Dashboard</h1>
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#">Oculux</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
-                            </ol>
-                        </nav>
                     </div>
                     <div class="col-md-6 col-sm-12 text-right hidden-xs">
                         <a href="javascript:void(0);" class="btn btn-sm btn-primary" title="">Create Campaign</a>
@@ -29,75 +22,45 @@
                 </div>
             </div>
             <div class="row clearfix">
-                <div class="col-6 col-md-4 col-xl-2">
+                <div class="col-6 col-md-3 col-xl-3">
                     <div class="card">
                         <div class="body ribbon">
-                            <div class="ribbon-box green">5</div>
-                            <a href="users.html" class="my_sort_cut text-muted">
-                                <i class="icon-users"></i>
-                                <span>Users</span>
-                            </a>
+                            <h2>45</h2>
+                            <span>Total Staff</span>
                         </div>
                     </div>
                 </div>
-                <div class="col-6 col-md-4 col-xl-2">
+                <div class="col-6 col-md-3 col-xl-3">
                     <div class="card">
                         <div class="body">
-                            <a href="holidays.html" class="my_sort_cut text-muted">
-                                <i class="icon-like"></i>
-                                <span>Holidays</span>
-                            </a>
+                            <h2>4.8/5</h2>
+                            <span>Customer Rating</span>
                         </div>
                     </div>
                 </div>
-                <div class="col-6 col-md-4 col-xl-2">
+                <div class="col-6 col-md-3 col-xl-3">
                     <div class="card">
                         <div class="body ribbon">
-                            <div class="ribbon-box orange">8</div>
-                            <a href="events.html" class="my_sort_cut text-muted">
-                                <i class="icon-calendar"></i>
-                                <span>Events</span>
-                            </a>
+                            <h2>$1.5K</h2>
+                            <span>Total Payments</span>
                         </div>
                     </div>
                 </div>
-                <div class="col-6 col-md-4 col-xl-2">
+                <div class="col-6 col-md-3 col-xl-3">
                     <div class="card">
                         <div class="body">
-                            <a href="payroll.html" class="my_sort_cut text-muted">
-                                <i class="icon-credit-card"></i>
-                                <span>Payroll</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6 col-md-4 col-xl-2">
-                    <div class="card">
-                        <div class="body">
-                            <a href="accounts.html" class="my_sort_cut text-muted">
-                                <i class="icon-calculator"></i>
-                                <span>Accounts</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6 col-md-4 col-xl-2">
-                    <div class="card">
-                        <div class="body">
-                            <a href="report.html" class="my_sort_cut text-muted">
-                                <i class="icon-pie-chart"></i>
-                                <span>Report</span>
-                            </a>
+                            <h2>$574.15</h2>
+                            <span>Total Tips</span>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row clearfix">
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-6 col-md-6">
+                    <div class="header">
+                        <h2>Overall Guest Satisfaction</h2>
+                    </div>
                     <div class="card">
-                        <div class="header">
-                            <h2>Employee Structure</h2>
-                        </div>
                         <div class="body text-center">
                             <div id="chart-bar-stacked" style="height: 130px"></div>
                             <hr>
@@ -113,35 +76,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card">
-                        <div class="body">
-                            <div id="slider2" class="carousel vert slide" data-ride="carousel" data-interval="1700">
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <div class="card-value float-right text-muted"><i class="wi wi-fog"></i></div>
-                                        <h3 class="mb-1">12°C</h3>
-                                        <div>London</div>
-                                    </div>
-                                    <div class="carousel-item">
-                                        <div class="card-value float-right text-muted"><i class="wi wi-day-cloudy"></i></div>
-                                        <h3 class="mb-1">18°C</h3>
-                                        <div>New York</div>
-                                    </div>
-                                    <div class="carousel-item">
-                                        <div class="card-value float-right text-muted"><i class="wi wi-sunrise"></i></div>
-                                        <h3 class="mb-1">37°C</h3>
-                                        <div>New Delhi</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-6 col-md-6">
+                    <div class="header">
+                        <h2>Five Star Reviews</h2>
+                    </div>
                     <div class="card">
-                        <div class="header">
-                            <h2>Employee Satisfaction</h2>
-                        </div>
                         <div class="body text-center">
                             <div id="chart-area-spline-sracked" style="height: 130px"></div>
                             <hr>
@@ -157,65 +97,25 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card">
-                        <div class="body">
-                            <div class="card-value float-right text-muted"><i class="icon-user"></i></div>
-                            <h3 class="mb-1">13</h3>
-                            <div>New Employee</div>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="card">
-                        <div class="header">
-                            <h2>Salary Statistics</h2>
-                            <ul class="header-dropdown dropdown">
-                                <li><a href="javascript:void(0);" class="full-screen"><i class="icon-frame"></i></a></li>
-                                <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="javascript:void(0);">Action</a></li>
-                                        <li><a href="javascript:void(0);">Another Action</a></li>
-                                        <li><a href="javascript:void(0);">Something else</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="body">
-                            <small class="text-muted">Salary Statistics Performance on this year</small>
-                            <div id="flotChart" class="flot-chart"></div>
-                        </div>
-                    </div>
                 </div>
             </div>
             <div class="row clearfix">
+                <div class="header">
+                    <h2>Recently Activity</h2>
+                </div>
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="card">
-                        <div class="header">
-                            <h2>Employee Performance</h2>
-                            <ul class="header-dropdown dropdown">
-                                <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="javascript:void(0);">Action</a></li>
-                                        <li><a href="javascript:void(0);">Another Action</a></li>
-                                        <li><a href="javascript:void(0);">Something else</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
                         <div class="table-responsive">
                             <table class="table table-hover js-basic-example dataTable table-custom spacing5 mb-0">
                                 <thead>
                                     <tr>
-                                        <th>#</th>
-                                        <th>Name</th>
-                                        <th>Employee ID</th>
-                                        <th>Phone</th>
-                                        <th>Join Date</th>
-                                        <th>Role</th>
-                                        <th></th>
+                                        <th>ID</th>
+                                        <th>Employee</th>
+                                        <th>Guest Name</th>
+                                        <th>Date</th>
+                                        <th>Feedback</th>
+                                        <th>Type</th>
+                                        <th>Amount</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -245,7 +145,7 @@
                                                 <input class="checkbox-tick" type="checkbox" name="checkbox">
                                                 <span></span>
                                             </label>
-                                            <img src="/assets/images/xs/avatar1.jpg" data-toggle="tooltip" data-placement="top" title="Avatar Name" alt="Avatar" class="w35 h35 rounded">
+                                            <img src="../assets/images/xs/avatar1.jpg" data-toggle="tooltip" data-placement="top" title="Avatar Name" alt="Avatar" class="w35 h35 rounded">
                                         </td>
                                         <td>
                                             <div class="font-15">Susie Willis</div>
@@ -285,7 +185,7 @@
                                                 <input class="checkbox-tick" type="checkbox" name="checkbox">
                                                 <span></span>
                                             </label>
-                                            <img src="/assets/images/xs/avatar2.jpg" data-toggle="tooltip" data-placement="top" title="Avatar Name" alt="Avatar" class="w35 h35 rounded">
+                                            <img src="../assets/images/xs/avatar2.jpg" data-toggle="tooltip" data-placement="top" title="Avatar Name" alt="Avatar" class="w35 h35 rounded">
                                         </td>
                                         <td>
                                             <div class="font-15">Francisco Vasquez</div>
@@ -305,7 +205,7 @@
                                                 <input class="checkbox-tick" type="checkbox" name="checkbox">
                                                 <span></span>
                                             </label>
-                                            <img src="/assets/images/xs/avatar3.jpg" data-toggle="tooltip" data-placement="top" title="Avatar Name" alt="Avatar" class="w35 h35 rounded">
+                                            <img src="../assets/images/xs/avatar3.jpg" data-toggle="tooltip" data-placement="top" title="Avatar Name" alt="Avatar" class="w35 h35 rounded">
                                         </td>
                                         <td>
                                             <div class="font-15">Jane Hunt</div>

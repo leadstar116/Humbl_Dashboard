@@ -10938,64 +10938,6 @@ main.dashboard {
   display: inline-block;
 }
 
-.home #main-content .block-header h1,
-.faq #main-content .block-header h1,
-.invites #main-content .block-header h1 {
-  color: #444444;
-  font-size: 36px;
-}
-
-.home #main-content .card .body,
-.faq #main-content .card .body,
-.invites #main-content .card .body {
-  text-align: center;
-}
-
-.home #main-content .card .body h2,
-.faq #main-content .card .body h2,
-.invites #main-content .card .body h2 {
-  color: #22ade4;
-}
-
-.home #main-content .card .body span,
-.faq #main-content .card .body span,
-.invites #main-content .card .body span {
-  font-size: 20px;
-  color: #444444;
-}
-
-.home #main-content .card th,
-.faq #main-content .card th,
-.invites #main-content .card th {
-  background: transparent;
-}
-
-.home #main-content .card tr,
-.faq #main-content .card tr,
-.invites #main-content .card tr {
-  background: transparent;
-  border: none;
-}
-
-.home #main-content .card tr td,
-.faq #main-content .card tr td,
-.invites #main-content .card tr td {
-  border-top: 1px solid #f5f5f5;
-}
-
-.home #main-content .header,
-.faq #main-content .header,
-.invites #main-content .header {
-  width: 100%;
-  padding: 15px;
-}
-
-.home #main-content .header h2,
-.faq #main-content .header h2,
-.invites #main-content .header h2 {
-  font-size: 25px;
-}
-
 .form-control {
   border-color: #DCDFE6 !important;
 }

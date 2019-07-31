@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class HelpController extends Controller
+class EmployeesController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -21,8 +22,8 @@ class HelpController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function faq()
+    public function index()
     {
-        return view('faq');
+        return view('employees')->with('user', Auth::user());
     }
 }
