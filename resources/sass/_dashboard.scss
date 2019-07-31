@@ -10,7 +10,7 @@
     display: block !important;
 }
 
-.home, .profile, .activity {
+.home, .profile, .activity, .employees {
     #left-sidebar {
         box-shadow: 2px 0 6px 0 rgba(0, 0, 0, 0.1);
         .dropdown ul {
@@ -142,6 +142,12 @@
         .div-feedback {
             display: none;
         }
+        .div-existing-users {
+            display: none;
+        }
+        .div-invite-new {
+            display: none;
+        }
         &.all-selected {
             .div-all-activity {
                 display: block;
@@ -159,6 +165,16 @@
         }
         &.feedback-selected {
             .div-feedback {
+                display: block;
+            }
+        }
+        &.existing-selected {
+            .div-existing-users {
+                display: block;
+            }
+        }
+        &.invite-new-selected {
+            .div-invite-new {
                 display: block;
             }
         }
@@ -293,7 +309,16 @@
 .card {
     border: 1px solid $border_color !important;
 }
-
+.employees {
+    #main-content {
+        .invite-new {
+            padding-top: 0px;
+            .card .body {
+                text-align: left;
+            }
+        }
+    }
+}
 .invite-new {
     padding-top: 100px;
     .department-select {
