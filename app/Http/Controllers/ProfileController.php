@@ -46,12 +46,12 @@ class ProfileController extends Controller
         if ($request->hasFile('avatar')) {
             $avatarName = $user->id.'_avatar'.time().'.'.request()->avatar->getClientOriginalExtension();
             $request->avatar->storeAs('avatars', $avatarName);
-            $user->avatar = $avatarName;
+            $user->ProfilePic = $avatarName;
         }
         if ($request->hasFile('avatar_back')) {
             $avatarBackName = $user->id.'_avatar_back'.time().'.'.request()->avatar_back->getClientOriginalExtension();
             $request->avatar_back->storeAs('avatars', $avatarBackName);
-            $user->avatar_back = $avatarBackName;
+            $user->ProfilePic_back = $avatarBackName;
         }
 
         $profile = $user->profile;

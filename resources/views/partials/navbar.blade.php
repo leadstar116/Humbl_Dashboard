@@ -14,7 +14,7 @@
                     <li>
                         <div class="user-account">
                             <div class="user_div">
-                                <img src="/storage/avatars/{{ $user->avatar }}" class="user-photo" alt="User Profile Picture">
+                                <img src="/storage/avatars/{{ $user->ProfilePic }}" class="user-photo" alt="User Profile Picture">
                             </div>
                             <div class="dropdown">
                                 <a href="javascript:void(0);" class="dropdown-toggle user-name" data-toggle="dropdown" aria-expanded="false"><strong>{{ ($user->profile)?$user->profile->name:'User' }}</strong></a>
@@ -23,7 +23,7 @@
                                     <li><a href="app-inbox.html"><i class="icon-envelope-open"></i>Messages</a></li>
                                     <li><a href="javascript:void(0);"><i class="icon-settings"></i>Settings</a></li>
                                     <li class="divider"></li>
-                                    <li><a href="page-login.html"><i class="icon-power"></i>Logout</a></li>
+                                    <li><a href="/logout"><i class="icon-power"></i>Logout</a></li>
                                 </ul>
                             </div>
                         </div>

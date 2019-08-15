@@ -6,17 +6,21 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable
+class BusinessUser extends Authenticatable
 {
     use Notifiable;
 
+    protected $table = 'business';
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'email', 'password_hash', 'auth_key', 'password_reset_token', 'FirstName', 'LastName',
+        'BusinessName', 'TagLine', 'ProfilePic',
+        'ProfilePic_back', 'address', 'city', 'country', 'state', 'zipcode', 'biz_description',
+        'profile_completed'
     ];
 
     /**
@@ -25,7 +29,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password_hash'
     ];
 
     /**
@@ -37,6 +41,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    /*
     public function profile()
     {
         return $this->hasOne('App\Profile');
@@ -56,5 +61,9 @@ class User extends Authenticatable
     {
         return $this->hasOne('App\NotificationSetting');
     }
-
+    */
+    public function getAuthPassword()
+    {
+      return $this->password_hash;
+    }
 }

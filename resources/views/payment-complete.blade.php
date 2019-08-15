@@ -7,78 +7,28 @@
 
 <div id="wrapper" class="container profile-complete">
     @include('partials.navbar')
-
-    <form method="POST" action="{{ route('saveComplete') }}" enctype="multipart/form-data">
-        @csrf
-
-        <div class="row clearfix">
-            <div class="col-md-12 profile-header">
-            <h3>Business Profile</h3>
-            <p>How your business will appear on HUMBL</p>
-            </div>
-            <div class="col-xl-4 col-lg-4 col-md-5">
-                <div class="card">
-                    <div class="header">
-                        <div class="form-group" style="position: relative;">
-                            <img src="/images/profile_default.png" class="img_profile" alt="">
-                            <input type="file" class="form-control-file" name="avatar" id="avatarFile" aria-describedby="fileHelp">
-                            <input type="file" class="form-control-file" name="avatar_back" id="backgroundFile" aria-describedby="fileHelp">
-                            <label for="avatarFile" class="img_profile_btn"><img src="/images/camera.png" alt=""></label>
-                            <label for="backgroundFile" class="img_back_btn"><img src="/images/camera.png" alt=""></label>
-                            <img src="/images/profile_back.png" class="img_profile_back" alt="">
-                        </div>
+    <div class="row clearfix">
+        <div class="col-md-12 profile-header">
+        <h3>Connect Your Accounts to Begin Receiving Payments</h3>
+        <p>We need to learn more about you and your business before you can process payments on HUMBL. Except where noted below, the information you provide will only be visible to the account owner and administrators.</p>
+        </div>
+        <div class="col-md-12">
+            <div class="panel-group" id="accordion">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#business_details">
+                        1. Business Details for Primary Account <span class="required">REQUIRED</span>
+                        <span class="expand">+ Expand</span></a>
+                    </h4>
                     </div>
-                    <div class="body">
-                        <div class="form-group">
-                            <label class="text-muted">Business Name </label>
-                            <input type="text" placeholder="Enter Business Name" name="name" required>
-                        </div>
-                        <hr>
-                        <div class="form-group">
-                            <label class="text-muted">Tagline </label>
-                            <input type="text" placeholder="Example: Where Fresh Meets Fun" name="tagline" required>
-                        </div>
-                        <hr>
-                        <div class="form-group">
-                            <label class="text-muted">Email Address </label>
-                            <input type="text" placeholder="Primary Contact Email" name="email" required>
-                        </div>
-                        <hr>
-                        <div class="form-group">
-                            <label class="text-muted">Phone Number </label>
-                            <input type="text" placeholder="Example: 555-555-5555" name="phone" required>
-                        </div>
-                        <hr>
-                        <a class="btn btn-primary left-btn">
-                            Save
-                        </a>
-                        <a class="btn btn-primary profile-reset-btn">
-                            Reset
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xl-8 col-lg-8 col-md-7">
-                <div class="card">
-                    <div class="body">
-                        <div class="row clearfix">
-                            <div class="col-12">
-                                <label class="text-muted">Location </label>
-                            </div>
-                            <div class="col-lg-8 col-md-12">
+                    <div id="business_details" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <form method="POST" action="{{ route('saveComplete') }}" enctype="multipart/form-data">
+                            @csrf
                                 <div class="form-group">
-                                    <input type="text" placeholder="Address" name="address" required>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-12">
-                                <div class="form-group">
-                                    <input type="text" placeholder="City" name="city" required>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-12">
-                                <div class="form-group">
-                                    <select class="form-control" name="country">
+                                    <label>Country </label>
+                                    <select class="form-control" name="country" required>
                                         <option value="" disabled>-- Select Country --</option>
                                         <option value="AF">Afghanistan</option>
                                         <option value="AX">Åland Islands</option>
@@ -331,48 +281,69 @@
                                         <option value="ZW">Zimbabwe</option>
                                     </select>
                                 </div>
-                            </div>
-                            <div class="col-lg-4 col-md-12">
                                 <div class="form-group">
-                                    <input type="text" placeholder="State" name="state" required>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-12">
-                                <div class="form-group">
+                                    <label>Business Address </label>
+                                    <input type="text" placeholder="Address Line1" name="address_1" required><br/>
+                                    <input type="text" placeholder="Address Line2" name="address_2"><br/>
+                                    <input type="text" placeholder="City" name="city" required><br/>
+                                    <input type="text" placeholder="State" name="state" required><br/>
                                     <input type="text" placeholder="Zip Code" name="zipcode" required>
                                 </div>
-                            </div>
-                            <div class="col-12">
-                            <label class="text-muted">Departments & Employee Pods </label>
-                            </div>
-                            <div class="col-lg-12 col-md-12">
                                 <div class="form-group">
-                                <ul class="department-list">
-                                </ul>
-                                <a class="btn btn-primary btn-add-department">
-                                    Add Department
-                                </a>
+                                    <label>Business Phone </label>
+                                    <input type="text" placeholder="+1(555) 678-1212" name="phone" required>
                                 </div>
-                            </div>
-                            <div class="col-12">
-                                <label class="text-muted">About Your Business</label>
-                            </div>
-                            <div class="col-md-12">
                                 <div class="form-group">
-                                    <textarea type="text" placeholder="About your business" name="business" required>
-                                    </textarea>
+                                    <label>Business Type </label>
+                                    <select class="form-control" name="country" required>
+                                        <option value="individual">Individual, Sole Proprietor, or Single-Member LLC</option>
+                                        <option value="corporation">Corporation</option>
+                                        <option value="llc">Limited liability company (LLC)</option>
+                                        <option value="non_profit">Nonprofit organization</option>
+                                        <option value="partnership">Partnership</option>
+                                    </select>
                                 </div>
-                            </div>
-                            <div class="col-12">
-                                <button type="submit" class="btn btn-primary btn-save-continue">
-                                    Save & Continue
-                                </button>
-                            </div>
+                                <div class="form-group">
+                                    <label>Employer Identification Number (EIN) </label>
+                                    <input type="text" placeholder="12-3456789" name="ein" required>
+                                    <p>If you use your Social Security number for business tax purposes, you can use that instead</p>
+                                </div>
+                                <div class="form-group">
+                                    <label>Business Website </label>
+                                    <input type="text" placeholder="company.com" name="website" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Business Description </label>
+                                    <select class="form-control" name="industry" required>
+                                        <option value="" disabled>Individual, Sole Proprietor, or Single-Member LLC</option>
+                                        <option value="individual">Individual</option>
+                                        <option value="sole">Sole Proprietor</option>
+                                        <option value="single">Single-Member LLC</option>
+                                    </select>
+                                    <textarea name="biz_description" id="" cols="30" rows="10"></textarea>
+                                </div>
+                            </form>
                         </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#additional_payment">
+                        2. Connect Additional Payment Methods + Apps<span class="recommended">RECOMMENDED</span>
+                        <span class="expand">+ Expand</span></a>
+                    </h4>
+                    </div>
+                    <div id="additional_payment" class="panel-collapse collapse">
+                    <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+                    minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                    commodo consequat.</div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </form>
 </div>
 @endsection

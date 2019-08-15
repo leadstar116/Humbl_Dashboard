@@ -17,16 +17,17 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/activity', 'ActivityController@index');
-Route::get('/employees', 'EmployeesController@index');
-Route::get('/profile', 'ProfileController@index');
-Route::get('/invite-new', 'InvitesController@new');
-Route::get('/messages', 'MessagesController@index');
-Route::get('/payments', 'PaymentsController@index');
+Route::get('/home', 'HomeController@index')->name('home')->middleware('ProfileComplete');
+Route::get('/activity', 'ActivityController@index')->middleware('ProfileComplete');
+Route::get('/employees', 'EmployeesController@index')->middleware('ProfileComplete');
+Route::get('/profile', 'ProfileController@index')->middleware('ProfileComplete');
+Route::get('/invite-new', 'InvitesController@new')->middleware('ProfileComplete');
+Route::get('/messages', 'MessagesController@index')->middleware('ProfileComplete');
+Route::get('/payments', 'PaymentsController@index')->middleware('ProfileComplete');
 Route::get('/profile-complete', 'ProfileController@complete');
-Route::get('/account', 'AccountController@index');
+Route::get('/payment-complete', 'PaymentsController@complete')->middleware('ProfileComplete');
+Route::get('/account', 'AccountController@index')->middleware('ProfileComplete');
 Route::get('/logout', 'Auth\LoginController@logout');
 
 Route::post('/saveComplete', 'ProfileController@saveComplete')->name('saveComplete');
-Route::post('/inviteNew', 'InvitesController@inviteNew')->name('inviteNew');
+Route::post('/inviteNew', 'InvitesController@inviteNew')->name('inviteNew')->middleware('ProfileComplete');

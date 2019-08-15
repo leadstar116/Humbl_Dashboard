@@ -13,6 +13,11 @@
 .home, .profile, .activity, .employees {
     #left-sidebar {
         box-shadow: 2px 0 6px 0 rgba(0, 0, 0, 0.1);
+        .user-account {
+            .dropdown {
+                padding: 7px 15px;
+            }
+        }
         .dropdown ul {
             left: 0px !important;
             li {
@@ -185,6 +190,55 @@
 }
 .navbar .navbar-right li a {
     font-size: 16px;
+    color: $black !important;
+}
+#accordion {
+    margin-top: 40px;
+    .panel-title {
+        a {
+            color: $black !important;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        .required {
+            margin-left: 15px;
+            padding: 7px 15px;
+            background: $blue;
+            font-size: 15px;
+            font-weight: normal;
+            color: $white;
+        }
+        .recommended {
+            margin-left: 15px;
+            padding: 7px 15px;
+            background: transparent;
+            font-size: 15px;
+            font-weight: normal;
+            color: gray;
+            border: 1px solid gray;
+        }
+        .expand {
+            float: right;
+            font-size: 17px;
+            font-weight: normal;
+            color: $black;
+        }
+    }
+    .panel-body {
+        padding: 20px;
+        label {
+            color: $black;
+            font-size: 17px;
+            font-weight: bold;
+            width: 100%;
+        }
+        input, select {
+            max-width: 300px;
+        }
+        input {
+            margin-bottom: 15px;
+        }
+    }
 }
 .profile {
     .profile-complete {

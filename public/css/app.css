@@ -10872,6 +10872,13 @@ main.dashboard {
   box-shadow: 2px 0 6px 0 rgba(0, 0, 0, 0.1);
 }
 
+.home #left-sidebar .user-account .dropdown,
+.profile #left-sidebar .user-account .dropdown,
+.activity #left-sidebar .user-account .dropdown,
+.employees #left-sidebar .user-account .dropdown {
+  padding: 7px 15px;
+}
+
 .home #left-sidebar .dropdown ul,
 .profile #left-sidebar .dropdown ul,
 .activity #left-sidebar .dropdown ul,
@@ -11145,6 +11152,63 @@ main.dashboard {
 
 .navbar .navbar-right li a {
   font-size: 16px;
+  color: #444444 !important;
+}
+
+#accordion {
+  margin-top: 40px;
+}
+
+#accordion .panel-title a {
+  color: #444444 !important;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+#accordion .panel-title .required {
+  margin-left: 15px;
+  padding: 7px 15px;
+  background: #3490dc;
+  font-size: 15px;
+  font-weight: normal;
+  color: #fff;
+}
+
+#accordion .panel-title .recommended {
+  margin-left: 15px;
+  padding: 7px 15px;
+  background: transparent;
+  font-size: 15px;
+  font-weight: normal;
+  color: gray;
+  border: 1px solid gray;
+}
+
+#accordion .panel-title .expand {
+  float: right;
+  font-size: 17px;
+  font-weight: normal;
+  color: #444444;
+}
+
+#accordion .panel-body {
+  padding: 20px;
+}
+
+#accordion .panel-body label {
+  color: #444444;
+  font-size: 17px;
+  font-weight: bold;
+  width: 100%;
+}
+
+#accordion .panel-body input,
+#accordion .panel-body select {
+  max-width: 300px;
+}
+
+#accordion .panel-body input {
+  margin-bottom: 15px;
 }
 
 .profile .profile-complete {

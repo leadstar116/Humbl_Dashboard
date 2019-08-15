@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
+use App\BusinessUser;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -49,9 +49,8 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        print_r($data);
         return Validator::make($data, [
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:business'],
             'password' => ['required', 'string', 'min:8'],
         ]);
     }
@@ -64,11 +63,25 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => '',
+        return BusinessUser::create([
             'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            'password_hash' => Hash::make($data['password']),
             'profile_completed' => 0,
+            'auth_key' => '',
+            'FirstName' => '',
+            'LastName' => '',
+            'BusinessName' => '',
+            'Latitude' => 0,
+            'Longitude' => 0,
+            'tiIsActive' => 1,
+            'tiIsDelete' => 1,
+            'address' => '',
+            'city' => '',
+            'country' => '',
+            'state' => '',
+            'zipcode' => '',
+            'biz_description' => '',
+
         ]);
     }
 }
