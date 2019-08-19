@@ -66,7 +66,7 @@
                                         <select name="department[]" class="department-select" required>
                                             <option value="" disabled selected>Department</option>
                                             @foreach($user->departments as $department)
-                                                <option value="{{ $department->id }}">{{ $department->department }}</option>
+                                                <option value="{{ $department->id }}">{{ $department->Name }}</option>
                                             @endforeach
                                         </select>
                                         <a class="btn-remove-staff"><i aria-hidden="true" class="fa fa-trash"></i></a>

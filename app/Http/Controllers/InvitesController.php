@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
-use App\Employees;
+use App\Invites;
 
 class InvitesController extends Controller
 {
@@ -39,16 +39,16 @@ class InvitesController extends Controller
 
         $user = Auth::user();
 
-        $employees = [];
+        $invites = [];
         for($index = 0; $index < count($request->first_name); $index += 1) {
-            $employee = new Employees;
-            $employee->first_name = $request->first_name[$index];
-            $employee->last_name = $request->last_name[$index];
-            $employee->email = $request->email[$index];
-            $employee->department_id = $request->department[$index];
-            $employees[] = $employee;
+            $invite = new Invites;
+            $invite->first_name = $request->first_name[$index];
+            $invite->last_name = $request->last_name[$index];
+            $invite->email = $request->email[$index];
+            $invite->department_id = $request->department[$index];
+            $invites[] = $invite;
         }
-        $user->employees()->saveMany($employees);
+        $user->invites()->saveMany($invites);
         $user->save();
         return Redirect::back()
             ->withErrors(['success', 'There was a failure while sending the message!']);

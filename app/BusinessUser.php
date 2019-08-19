@@ -45,13 +45,13 @@ class BusinessUser extends Authenticatable
     {
         return $this->hasMany('App\Departments');
     }
-    /*
-    public function profile()
+
+    public function invites()
     {
-        return $this->hasOne('App\Profile');
+        return $this->hasMany('App\Invites');
     }
 
-
+ /*
     public function employees()
     {
         return $this->hasOne('App\Employees');

@@ -4,18 +4,18 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Profile extends Model
+class Invites extends Model
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'profile';
+    protected $table = 'invites';
 
     public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\BusinessUser');
     }
 
 }

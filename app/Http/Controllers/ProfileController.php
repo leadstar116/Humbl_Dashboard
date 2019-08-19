@@ -76,6 +76,6 @@ class ProfileController extends Controller
         $user->profile_completed = 1;
         $user->save();
 
-        return view('home')->with('user', Auth::user());
+        return view('invite-new')->with('user', Auth::user());
     }
 }
