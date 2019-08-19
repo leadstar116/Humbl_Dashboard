@@ -79,7 +79,7 @@
                             <div class="col-lg-4 col-md-12">
                                 <div class="form-group">
                                     <select class="form-control" name="country">
-                                        <option value="" disabled>-- Select Country --</option>
+                                        <option value="" disabled selected>-- Select Country --</option>
                                         <option value="AF">Afghanistan</option>
                                         <option value="AX">Åland Islands</option>
                                         <option value="AL">Albania</option>

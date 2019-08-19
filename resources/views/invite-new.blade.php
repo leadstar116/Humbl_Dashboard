@@ -6,13 +6,15 @@
 <div class="overlay"></div>
 
 <div id="wrapper" class="container invite-new">
+    @include('partials.navbar')
+
     <form method="POST" action="{{ route('inviteNew') }}" enctype="multipart/form-data">
         @csrf
 
         <div class="row clearfix">
             <div class="col-md-12 profile-header">
-            <h3>Invite people to join {{ ($user->name)? $user->name:'your business' }}</h3>
-            <p>Add coworkers & staff to your business profile</p>
+                <h3>Invite people to join {{ ($user->name)? $user->name:'your business' }}</h3>
+                <p>Add coworkers & staff to your business profile</p>
             </div>
             @if ($errors->any())
                 @if ($errors->first() == 'error')

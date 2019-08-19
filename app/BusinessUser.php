@@ -41,16 +41,16 @@ class BusinessUser extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function departments()
+    {
+        return $this->hasMany('App\Departments');
+    }
     /*
     public function profile()
     {
         return $this->hasOne('App\Profile');
     }
 
-    public function departments()
-    {
-        return $this->hasMany('App\Departments');
-    }
 
     public function employees()
     {

@@ -54,26 +54,21 @@ class ProfileController extends Controller
             $user->ProfilePic_back = $avatarBackName;
         }
 
-        $profile = $user->profile;
-        if(!$profile) {
-            $profile = new Profile;
-        }
-        $profile->name = $request->input('name');
-        $profile->tagline = $request->input('tagline');
-        $profile->email = $request->input('email');
-        $profile->phone = $request->input('phone');
-        $profile->address = $request->input('address');
-        $profile->city = $request->input('city');
-        $profile->country = $request->input('country');
-        $profile->state = $request->input('state');
-        $profile->zipcode = $request->input('zipcode');
-        $profile->biz_description = $request->input('business');
-        $user->profile()->save($profile);
+        $user->BusinessName = $request->input('name');
+        $user->TagLine = $request->input('tagline');
+        $user->biz_email = $request->input('email');
+        $user->phone = $request->input('phone');
+        $user->address = $request->input('address');
+        $user->city = $request->input('city');
+        $user->country = $request->input('country');
+        $user->state = $request->input('state');
+        $user->zipcode = $request->input('zipcode');
+        $user->biz_description = $request->input('business');
 
         $departments = [];
         foreach($request->department as $depart) {
             $department = new Departments;
-            $department->department = $depart;
+            $department->Name = $depart;
             $departments[] = $department;
         }
         $user->departments()->saveMany($departments);

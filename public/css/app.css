@@ -10865,6 +10865,10 @@ main.dashboard {
   display: block !important;
 }
 
+.invite-new .profile-header {
+  margin-top: 20px;
+}
+
 .home #left-sidebar,
 .profile #left-sidebar,
 .activity #left-sidebar,
