@@ -243,8 +243,25 @@
     }
 }
 .profile {
+    #main-content .card .body {
+        text-align: left;
+    }
     .profile-complete {
         padding-top: 0px;
+        text-align: left;
+        .img_profile {
+            left: 35%;
+        }
+        .left-btn {
+            width: 49%;
+        }
+        .right-btn {
+            padding: 7px 15px;
+            background-color: $main_color;
+            border: none;
+            width: 49%;
+            float: right;
+        }
     }
 }
 .profile-complete {

@@ -82,3 +82,9 @@ $(document).on('click', '.btn-remove-staff', function(){
         $(this).closest('div.form-group').remove();
     }
 });
+
+$(document).ready(function(){
+    if($('#selected_country').val() != '') {
+        $('select[name="country"]').val($('#selected_country').val());
+    }
+});

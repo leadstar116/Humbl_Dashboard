@@ -17,7 +17,7 @@
                     </div>
                 </div>
             </div>
-            <form method="POST" action="{{ route('saveComplete') }}" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('updateProfile') }}" enctype="multipart/form-data">
                 @csrf
 
                 <div class="row clearfix profile-complete">
@@ -25,41 +25,35 @@
                         <div class="card">
                             <div class="header">
                                 <div class="form-group" style="position: relative;">
-                                    <img src="/images/profile_default.png" class="img_profile" alt="">
+                                    <img src="/storage/avatars/{{ $user->ProfilePic }}" class="img_profile" alt="">
                                     <input type="file" class="form-control-file" name="avatar" id="avatarFile" aria-describedby="fileHelp">
                                     <input type="file" class="form-control-file" name="avatar_back" id="backgroundFile" aria-describedby="fileHelp">
                                     <label for="avatarFile" class="img_profile_btn"><img src="/images/camera.png" alt=""></label>
                                     <label for="backgroundFile" class="img_back_btn"><img src="/images/camera.png" alt=""></label>
-                                    <img src="/images/profile_back.png" class="img_profile_back" alt="">
+                                    <img src="/storage/avatars/{{ $user->ProfilePic_back }}" class="img_profile_back" alt="">
                                 </div>
                             </div>
                             <div class="body">
                                 <div class="form-group">
                                     <label class="text-muted">Business Name </label>
-                                    <input type="text" placeholder="Enter Business Name" name="name" required>
+                                <input type="text" placeholder="Enter Business Name" name="name" value="{{ $user->BusinessName }}" required>
                                 </div>
                                 <hr>
                                 <div class="form-group">
                                     <label class="text-muted">Tagline </label>
-                                    <input type="text" placeholder="Example: Where Fresh Meets Fun" name="tagline" required>
+                                    <input type="text" placeholder="Example: Where Fresh Meets Fun" name="tagline" value="{{ $user->TagLine }}" required>
                                 </div>
                                 <hr>
                                 <div class="form-group">
                                     <label class="text-muted">Email Address </label>
-                                    <input type="text" placeholder="Primary Contact Email" name="email" required>
+                                    <input type="text" placeholder="Primary Contact Email" name="email" value="{{ $user->biz_email }}" required>
                                 </div>
                                 <hr>
                                 <div class="form-group">
                                     <label class="text-muted">Phone Number </label>
-                                    <input type="text" placeholder="Example: 555-555-5555" name="phone" required>
+                                    <input type="text" placeholder="Example: 555-555-5555" name="phone" value="{{ $user->phone }}" required>
                                 </div>
                                 <hr>
-                                <a class="btn btn-primary left-btn">
-                                    Save
-                                </a>
-                                <a class="btn btn-primary profile-reset-btn">
-                                    Reset
-                                </a>
                             </div>
                         </div>
                     </div>
@@ -73,17 +67,17 @@
                                     </div>
                                     <div class="col-lg-8 col-md-12">
                                         <div class="form-group">
-                                            <input type="text" placeholder="Address" name="address" required>
+                                            <input type="text" placeholder="Address" name="address" value="{{ $user->address }}" required>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-12">
                                         <div class="form-group">
-                                            <input type="text" placeholder="City" name="city" required>
+                                            <input type="text" placeholder="City" name="city" value="{{ $user->city }}" required>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-12">
                                         <div class="form-group">
-                                            <select class="form-control" name="country">
+                                            <select class="form-control" name="country" required>
                                                 <option value="">-- Select Country --</option>
                                                 <option value="AF">Afghanistan</option>
                                                 <option value="AX">Åland Islands</option>
@@ -335,16 +329,17 @@
                                                 <option value="ZM">Zambia</option>
                                                 <option value="ZW">Zimbabwe</option>
                                             </select>
+                                            <input type="text" id="selected_country" style="display:none;" value="{{ $user->country }}">
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-12">
                                         <div class="form-group">
-                                            <input type="text" placeholder="State" name="state" required>
+                                            <input type="text" placeholder="State" name="state" value="{{ $user->state }}" required>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-12">
                                         <div class="form-group">
-                                            <input type="text" placeholder="Zip Code" name="zipcode" required>
+                                            <input type="text" placeholder="Zip Code" name="zipcode" value="{{ $user->zipcode }}" required>
                                         </div>
                                     </div>
                                     <div class="col-12">
@@ -353,6 +348,10 @@
                                     <div class="col-lg-12 col-md-12">
                                         <div class="form-group">
                                         <ul class="department-list">
+                                            @forelse($user->departments as $depart)
+                                                <li><input type="text" name="department[]" placeholder="Department" value="{{ $depart->Name }}" required><a class="btn-remove-department"><i aria-hidden="true" class="fa fa-trash"></i></a></li>
+                                            @empty
+                                            @endforelse
                                         </ul>
                                         <a class="btn btn-primary btn-add-department">
                                             Add Department
@@ -364,13 +363,15 @@
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <textarea type="text" placeholder="About your business" name="business" required>
-                                            </textarea>
+                                            <textarea type="text" placeholder="About your business" name="business" value="{{ $user->biz_description }}" required>{{ $user->biz_description }}</textarea>
                                         </div>
                                     </div>
                                     <div class="col-12">
-                                        <button type="submit" class="btn btn-primary btn-save-continue">
-                                            Save & Continue
+                                        <a href="/profile" class="btn btn-primary left-btn">
+                                            Cancel
+                                        </a>
+                                        <button type="submit" class="btn btn-primary right-btn">
+                                            Save
                                         </button>
                                     </div>
                                 </div>

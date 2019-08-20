@@ -11215,8 +11215,29 @@ main.dashboard {
   margin-bottom: 15px;
 }
 
+.profile #main-content .card .body {
+  text-align: left;
+}
+
 .profile .profile-complete {
   padding-top: 0px;
+  text-align: left;
+}
+
+.profile .profile-complete .img_profile {
+  left: 35%;
+}
+
+.profile .profile-complete .left-btn {
+  width: 49%;
+}
+
+.profile .profile-complete .right-btn {
+  padding: 7px 15px;
+  background-color: #22ade4;
+  border: none;
+  width: 49%;
+  float: right;
 }
 
 .profile-complete {
