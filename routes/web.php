@@ -20,7 +20,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home')->middleware('ProfileComplete');
 Route::get('/activity', 'ActivityController@index')->middleware('ProfileComplete');
 Route::get('/employees', 'EmployeesController@index')->middleware('ProfileComplete');
-Route::get('/profile', 'ProfileController@index')->middleware('ProfileComplete');
+Route::get('/profile', 'ProfileController@index')->middleware('ProfileComplete')->name('Profile');
 Route::get('/invite-new', 'InvitesController@new')->middleware('ProfileComplete');
 Route::get('/messages', 'MessagesController@index')->middleware('ProfileComplete');
 Route::get('/payments', 'PaymentsController@index')->middleware('ProfileComplete');

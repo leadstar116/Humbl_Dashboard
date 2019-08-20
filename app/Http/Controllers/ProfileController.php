@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use App\Profile;
 use App\Departments;
+use Illuminate\Support\Facades\Redirect;
 
 class ProfileController extends Controller
 {
@@ -120,6 +121,6 @@ class ProfileController extends Controller
         $user->profile_completed = 1;
         $user->save();
 
-        return view('invite-new')->with('user', Auth::user());
+        return Redirect::route('Profile');
     }
 }
