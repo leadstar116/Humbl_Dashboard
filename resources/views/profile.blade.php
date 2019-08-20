@@ -17,7 +17,7 @@
                     </div>
                 </div>
             </div>
-            <form method="POST" action="{{ route('updateProfile') }}" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('updateProfile') }}" enctype="multipart/form-data" class="profile-form">
                 @csrf
 
                 <div class="row clearfix profile-complete">

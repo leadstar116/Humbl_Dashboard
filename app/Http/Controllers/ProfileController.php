@@ -108,12 +108,25 @@ class ProfileController extends Controller
         $user->biz_description = $request->input('business');
 
         $departments = [];
-        $user->departments()->delete();
+        $existing_departs = [];
+        foreach($user->departments as $depart) {
+            $existing_departs[] = $depart->Name;
+        }
+
         if(isset($request->department) && !empty($request->department)) {
+            $requested_departs = [];
             foreach($request->department as $depart) {
-                $department = new Departments;
-                $department->Name = $depart;
-                $departments[] = $department;
+                $requested_departs[] = $depart;
+                if(!in_array($depart, $existing_departs)) {
+                    $department = new Departments;
+                    $department->Name = $depart;
+                    $departments[] = $department;
+                }
+            }
+            foreach($user->departments as $depart) {
+                if(!in_array($depart->Name, $requested_departs)) {
+                    $depart->delete();
+                }
             }
             $user->departments()->saveMany($departments);
         }

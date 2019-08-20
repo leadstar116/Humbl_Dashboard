@@ -88,3 +88,16 @@ $(document).ready(function(){
         $('select[name="country"]').val($('#selected_country').val());
     }
 });
+
+$('.profile-form').submit(function(e){
+    var departments = [];
+    $('input[name="department[]"]').each(function(){
+        if($.inArray($(this).val(), departments) !== -1) {
+            e.preventDefault();
+            alert("Same departments are existing!");
+            return false;
+        } else {
+            departments.push($(this).val());
+        }
+    });
+});

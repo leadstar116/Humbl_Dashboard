@@ -8,7 +8,7 @@
 <div id="wrapper" class="container profile-complete">
     @include('partials.navbar')
 
-    <form method="POST" action="{{ route('saveComplete') }}" enctype="multipart/form-data">
+    <form method="POST" action="{{ route('saveComplete') }}" enctype="multipart/form-data" class="profile-form">
         @csrf
 
         <div class="row clearfix">
