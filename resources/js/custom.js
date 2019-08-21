@@ -108,14 +108,14 @@ $(document).on('click', '.btn-delete-staff', function(){
         var userId = $(this).attr('attr-id');
         var formData = new FormData;
         formData.append('userId', userId);
+        formData.append('token', "{{ csrf_token() }}");
         $.ajax({
-            url: '/remove_staff/',
+            url: '/remove_staff',
             type: 'POST',
-            data: formData,
-            cache: false,
-            dataType: 'json',
-            processData: false, // Don't process the files
-            contentType: false, // Set content type to false as jQuery will tell the server its a query string request
+            data: {
+                "_token": $('meta[name="csrf-token"]').attr('content'),
+                "userId": userId
+                },
             success: function (data, textStatus, jqXHR) {
                 if (typeof data.error === 'undefined') {
                     alert('Successfully removed!');

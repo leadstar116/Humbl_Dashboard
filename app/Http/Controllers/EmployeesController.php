@@ -41,6 +41,7 @@ class EmployeesController extends Controller
     public function removeStaff()
     {
         $userId = request()->userId;
-
+        $result = DB::table('users')->where('iUserId', '=', $userId)->delete();
+        return response($result, 200);
     }
 }

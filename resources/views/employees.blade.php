@@ -21,6 +21,7 @@
                     </ul>
                 </div>
             </div>
+            <meta name="csrf-token" content="{!! csrf_token() !!}">
 
             <div class="row clearfix div-existing-users">
                 <div class="col-lg-12 col-md-12 col-sm-12">
