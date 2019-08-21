@@ -389,6 +389,23 @@
 }
 .employees {
     #main-content {
+        .div-existing-users {
+            .avatar-container {
+                display: block;
+                padding-top: 5px;
+                float: left;
+            }
+            .name-container {
+                padding-left: 60px;
+            }
+            .btn-delete-staff {
+                padding: 2px 7px;
+                border: 1px solid #eee;
+                font-size: 17px;
+                color: #f00;
+                cursor: pointer;
+            }
+        }
         .invite-new {
             padding-top: 0px;
             .card .body {

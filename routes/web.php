@@ -32,3 +32,4 @@ Route::get('/logout', 'Auth\LoginController@logout');
 Route::post('/saveComplete', 'ProfileController@saveComplete')->name('saveComplete');
 Route::post('/updateProfile', 'ProfileController@update')->name('updateProfile');
 Route::post('/inviteNew', 'InvitesController@inviteNew')->name('inviteNew')->middleware('ProfileComplete');
+Route::post('/remove_staff', 'EmployeesController@removeStaff')->name('remove_staff')->middleware('ProfileComplete');

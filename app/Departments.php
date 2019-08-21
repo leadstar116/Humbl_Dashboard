@@ -18,4 +18,7 @@ class Departments extends Model
         return $this->belongsTo('App\BusinessUser');
     }
 
+    public function employees() {
+        return $this->hasMany('App\Uesrs');
+    }
 }

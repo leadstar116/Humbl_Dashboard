@@ -101,3 +101,36 @@ $('.profile-form').submit(function(e){
         }
     });
 });
+
+$(document).on('click', '.btn-delete-staff', function(){
+    var r = confirm("Are you going to exclude this staff?");
+    if (r == true) {
+        var userId = $(this).attr('attr-id');
+        var formData = new FormData;
+        formData.append('userId', userId);
+        $.ajax({
+            url: '/remove_staff/',
+            type: 'POST',
+            data: formData,
+            cache: false,
+            dataType: 'json',
+            processData: false, // Don't process the files
+            contentType: false, // Set content type to false as jQuery will tell the server its a query string request
+            success: function (data, textStatus, jqXHR) {
+                if (typeof data.error === 'undefined') {
+                    alert('Successfully removed!');
+                    $('.existing-staff-table tr[attr-id="' + userId + '"]').remove();
+                }
+                else {
+                    // Handle errors here
+                    alert('ERRORS: ' + data.error);
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                // Handle errors here
+                alert('ERRORS: ' + textStatus);
+                // STOP LOADING SPINNER
+            }
+        });
+    }
+});

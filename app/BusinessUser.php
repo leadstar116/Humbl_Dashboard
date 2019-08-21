@@ -51,12 +51,11 @@ class BusinessUser extends Authenticatable
         return $this->hasMany('App\Invites');
     }
 
- /*
     public function employees()
     {
-        return $this->hasOne('App\Employees');
+        return $this->hasManyThrough('App\Users', 'App\Departments');
     }
-
+ /*
     public function notification()
     {
         return $this->hasOne('App\NotificationSetting');

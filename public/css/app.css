@@ -11383,6 +11383,24 @@ main.dashboard {
   border: 1px solid #f5f5f5 !important;
 }
 
+.employees #main-content .div-existing-users .avatar-container {
+  display: block;
+  padding-top: 5px;
+  float: left;
+}
+
+.employees #main-content .div-existing-users .name-container {
+  padding-left: 60px;
+}
+
+.employees #main-content .div-existing-users .btn-delete-staff {
+  padding: 2px 7px;
+  border: 1px solid #eee;
+  font-size: 17px;
+  color: #f00;
+  cursor: pointer;
+}
+
 .employees #main-content .invite-new {
   padding-top: 0px;
 }

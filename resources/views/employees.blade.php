@@ -26,7 +26,7 @@
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="card">
                         <div class="table-responsive">
-                            <table class="table table-hover js-basic-example dataTable table-custom spacing5 mb-0">
+                            <table class="table table-hover js-basic-example dataTable table-custom spacing5 existing-staff-table mb-0">
                                 <thead>
                                     <tr>
                                         <th>Name</th>
@@ -39,23 +39,29 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
+                                    @foreach($user->employees as $employee)
+                                    <tr attr-id="{{ $employee->iUserId }}">
                                         <td>
-                                            <img src="../assets/images/xs/avatar1.jpg" data-toggle="tooltip" data-placement="top" title="Avatar Name" alt="Avatar" class="w35 h35 rounded">
+                                            <div class="avatar-container">
+                                                <img src="../assets/images/xs/avatar1.jpg" data-toggle="tooltip" data-placement="top" title="Avatar Name" alt="Avatar" class="w35 h35 rounded">
+                                            </div>
+                                            <div class="name-container">
+                                                <span class="font-15">{{ $employee->vFirstName.' '.$employee->vLastName }}</span><br/>
+                                                <span class="text-muted">{{ $employee->vEmailId }}</span>
+                                            </div>
                                         </td>
                                         <td>
-                                            <div class="font-15">Marshall Nichols</div>
-                                            <span class="text-muted">marshall-n@gmail.com</span>
+                                            {{ $employee->created_at }}
                                         </td>
-                                        <td><span>LA-0215</span></td>
+                                        <td><span>{{ $employee->departments->Name }}</span></td>
                                         <td><span>+ 264-625-2583</span></td>
-                                        <td>24 Jun, 2015</td>
-                                        <td>Web Designer</td>
+                                        <td>{{ $tips_average[$employee->iUserId] }}</td>
+                                        <td>{{ $tips_sum[$employee->iUserId] }}</td>
                                         <td>
-                                            <span class="chart">5,3,-7,8,-6,1,4,9</span>
+                                            <a class="btn-delete-staff" attr-id="{{ $employee->iUserId }}"><i aria-hidden="true" class="fa fa-trash"></i></a>
                                         </td>
                                     </tr>
-
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
