@@ -10880,7 +10880,7 @@ main.dashboard {
 .profile #left-sidebar .user-account .dropdown,
 .activity #left-sidebar .user-account .dropdown,
 .employees #left-sidebar .user-account .dropdown {
-  padding: 7px 15px;
+  padding: 0px 15px;
 }
 
 .home #left-sidebar .dropdown ul,
