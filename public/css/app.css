@@ -11383,13 +11383,13 @@ main.dashboard {
   border: 1px solid #f5f5f5 !important;
 }
 
-.employees #main-content .div-existing-users .avatar-container {
+.avatar-container {
   display: block;
   padding-top: 5px;
   float: left;
 }
 
-.employees #main-content .div-existing-users .name-container {
+.name-container {
   padding-left: 60px;
 }
 

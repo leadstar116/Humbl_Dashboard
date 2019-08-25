@@ -387,17 +387,17 @@
 .card {
     border: 1px solid $border_color !important;
 }
+.avatar-container {
+    display: block;
+    padding-top: 5px;
+    float: left;
+}
+.name-container {
+    padding-left: 60px;
+}
 .employees {
     #main-content {
         .div-existing-users {
-            .avatar-container {
-                display: block;
-                padding-top: 5px;
-                float: left;
-            }
-            .name-container {
-                padding-left: 60px;
-            }
             .btn-delete-staff {
                 padding: 2px 7px;
                 border: 1px solid #eee;

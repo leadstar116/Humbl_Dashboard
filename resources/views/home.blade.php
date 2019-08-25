@@ -21,7 +21,7 @@
                 <div class="col-6 col-md-3 col-xl-3">
                     <div class="card">
                         <div class="body ribbon">
-                            <h2>45</h2>
+                            <h2>{{ $user->employees->count() }}</h2>
                             <span>Total Staff</span>
                         </div>
                     </div>
@@ -29,7 +29,7 @@
                 <div class="col-6 col-md-3 col-xl-3">
                     <div class="card">
                         <div class="body">
-                            <h2>4.8/5</h2>
+                            <h2>{{ $total['rating'] }}/5</h2>
                             <span>Customer Rating</span>
                         </div>
                     </div>
@@ -45,7 +45,7 @@
                 <div class="col-6 col-md-3 col-xl-3">
                     <div class="card">
                         <div class="body">
-                            <h2>$574.15</h2>
+                            <h2>$ {{ $total['tips'] }}</h2>
                             <span>Total Tips</span>
                         </div>
                     </div>
@@ -58,17 +58,20 @@
                     </div>
                     <div class="card">
                         <div class="body text-center">
-                            <div id="chart-bar-stacked" style="height: 130px"></div>
+                            <div id="chart-guest-satisfication" style="height: 130px"></div>
                             <hr>
                             <div class="row clearfix">
                                 <div class="col-6">
-                                    <h6 class="mb-0">50</h6>
-                                    <small class="text-muted">Male</small>
+                                    <h6 class="mb-0">{{ $customer_ratings[4] }}</h6>
+                                    <small class="text-muted">Last Month</small>
                                 </div>
                                 <div class="col-6">
-                                    <h6 class="mb-0">17</h6>
-                                    <small class="text-muted">Female</small>
+                                    <h6 class="mb-0">{{ $customer_ratings[5] }}</h6>
+                                    <small class="text-muted">This Month</small>
                                 </div>
+                                <input type="text" style="display:none;" id="customer_ratings" value="<?= implode(',', $customer_ratings); ?>">
+                                <input type="text" style="display:none;" id="reviews_count" value="<?= implode(',', $reviews_count); ?>">
+                                <input type="text" style="display:none;" id="rating_months" value="{{ $total['months'] }}">
                             </div>
                         </div>
                     </div>

@@ -55,7 +55,7 @@
                                             {{ $employee->created_at }}
                                         </td>
                                         <td><span>{{ $employee->departments->Name }}</span></td>
-                                        <td><span>+ 264-625-2583</span></td>
+                                        <td><span>{{ $customer_rating[$employee->iUserId] }}</span></td>
                                         <td>{{ $tips_average[$employee->iUserId] }}</td>
                                         <td>{{ $tips_sum[$employee->iUserId] }}</td>
                                         <td>

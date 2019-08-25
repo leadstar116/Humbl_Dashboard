@@ -134,3 +134,85 @@ $(document).on('click', '.btn-delete-staff', function(){
         });
     }
 });
+
+setTimeout(function(){
+    if($('#customer_ratings').length) {
+        var data_string = $('#customer_ratings').val();
+        var months_string = $('#rating_months').val();
+        var months = months_string.split(',');
+        var data = $.merge(['data1'], data_string.split(','));
+        var chart2 = c3.generate({
+            bindto: '#chart-guest-satisfication', // id of chart wrapper
+            data: {
+                columns: [
+                    // each columns data
+                    data,
+                ],
+                type: 'area-spline', // default type of chart
+                groups: [
+                    [ 'data1']
+                ],
+                colors: {
+                    'data1': '#d54d88',
+                },
+                names: {
+                    // name of each serie
+                    'data1': 'Rating',
+                }
+            },
+            axis: {
+                x: {
+                    type: 'category',
+                    // name of each category
+                    categories: months
+                },
+            },
+            legend: {
+                show: false, //hide legend
+            },
+            padding: {
+                bottom: -20,
+                top: 0,
+                left: -7,
+            },
+        });
+
+        var data_string = $('#reviews_count').val();
+        var data = $.merge(['data1'], data_string.split(','));
+        var chart = c3.generate({
+            bindto: '#chart-area-spline-sracked', // id of chart wrapper
+            data: {
+                columns: [
+                    // each columns data
+                    data,
+                ],
+                type: 'area-spline', // default type of chart
+                groups: [
+                    [ 'data1']
+                ],
+                colors: {
+                    'data1': '#d54d88',
+                },
+                names: {
+                    // name of each serie
+                    'data1': '5 star reviews'
+                }
+            },
+            axis: {
+                x: {
+                    type: 'category',
+                    // name of each category
+                    categories: months
+                },
+            },
+            legend: {
+                show: false, //hide legend
+            },
+            padding: {
+                bottom: -20,
+                top: 0,
+                left: -7,
+            },
+        });
+    }
+}, 1000);

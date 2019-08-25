@@ -28,14 +28,19 @@ class EmployeesController extends Controller
         $user = Auth::user();
         $tips_sum = [];
         foreach($user->employees as $employee) {
-            $sum = DB::table('tips')
-                ->select(DB::raw('sum(fAmount) as sum, AVG(fAmount) as average'))
+            $result = DB::table('tips')
+                ->select(DB::raw('sum(fAmount) as sum, AVG(fAmount) as average, AVG(vRating) as customer_rating'))
                 ->where('iToUserId', '=', $employee->iUserId)
+                ->where('tiIsActive', '=', '1')
                 ->get();
-            $tips_sum[$employee->iUserId] = number_format($sum[0]->sum, 2, '.', '');
-            $tips_average[$employee->iUserId] = number_format($sum[0]->average, 2, '.', '');
+            $tips_sum[$employee->iUserId] = number_format($result[0]->sum, 2, '.', '');
+            $tips_average[$employee->iUserId] = number_format($result[0]->average, 2, '.', '');
+            $customer_rating[$employee->iUserId] = number_format($result[0]->customer_rating, 2, '.', '');
         }
-        return view('employees')->with('user', Auth::user())->with('tips_sum', $tips_sum)->with('tips_average', $tips_average);
+        return view('employees')->with('user', Auth::user())
+            ->with('tips_sum', $tips_sum)
+            ->with('tips_average', $tips_average)
+            ->with('customer_rating', $customer_rating);
     }
 
     public function removeStaff()

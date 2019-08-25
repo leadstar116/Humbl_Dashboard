@@ -11,6 +11,9 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    {{-- <script src="{{ asset('/assets/bundles/libscripts.bundle.js') }}"></script> --}}
+    {{-- <script src="{{ asset('/assets/bundles/vendorscripts.bundle.js') }}"></script> --}}
+    <script src="{{ asset('/assets/bundles/c3.bundle.js') }}" defer></script>
     <script src="{{ asset('js/custom.js') }}" defer></script>
 
     <!-- Fonts -->

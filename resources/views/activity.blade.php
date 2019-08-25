@@ -41,17 +41,19 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach($user->employees as $employee)
                                     <tr>
-                                        <td class="w60">
-                                            <label class="fancy-checkbox">
-                                                <input class="checkbox-tick" type="checkbox" name="checkbox">
-                                                <span></span>
-                                            </label>
-                                            <div class="avtar-pic w35 bg-red" data-toggle="tooltip" data-placement="top" title="Avatar Name"><span>MN</span></div>
+                                        <td>
+
                                         </td>
                                         <td>
-                                            <div class="font-15">Marshall Nichols</div>
-                                            <span class="text-muted">marshall-n@gmail.com</span>
+                                            <div class="avatar-container">
+                                                <img src="../assets/images/xs/avatar1.jpg" data-toggle="tooltip" data-placement="top" title="Avatar Name" alt="Avatar" class="w35 h35 rounded">
+                                            </div>
+                                            <div class="name-container">
+                                                <span class="font-15">{{ $employee->vFirstName.' '.$employee->vLastName }}</span><br/>
+                                                <span class="text-muted">{{ $employee->vEmailId }}</span>
+                                            </div>
                                         </td>
                                         <td><span>LA-0215</span></td>
                                         <td><span>+ 264-625-2583</span></td>
@@ -61,86 +63,7 @@
                                             <span class="chart">5,3,-7,8,-6,1,4,9</span>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td class="w60">
-                                            <label class="fancy-checkbox">
-                                                <input class="checkbox-tick" type="checkbox" name="checkbox">
-                                                <span></span>
-                                            </label>
-                                            <img src="../assets/images/xs/avatar1.jpg" data-toggle="tooltip" data-placement="top" title="Avatar Name" alt="Avatar" class="w35 h35 rounded">
-                                        </td>
-                                        <td>
-                                            <div class="font-15">Susie Willis</div>
-                                            <span class="text-muted">sussie-w@gmail.com</span>
-                                        </td>
-                                        <td><span>LA-0216</span></td>
-                                        <td><span>+ 264-625-2583</span></td>
-                                        <td>28 Jun, 2015</td>
-                                        <td>Web Developer</td>
-                                        <td>
-                                            <span class="chart">5,3,7,8,6,1,4,9</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="w60">
-                                            <label class="fancy-checkbox">
-                                                <input class="checkbox-tick" type="checkbox" name="checkbox">
-                                                <span></span>
-                                            </label>
-                                            <div class="avtar-pic w35 bg-pink" data-toggle="tooltip" data-placement="top" title="Avatar Name"><span>MN</span></div>
-                                        </td>
-                                        <td>
-                                            <div class="font-15">Debra Stewart</div>
-                                            <span class="text-muted">debra@gmail.com</span>
-                                        </td>
-                                        <td><span>LA-0218</span></td>
-                                        <td><span>+ 264-625-2583</span></td>
-                                        <td>21 July, 2015</td>
-                                        <td>Web Developer</td>
-                                        <td>
-                                            <span class="chart">-5,3,7,8,6,1,4,9</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="w60">
-                                            <label class="fancy-checkbox">
-                                                <input class="checkbox-tick" type="checkbox" name="checkbox">
-                                                <span></span>
-                                            </label>
-                                            <img src="../assets/images/xs/avatar2.jpg" data-toggle="tooltip" data-placement="top" title="Avatar Name" alt="Avatar" class="w35 h35 rounded">
-                                        </td>
-                                        <td>
-                                            <div class="font-15">Francisco Vasquez</div>
-                                            <span class="text-muted">francisv@gmail.com</span>
-                                        </td>
-                                        <td><span>LA-0222</span></td>
-                                        <td><span>+ 264-625-2583</span></td>
-                                        <td>18 Jan, 2016</td>
-                                        <td>Team Leader</td>
-                                        <td>
-                                            <span class="chart">5,3,7,8,6,1,-4,9</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="w60">
-                                            <label class="fancy-checkbox">
-                                                <input class="checkbox-tick" type="checkbox" name="checkbox">
-                                                <span></span>
-                                            </label>
-                                            <img src="../assets/images/xs/avatar3.jpg" data-toggle="tooltip" data-placement="top" title="Avatar Name" alt="Avatar" class="w35 h35 rounded">
-                                        </td>
-                                        <td>
-                                            <div class="font-15">Jane Hunt</div>
-                                            <span class="text-muted">jane-hunt@gmail.com</span>
-                                        </td>
-                                        <td><span>LA-0232</span></td>
-                                        <td><span>+ 264-625-2583</span></td>
-                                        <td>08 Mar, 2016</td>
-                                        <td>Android Developer</td>
-                                        <td>
-                                            <span class="chart">5,-3,7,8,6,-1,4,9</span>
-                                        </td>
-                                    </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
