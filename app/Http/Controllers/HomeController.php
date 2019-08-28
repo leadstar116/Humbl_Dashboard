@@ -32,14 +32,28 @@ class HomeController extends Controller
         $customer_ratings = [];
         foreach($user->employees as $employee) {
             $result = DB::table('tips')
-                ->select(DB::raw('sum(fAmount) as sum, sum(vRating) as customer_rating'))
+                ->select(DB::raw('sum(vRating) as customer_rating'))
                 ->where('iToUserId', '=', $employee->iUserId)
                 ->where('tiIsActive', '=', '1')
                 ->get();
             $total_rating += $result[0]->customer_rating;
-            $total_tips += $result[0]->sum;
-        }
 
+            $result = DB::table('tips')
+                ->select(DB::raw('sum(fAmount) as sum'))
+                ->where('iToUserId', '=', $employee->iUserId)
+                ->where('tiIsActive', '=', '1')
+                ->where('payment_type', '=', 'tips')
+                ->get();
+            $total_tips += $result[0]->sum;
+
+            $result = DB::table('tips')
+                ->select(DB::raw('sum(fAmount) as sum'))
+                ->where('iToUserId', '=', $employee->iUserId)
+                ->where('tiIsActive', '=', '1')
+                ->where('payment_type', '=', 'payment')
+                ->get();
+            $total_payment += $result[0]->sum;
+        }
         $months = [];
         $reviews_count = [];
         for($i = 5; $i >= 0; $i--) {

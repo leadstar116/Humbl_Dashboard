@@ -37,7 +37,7 @@
                 <div class="col-6 col-md-3 col-xl-3">
                     <div class="card">
                         <div class="body ribbon">
-                            <h2>$1.5K</h2>
+                            <h2>$ {{ $total['payment'] }}</h2>
                             <span>Total Payments</span>
                         </div>
                     </div>
