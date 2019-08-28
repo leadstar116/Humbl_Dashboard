@@ -105,7 +105,7 @@
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="card">
                         <div class="table-responsive">
-                            <table class="table table-hover js-basic-example dataTable table-custom spacing5 mb-0">
+                            <table class="table table-hover js-basic-example table-custom spacing5 mb-0">
                                 <thead>
                                     <tr>
                                         <th>ID</th>
