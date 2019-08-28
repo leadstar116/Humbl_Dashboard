@@ -10869,6 +10869,21 @@ main.dashboard {
   margin-top: 20px;
 }
 
+.review-rating {
+  list-style-type: none;
+  padding-left: 0px;
+  margin: 0px;
+}
+
+.review-rating li {
+  display: inline;
+  padding: 0px 1px;
+}
+
+.review-rating li span {
+  font-size: 16px;
+}
+
 .home #left-sidebar,
 .profile #left-sidebar,
 .activity #left-sidebar,

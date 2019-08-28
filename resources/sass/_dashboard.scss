@@ -12,6 +12,18 @@
 .invite-new .profile-header {
     margin-top: 20px;
 }
+.review-rating {
+    list-style-type: none;
+    padding-left: 0px;
+    margin: 0px;
+    li {
+        display: inline;
+        padding: 0px 1px;
+        span {
+            font-size: 16px;
+        }
+    }
+}
 .home, .profile, .activity, .employees {
     #left-sidebar {
         box-shadow: 2px 0 6px 0 rgba(0, 0, 0, 0.1);
