@@ -280,6 +280,10 @@ setTimeout(function () {
   }
 }, 1000);
 
+if ($('.dataTable').length) {
+  $('.dataTable').DataTable();
+}
+
 /***/ }),
 
 /***/ 1:

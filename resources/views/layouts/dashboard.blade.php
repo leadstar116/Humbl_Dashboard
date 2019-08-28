@@ -14,6 +14,7 @@
     {{-- <script src="{{ asset('/assets/bundles/libscripts.bundle.js') }}"></script> --}}
     {{-- <script src="{{ asset('/assets/bundles/vendorscripts.bundle.js') }}"></script> --}}
     <script src="{{ asset('/assets/bundles/c3.bundle.js') }}" defer></script>
+    <script src="{{ asset('/assets/vendor/DataTables/datatables.min.js') }}" defer></script>
     <script src="{{ asset('js/custom.js') }}" defer></script>
 
     <!-- Fonts -->
@@ -24,6 +25,7 @@
     <link rel="stylesheet" href="{{ asset('/assets/vendor/animate-css/vivify.min.css') }}">
 
     <link rel="stylesheet" href="{{ asset('/assets/vendor/c3/c3.min.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('/assets/vendor/DataTables/datatables.min.css') }}"/>
     <link rel="stylesheet" href="{{ asset('/assets/vendor/chartist/css/chartist.min.css') }}">
     <link rel="stylesheet" href="{{ asset('/assets/vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.css') }}">
     <link rel="stylesheet" href="{{ asset('/assets/vendor/jvectormap/jquery-jvectormap-2.0.3.css') }}">

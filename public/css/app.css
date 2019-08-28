@@ -10884,6 +10884,10 @@ main.dashboard {
   font-size: 16px;
 }
 
+.dataTables_wrapper {
+  padding: 20px;
+}
+
 .home #left-sidebar,
 .profile #left-sidebar,
 .activity #left-sidebar,
