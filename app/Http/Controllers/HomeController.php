@@ -113,7 +113,11 @@ class HomeController extends Controller
             ];
         }
 
-        $total_rating /= $user->employees->count();
+        if($user->employees->count() != 0) {
+            $total_rating /= $user->employees->count();
+        } else {
+            $total_rating = 0;
+        }
         $total = [];
         $total['rating'] = number_format($total_rating, 2, '.', '');
         $total['tips'] = number_format($total_tips, 2, '.', '');
