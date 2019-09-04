@@ -16,6 +16,7 @@ class ChangeUsersTable extends Migration
         if (Schema::hasTable('users')) {
             Schema::table('users', function (Blueprint $table) {
                 $table->integer('departments_id');
+                $table->timestamps();
             });
         }
     }

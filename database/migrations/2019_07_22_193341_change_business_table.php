@@ -24,6 +24,8 @@ class ChangeBusinessTable extends Migration
                 $table->string('zipcode', 255)->default('');
                 $table->string('biz_description', 1024)->default('');
                 $table->boolean('profile_completed')->default(0);
+                $table->string('phone')->default('');
+                $table->string('biz_email')->default('');
             });
         }
     }
@@ -44,6 +46,8 @@ class ChangeBusinessTable extends Migration
             $table->dropColumn('zipcode');
             $table->dropColumn('description');
             $table->dropColumn('profile_completed');
+            $table->dropColumn('biz_email');
+            $table->dropColumn('phone');
         });
     }
 }
