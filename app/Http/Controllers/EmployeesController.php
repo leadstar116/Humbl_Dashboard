@@ -27,6 +27,8 @@ class EmployeesController extends Controller
     {
         $user = Auth::user();
         $tips_sum = [];
+        $tips_average = [];
+        $customer_rating = [];
         foreach($user->employees as $employee) {
             $result = DB::table('tips')
                 ->select(DB::raw('sum(fAmount) as sum, AVG(fAmount) as average, AVG(vRating) as customer_rating'))
