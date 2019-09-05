@@ -86,11 +86,11 @@
                             <hr>
                             <div class="row clearfix">
                                 <div class="col-6">
-                                    <h6 class="mb-0">195</h6>
+                                    <h6 class="mb-0">{{ $reviews_count[4] }}</h6>
                                     <small class="text-muted">Last Month</small>
                                 </div>
                                 <div class="col-6">
-                                    <h6 class="mb-0">163</h6>
+                                    <h6 class="mb-0">{{ $reviews_count[5] }}</h6>
                                     <small class="text-muted">This Month</small>
                                 </div>
                             </div>
