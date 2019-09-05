@@ -11292,8 +11292,8 @@ main.dashboard {
 
 .profile-complete .department-list {
   list-style: none;
-  -moz-column-count: 2;
-       column-count: 2;
+  -moz-column-count: 3;
+       column-count: 3;
 }
 
 .profile-complete .department-list input {
