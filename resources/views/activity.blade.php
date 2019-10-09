@@ -66,7 +66,7 @@
                                         <td><?= $activity['print_rating'] ?></td>
                                         <td><?= ucwords($activity['activity']->payment_type) ?></td>
                                         <td>
-                                            <span class="chart">$ <?= number_format($activity['activity']->fAmount, 2, '.', '') ?></span>
+                                            <span class="chart">$ <?= number_format($activity['activity']->fTipAmount, 2, '.', '') ?></span>
                                         </td>
                                     </tr>
                                     @endforeach
@@ -119,7 +119,7 @@
                                             <td><?= $activity['print_rating'] ?></td>
                                             <td><?= ucwords($activity['activity']->payment_type) ?></td>
                                             <td>
-                                                <span class="chart">$ <?= number_format($activity['activity']->fAmount, 2, '.', '') ?></span>
+                                                <span class="chart">$ <?= number_format($activity['activity']->fTipAmount, 2, '.', '') ?></span>
                                             </td>
                                         </tr>
                                         @endif
@@ -173,7 +173,7 @@
                                             <td><?= $activity['print_rating'] ?></td>
                                             <td><?= ucwords($activity['activity']->payment_type) ?></td>
                                             <td>
-                                                <span class="chart">$ <?= number_format($activity['activity']->fAmount, 2, '.', '') ?></span>
+                                                <span class="chart">$ <?= number_format($activity['activity']->fTipAmount, 2, '.', '') ?></span>
                                             </td>
                                         </tr>
                                         @endif
