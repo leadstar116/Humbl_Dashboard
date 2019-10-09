@@ -27,6 +27,7 @@ Route::get('/payments', 'PaymentsController@index')->middleware('ProfileComplete
 Route::get('/profile-complete', 'ProfileController@complete');
 Route::get('/payment-complete', 'PaymentsController@complete')->middleware('ProfileComplete');
 Route::get('/account', 'AccountController@index')->middleware('ProfileComplete');
+Route::get('/qrcode', 'AccountController@qrcode')->middleware('ProfileComplete');
 Route::get('/logout', 'Auth\LoginController@logout');
 
 Route::post('/saveComplete', 'ProfileController@saveComplete')->name('saveComplete');

@@ -10866,7 +10866,7 @@ main.dashboard {
 }
 
 .invite-new .profile-header {
-  margin-top: 20px;
+  margin-top: 0px;
 }
 
 .review-rating {
@@ -10884,6 +10884,10 @@ main.dashboard {
   font-size: 16px;
 }
 
+#main-content {
+  margin-top: 0px !important;
+}
+
 .dataTables_wrapper {
   padding: 20px;
 }
@@ -10891,49 +10895,56 @@ main.dashboard {
 .home #left-sidebar,
 .profile #left-sidebar,
 .activity #left-sidebar,
-.employees #left-sidebar {
+.employees #left-sidebar,
+.qrcode #left-sidebar {
   box-shadow: 2px 0 6px 0 rgba(0, 0, 0, 0.1);
 }
 
 .home #left-sidebar .user-account .dropdown,
 .profile #left-sidebar .user-account .dropdown,
 .activity #left-sidebar .user-account .dropdown,
-.employees #left-sidebar .user-account .dropdown {
+.employees #left-sidebar .user-account .dropdown,
+.qrcode #left-sidebar .user-account .dropdown {
   padding: 0px 15px;
 }
 
 .home #left-sidebar .dropdown ul,
 .profile #left-sidebar .dropdown ul,
 .activity #left-sidebar .dropdown ul,
-.employees #left-sidebar .dropdown ul {
+.employees #left-sidebar .dropdown ul,
+.qrcode #left-sidebar .dropdown ul {
   left: 0px !important;
 }
 
 .home #left-sidebar .dropdown ul li,
 .profile #left-sidebar .dropdown ul li,
 .activity #left-sidebar .dropdown ul li,
-.employees #left-sidebar .dropdown ul li {
+.employees #left-sidebar .dropdown ul li,
+.qrcode #left-sidebar .dropdown ul li {
   padding: 5px 10px;
 }
 
 .home #left-sidebar .navbar-brand .Incentavize-Logo-Design-PNG,
 .profile #left-sidebar .navbar-brand .Incentavize-Logo-Design-PNG,
 .activity #left-sidebar .navbar-brand .Incentavize-Logo-Design-PNG,
-.employees #left-sidebar .navbar-brand .Incentavize-Logo-Design-PNG {
+.employees #left-sidebar .navbar-brand .Incentavize-Logo-Design-PNG,
+.qrcode #left-sidebar .navbar-brand .Incentavize-Logo-Design-PNG {
   width: 175px;
 }
 
 .home #left-sidebar .metismenu a,
 .profile #left-sidebar .metismenu a,
 .activity #left-sidebar .metismenu a,
-.employees #left-sidebar .metismenu a {
+.employees #left-sidebar .metismenu a,
+.qrcode #left-sidebar .metismenu a {
   color: #444444;
 }
 
 .home #left-sidebar .bottommenu,
 .profile #left-sidebar .bottommenu,
 .activity #left-sidebar .bottommenu,
-.employees #left-sidebar .bottommenu {
+.employees #left-sidebar .bottommenu,
+.qrcode #left-sidebar .bottommenu {
   position: fixed;
   bottom: 30px;
 }
@@ -10941,7 +10952,8 @@ main.dashboard {
 .home #left-sidebar .bottommenu li,
 .profile #left-sidebar .bottommenu li,
 .activity #left-sidebar .bottommenu li,
-.employees #left-sidebar .bottommenu li {
+.employees #left-sidebar .bottommenu li,
+.qrcode #left-sidebar .bottommenu li {
   flex: 1 1 0%;
   display: flex;
   flex-direction: column;
@@ -10951,7 +10963,8 @@ main.dashboard {
 .home #left-sidebar .bottommenu a,
 .profile #left-sidebar .bottommenu a,
 .activity #left-sidebar .bottommenu a,
-.employees #left-sidebar .bottommenu a {
+.employees #left-sidebar .bottommenu a,
+.qrcode #left-sidebar .bottommenu a {
   display: block;
   vertical-align: middle;
   font-size: 15px;
@@ -10966,7 +10979,8 @@ main.dashboard {
 .home #left-sidebar .bottommenu i,
 .profile #left-sidebar .bottommenu i,
 .activity #left-sidebar .bottommenu i,
-.employees #left-sidebar .bottommenu i {
+.employees #left-sidebar .bottommenu i,
+.qrcode #left-sidebar .bottommenu i {
   position: relative;
   top: 1px;
   width: 28px;
@@ -10980,7 +10994,8 @@ main.dashboard {
 .home #main-content .block-header h1,
 .profile #main-content .block-header h1,
 .activity #main-content .block-header h1,
-.employees #main-content .block-header h1 {
+.employees #main-content .block-header h1,
+.qrcode #main-content .block-header h1 {
   color: #444444;
   font-size: 36px;
 }
@@ -10988,21 +11003,24 @@ main.dashboard {
 .home #main-content .card .body,
 .profile #main-content .card .body,
 .activity #main-content .card .body,
-.employees #main-content .card .body {
+.employees #main-content .card .body,
+.qrcode #main-content .card .body {
   text-align: center;
 }
 
 .home #main-content .card .body h2,
 .profile #main-content .card .body h2,
 .activity #main-content .card .body h2,
-.employees #main-content .card .body h2 {
+.employees #main-content .card .body h2,
+.qrcode #main-content .card .body h2 {
   color: #22ade4;
 }
 
 .home #main-content .card .body span,
 .profile #main-content .card .body span,
 .activity #main-content .card .body span,
-.employees #main-content .card .body span {
+.employees #main-content .card .body span,
+.qrcode #main-content .card .body span {
   font-size: 20px;
   color: #444444;
 }
@@ -11010,14 +11028,16 @@ main.dashboard {
 .home #main-content .card th,
 .profile #main-content .card th,
 .activity #main-content .card th,
-.employees #main-content .card th {
+.employees #main-content .card th,
+.qrcode #main-content .card th {
   background: transparent;
 }
 
 .home #main-content .card tr,
 .profile #main-content .card tr,
 .activity #main-content .card tr,
-.employees #main-content .card tr {
+.employees #main-content .card tr,
+.qrcode #main-content .card tr {
   background: transparent;
   border: none;
 }
@@ -11025,14 +11045,16 @@ main.dashboard {
 .home #main-content .card tr td,
 .profile #main-content .card tr td,
 .activity #main-content .card tr td,
-.employees #main-content .card tr td {
+.employees #main-content .card tr td,
+.qrcode #main-content .card tr td {
   border-top: 1px solid #f5f5f5;
 }
 
 .home #main-content .header,
 .profile #main-content .header,
 .activity #main-content .header,
-.employees #main-content .header {
+.employees #main-content .header,
+.qrcode #main-content .header {
   width: 100%;
   padding: 15px;
 }
@@ -11040,14 +11062,16 @@ main.dashboard {
 .home #main-content .header h2,
 .profile #main-content .header h2,
 .activity #main-content .header h2,
-.employees #main-content .header h2 {
+.employees #main-content .header h2,
+.qrcode #main-content .header h2 {
   font-size: 25px;
 }
 
 .home #main-content .tab-menu,
 .profile #main-content .tab-menu,
 .activity #main-content .tab-menu,
-.employees #main-content .tab-menu {
+.employees #main-content .tab-menu,
+.qrcode #main-content .tab-menu {
   list-style: none;
   color: #444444;
   font-size: 17px;
@@ -11058,7 +11082,8 @@ main.dashboard {
 .home #main-content .tab-menu li,
 .profile #main-content .tab-menu li,
 .activity #main-content .tab-menu li,
-.employees #main-content .tab-menu li {
+.employees #main-content .tab-menu li,
+.qrcode #main-content .tab-menu li {
   text-align: center;
   width: 200px;
   margin: 0px 10px;
@@ -11070,7 +11095,8 @@ main.dashboard {
 .home #main-content .tab-menu li:hover,
 .profile #main-content .tab-menu li:hover,
 .activity #main-content .tab-menu li:hover,
-.employees #main-content .tab-menu li:hover {
+.employees #main-content .tab-menu li:hover,
+.qrcode #main-content .tab-menu li:hover {
   color: #fff;
   background: #7189ff;
   border-radius: 10px;
@@ -11079,7 +11105,8 @@ main.dashboard {
 .home #main-content .tab-menu .selected,
 .profile #main-content .tab-menu .selected,
 .activity #main-content .tab-menu .selected,
-.employees #main-content .tab-menu .selected {
+.employees #main-content .tab-menu .selected,
+.qrcode #main-content .tab-menu .selected {
   background: #3490dc;
   color: #fff;
   border-radius: 10px;
@@ -11088,85 +11115,221 @@ main.dashboard {
 .home #main-content .div-all-activity,
 .profile #main-content .div-all-activity,
 .activity #main-content .div-all-activity,
-.employees #main-content .div-all-activity {
+.employees #main-content .div-all-activity,
+.qrcode #main-content .div-all-activity {
   display: none;
 }
 
 .home #main-content .div-payments,
 .profile #main-content .div-payments,
 .activity #main-content .div-payments,
-.employees #main-content .div-payments {
+.employees #main-content .div-payments,
+.qrcode #main-content .div-payments {
   display: none;
 }
 
 .home #main-content .div-tips,
 .profile #main-content .div-tips,
 .activity #main-content .div-tips,
-.employees #main-content .div-tips {
+.employees #main-content .div-tips,
+.qrcode #main-content .div-tips {
   display: none;
 }
 
 .home #main-content .div-feedback,
 .profile #main-content .div-feedback,
 .activity #main-content .div-feedback,
-.employees #main-content .div-feedback {
+.employees #main-content .div-feedback,
+.qrcode #main-content .div-feedback {
   display: none;
 }
 
 .home #main-content .div-existing-users,
 .profile #main-content .div-existing-users,
 .activity #main-content .div-existing-users,
-.employees #main-content .div-existing-users {
+.employees #main-content .div-existing-users,
+.qrcode #main-content .div-existing-users {
   display: none;
 }
 
 .home #main-content .div-invite-new,
 .profile #main-content .div-invite-new,
 .activity #main-content .div-invite-new,
-.employees #main-content .div-invite-new {
+.employees #main-content .div-invite-new,
+.qrcode #main-content .div-invite-new {
   display: none;
 }
 
 .home #main-content.all-selected .div-all-activity,
 .profile #main-content.all-selected .div-all-activity,
 .activity #main-content.all-selected .div-all-activity,
-.employees #main-content.all-selected .div-all-activity {
+.employees #main-content.all-selected .div-all-activity,
+.qrcode #main-content.all-selected .div-all-activity {
   display: block;
 }
 
 .home #main-content.payments-selected .div-payments,
 .profile #main-content.payments-selected .div-payments,
 .activity #main-content.payments-selected .div-payments,
-.employees #main-content.payments-selected .div-payments {
+.employees #main-content.payments-selected .div-payments,
+.qrcode #main-content.payments-selected .div-payments {
   display: block;
 }
 
 .home #main-content.tips-selected .div-tips,
 .profile #main-content.tips-selected .div-tips,
 .activity #main-content.tips-selected .div-tips,
-.employees #main-content.tips-selected .div-tips {
+.employees #main-content.tips-selected .div-tips,
+.qrcode #main-content.tips-selected .div-tips {
   display: block;
 }
 
 .home #main-content.feedback-selected .div-feedback,
 .profile #main-content.feedback-selected .div-feedback,
 .activity #main-content.feedback-selected .div-feedback,
-.employees #main-content.feedback-selected .div-feedback {
+.employees #main-content.feedback-selected .div-feedback,
+.qrcode #main-content.feedback-selected .div-feedback {
   display: block;
 }
 
 .home #main-content.existing-selected .div-existing-users,
 .profile #main-content.existing-selected .div-existing-users,
 .activity #main-content.existing-selected .div-existing-users,
-.employees #main-content.existing-selected .div-existing-users {
+.employees #main-content.existing-selected .div-existing-users,
+.qrcode #main-content.existing-selected .div-existing-users {
   display: block;
 }
 
 .home #main-content.invite-new-selected .div-invite-new,
 .profile #main-content.invite-new-selected .div-invite-new,
 .activity #main-content.invite-new-selected .div-invite-new,
-.employees #main-content.invite-new-selected .div-invite-new {
+.employees #main-content.invite-new-selected .div-invite-new,
+.qrcode #main-content.invite-new-selected .div-invite-new {
   display: block;
+}
+
+.qrcode #main-content .header {
+  padding: 25px 60px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+}
+
+.qrcode #main-content .header h2 {
+  margin-bottom: 10px;
+}
+
+.qrcode #main-content .header p {
+  max-width: 400px;
+  margin: 10px auto;
+}
+
+.qrcode #main-content .body {
+  border-bottom: 1px solid #eee;
+}
+
+.qrcode #main-content .body .qrcode-box-logo {
+  padding: 20px 0px;
+  max-width: 400px;
+  margin: 0 auto;
+  background: #22ADE4;
+}
+
+.qrcode #main-content .body .qrcode-box-logo .img_profile {
+  width: 100px;
+}
+
+.qrcode #main-content .body .qrcode-box-header {
+  font-size: 20px;
+  color: #6c757d;
+  border-top: 1px dotted #ACACAC;
+  border-bottom: 1px dotted #ACACAC;
+}
+
+.qrcode #main-content .body .qrcode-box-header span {
+  font-size: 32px;
+  color: #fff;
+  padding: 10px 0px;
+  background: #22ADE4;
+  margin: 0px;
+  width: 400px;
+  display: inline-block;
+}
+
+.qrcode #main-content .body .qrcode-box-body {
+  padding: 20px 0px;
+  max-width: 400px;
+  margin: 0 auto;
+  background: #22ADE4;
+}
+
+.qrcode #main-content .body .qrcode-box-body .qrcode-img {
+  border-radius: 25px;
+  width: 300px;
+}
+
+.qrcode #main-content .body .qrcode-box-logos {
+  border-top: 1px dotted #ACACAC;
+  border-bottom: 1px dotted #ACACAC;
+}
+
+.qrcode #main-content .body .qrcode-logos {
+  max-width: 400px;
+}
+
+.qrcode #main-content .body .qrcode-logos-div {
+  border-top: 1px dotted #ACACAC;
+  border-bottom: 1px dotted #ACACAC;
+}
+
+.qrcode #main-content .body p {
+  margin: 15px 0px 0px 0px;
+}
+
+.qrcode #main-content .qrcode-customize {
+  padding: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.qrcode #main-content .qrcode-customize .title {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  color: #444;
+}
+
+.qrcode #main-content .qrcode-customize .text {
+  color: #444;
+}
+
+.qrcode #main-content .qrcode-customize .text a {
+  margin: 0px 10px;
+  cursor: pointer;
+}
+
+.qrcode #main-content .qrcode-customize .text a:hover {
+  color: #22ADE4;
+  text-decoration: underline;
+}
+
+.qrcode #main-content .qrcode-customize .text .selected {
+  color: #22ADE4;
+  text-decoration: underline;
+}
+
+.qrcode #main-content .qrcode-customize .text input {
+  border-radius: 50%;
+  width: 22px;
+  margin-left: 5px;
+}
+
+.qrcode #main-content .footer {
+  padding: 20px;
+  text-align: center;
+}
+
+.qrcode #main-content .footer button {
+  margin: 0 auto;
 }
 
 .form-control {

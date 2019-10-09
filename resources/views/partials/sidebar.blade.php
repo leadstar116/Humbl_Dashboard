@@ -27,6 +27,7 @@
                 <li><a href="/activity"><i class="icon-equalizer"></i><span>Activity</span></a></li>
                 <li><a href="/employees"><i class="icon-users"></i><span>Manage Staff</span></a></li>
                 <li><a href="/profile"><i class="icon-user"></i><span>Business Profile</span></a></li>
+                <li><a href="/qrcode"><i class="icon-printer"></i><span>QR Codes</span></a></li>
             </ul>
         </nav>
     </div>
