@@ -11234,8 +11234,39 @@ main.dashboard {
   background: #22ADE4;
 }
 
-.qrcode #main-content .body .qrcode-box-logo .img_profile {
+.qrcode #main-content .body .qrcode-box-logo .img_profile,
+.qrcode #main-content .body .qrcode-box-logo .img_profile_qr {
   width: 100px;
+}
+
+.qrcode #main-content .body .qrcode-box-logo .qrcode-image {
+  display: none;
+}
+
+.qrcode #main-content .body .qrcode-box-logo .qrcode-upload {
+  padding: 20px;
+  border: 1px dotted #eee;
+  width: 80%;
+  margin: 0 auto;
+  color: #fff;
+}
+
+.qrcode #main-content .body .qrcode-box-logo .qrcode-upload i {
+  font-size: 35px;
+  padding-right: 10px;
+  position: relative;
+  top: 5px;
+}
+
+.qrcode #main-content .body .qrcode-box-logo .qrcode-upload label {
+  font-size: 25px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.qrcode #main-content .body .qrcode-box-logo .qrcode-upload #qrcodeFile,
+.qrcode #main-content .body .qrcode-box-logo .qrcode-upload #qrcodeProfileFile {
+  display: none;
 }
 
 .qrcode #main-content .body .qrcode-box-header {

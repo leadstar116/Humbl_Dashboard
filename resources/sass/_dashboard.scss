@@ -225,8 +225,32 @@
             max-width: 400px;
             margin: 0 auto;
             background: #22ADE4;
-            .img_profile {
+            .img_profile, .img_profile_qr {
                 width: 100px;
+            }
+            .qrcode-image {
+                display: none;
+            }
+            .qrcode-upload {
+                padding: 20px;
+                border: 1px dotted #eee;
+                width: 80%;
+                margin: 0 auto;
+                color: $white;
+                i {
+                    font-size: 35px;
+                    padding-right: 10px;
+                    position: relative;
+                    top: 5px;
+                }
+                label {
+                    font-size: 25px;
+                    color: $white;
+                    cursor: pointer;
+                }
+                #qrcodeFile, #qrcodeProfileFile {
+                    display: none;
+                }
             }
         }
         .qrcode-box-header {

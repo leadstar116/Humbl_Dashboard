@@ -10,7 +10,6 @@ function readURL(input, target) {
       var reader = new FileReader();
 
       reader.onload = function(e) {
-        console.log(e.target.result);
         $('.' + target).attr('src', e.target.result);
       }
 
@@ -20,6 +19,22 @@ function readURL(input, target) {
 
 $("#avatarFile").change(function() {
     readURL(this, 'img_profile');
+});
+
+$(".business #qrcodeFile").change(function() {
+    readURL(this, 'img_profile');
+    $('.qrcode .business .qrcode-image').show();
+    $('.qrcode .business .qrcode-label').hide();
+    $('.qrcode .business .qrcode-upload').css('border', 'none');
+    $('.qrcode .business .qrcode-upload').css('padding', '0px');
+});
+
+$(".profileqr #qrcodeProfileFile").change(function() {
+    readURL(this, 'img_profile_qr');
+    $('.qrcode .profileqr .qrcode-image').show();
+    $('.qrcode .profileqr .qrcode-label').hide();
+    $('.qrcode .profileqr .qrcode-upload').css('border', 'none');
+    $('.qrcode .profileqr .qrcode-upload').css('padding', '0px');
 });
 
 $("#backgroundFile").change(function() {
@@ -137,18 +152,27 @@ $(document).on('click', '.btn-delete-staff', function(){
 
 $('#business-qr-back-color').on('change', function(){
     var color = $(this).val();
-    $('.qrcode-box-logo').css("background-color", color);
-    $('.qrcode-box-header span').css("background-color", color);
-    $('.qrcode-box-body').css("background-color", color);
+    $('.business .qrcode-box-logo').css("background-color", color);
+    $('.business .qrcode-box-header span').css("background-color", color);
+    $('.business .qrcode-box-body').css("background-color", color);
+});
+
+$('#profile-qr-back-color').on('change', function(){
+    var color = $(this).val();
+    $('.profileqr .qrcode-box-logo').css("background-color", color);
+    $('.profileqr .qrcode-box-header span').css("background-color", color);
+    $('.profileqr .qrcode-box-body').css("background-color", color);
 });
 
 $('.business .dark-theme').on('click', function(){
     $('#business-qr-back-color').val('#22ADE4');
     $('#business-qr-color').val('#22ADE4');
     var color = '#22ADE4';
-    $('.qrcode-box-logo').css("background-color", color);
-    $('.qrcode-box-header span').css("background-color", color);
-    $('.qrcode-box-body').css("background-color", color);
+    $('.business .qrcode-box-logo').css("background-color", color);
+    $('.business .qrcode-box-header span').css("background-color", color);
+    $('.business .qrcode-box-header span').css("color", '#FFFFFF');
+    $('.business .qrcode-box-logo .qrcode-upload label').css("color", '#FFFFFF');
+    $('.business .qrcode-box-body').css("background-color", color);
     $(this).addClass('selected');
     $('.business .light-theme').removeClass('selected');
 });
@@ -157,9 +181,11 @@ $('.business .light-theme').on('click', function(){
     $('#business-qr-back-color').val('#FFFFFF');
     $('#business-qr-color').val('#22ADE4');
     var color = '#FFFFFF';
-    $('.qrcode-box-logo').css("background-color", color);
-    $('.qrcode-box-header span').css("background-color", color);
-    $('.qrcode-box-body').css("background-color", color);
+    $('.business .qrcode-box-logo').css("background-color", color);
+    $('.business .qrcode-box-header span').css("background-color", color);
+    $('.business .qrcode-box-header span').css("color", '#444');
+    $('.business .qrcode-box-logo .qrcode-upload label').css("color", '#444');
+    $('.business .qrcode-box-body').css("background-color", color);
     $(this).addClass('selected');
     $('.business .dark-theme').removeClass('selected');
 });
@@ -180,6 +206,52 @@ $('.business .print-size-3').on('click', function(){
     $(this).addClass('selected');
     $('.business .print-size-2').removeClass('selected');
     $('.business .print-size-1').removeClass('selected');
+});
+
+//profileqr
+
+$('.profileqr .dark-theme').on('click', function(){
+    $('#profile-qr-back-color').val('#22ADE4');
+    $('#profile-qr-color').val('#22ADE4');
+    var color = '#22ADE4';
+    $('.profileqr .qrcode-box-logo').css("background-color", color);
+    $('.profileqr .qrcode-box-header span').css("background-color", color);
+    $('.profileqr .qrcode-box-header span').css("color", '#FFFFFF');
+    $('.profileqr .qrcode-box-logo .qrcode-upload label').css("color", '#FFFFFF');
+    $('.profileqr .qrcode-box-body').css("background-color", color);
+    $(this).addClass('selected');
+    $('.profileqr .light-theme').removeClass('selected');
+});
+
+$('.profileqr .light-theme').on('click', function(){
+    $('#profile-qr-back-color').val('#FFFFFF');
+    $('#profile-qr-color').val('#22ADE4');
+    var color = '#FFFFFF';
+    $('.profileqr .qrcode-box-logo').css("background-color", color);
+    $('.profileqr .qrcode-box-header span').css("background-color", color);
+    $('.profileqr .qrcode-box-header span').css("color", '#444');
+    $('.profileqr .qrcode-box-logo .qrcode-upload label').css("color", '#444');
+    $('.profileqr .qrcode-box-body').css("background-color", color);
+    $(this).addClass('selected');
+    $('.profileqr .dark-theme').removeClass('selected');
+});
+
+$('.profileqr .print-size-1').on('click', function(){
+    $(this).addClass('selected');
+    $('.profileqr .print-size-2').removeClass('selected');
+    $('.profileqr .print-size-3').removeClass('selected');
+});
+
+$('.profileqr .print-size-2').on('click', function(){
+    $(this).addClass('selected');
+    $('.profileqr .print-size-1').removeClass('selected');
+    $('.profileqr .print-size-3').removeClass('selected');
+});
+
+$('.profileqr .print-size-3').on('click', function(){
+    $(this).addClass('selected');
+    $('.profileqr .print-size-2').removeClass('selected');
+    $('.profileqr .print-size-1').removeClass('selected');
 });
 
 setTimeout(function(){
