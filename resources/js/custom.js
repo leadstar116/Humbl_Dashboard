@@ -254,6 +254,45 @@ $('.profileqr .print-size-3').on('click', function(){
     $('.profileqr .print-size-1').removeClass('selected');
 });
 
+function printDiv()
+{
+  var newWin=window.open('','Print-Window');
+  newWin.document.open();
+  newWin.document.write('<html><body onload="window.print()">'+$('.business .body').html()+'</body></html>');
+  newWin.document.close();
+  setTimeout(function(){newWin.close();},10);
+}
+
+$('.business .submit-btn').on('click', function(){
+    html2canvas(document.querySelector(".qrcode .business .body"), {
+        y: getOffsetTop(document.querySelector(".qrcode .business .body"))
+    }).then(canvas => {
+        var a = $("<a>").attr("href", canvas.toDataURL("image/png").replace(/^data:image\/[^;]/, 'data:application/octet-stream'))
+        .attr("download", "Business_QR.png")
+        .appendTo("body");
+        a[0].click();
+        a.remove();
+        $('#printer').empty();
+        $('#printer').append(canvas);
+        $('#printer').printThis({canvas: true});
+    });
+});
+
+$('.profileqr .submit-btn').on('click', function(){
+    html2canvas(document.querySelector(".qrcode .profileqr .body"), {
+        y: getOffsetTop(document.querySelector(".qrcode .profileqr .body"))
+    }).then(canvas => {
+        var a = $("<a>").attr("href", canvas.toDataURL("image/png").replace(/^data:image\/[^;]/, 'data:application/octet-stream'))
+        .attr("download", "Profile_QR.png")
+        .appendTo("body");
+        a[0].click();
+        a.remove();
+        $('#printer').empty();
+        $('#printer').append(canvas);
+        $('#printer').printThis({canvas: true});
+    });
+});
+
 setTimeout(function(){
     if($('#customer_ratings').length) {
         var data_string = $('#customer_ratings').val();
@@ -338,4 +377,15 @@ setTimeout(function(){
 
 if($('.dataTable').length){
     $('.dataTable').DataTable();
+}
+function getOffsetTop( elem )
+{
+    var offsetTop = 0;
+    do {
+      if ( !isNaN( elem.offsetTop ) )
+      {
+          offsetTop += elem.offsetTop;
+      }
+    } while( elem = elem.offsetParent );
+    return offsetTop;
 }

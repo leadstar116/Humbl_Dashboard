@@ -11223,27 +11223,23 @@ main.dashboard {
   margin: 10px auto;
 }
 
-.qrcode #main-content .body {
-  border-bottom: 1px solid #eee;
-}
-
-.qrcode #main-content .body .qrcode-box-logo {
+.qrcode #main-content .card .body .qrcode-box-logo {
   padding: 20px 0px;
   max-width: 400px;
   margin: 0 auto;
   background: #22ADE4;
 }
 
-.qrcode #main-content .body .qrcode-box-logo .img_profile,
-.qrcode #main-content .body .qrcode-box-logo .img_profile_qr {
+.qrcode #main-content .card .body .qrcode-box-logo .img_profile,
+.qrcode #main-content .card .body .qrcode-box-logo .img_profile_qr {
   width: 100px;
 }
 
-.qrcode #main-content .body .qrcode-box-logo .qrcode-image {
+.qrcode #main-content .card .body .qrcode-box-logo .qrcode-image {
   display: none;
 }
 
-.qrcode #main-content .body .qrcode-box-logo .qrcode-upload {
+.qrcode #main-content .card .body .qrcode-box-logo .qrcode-upload {
   padding: 20px;
   border: 1px dotted #eee;
   width: 80%;
@@ -11251,32 +11247,32 @@ main.dashboard {
   color: #fff;
 }
 
-.qrcode #main-content .body .qrcode-box-logo .qrcode-upload i {
+.qrcode #main-content .card .body .qrcode-box-logo .qrcode-upload i {
   font-size: 35px;
   padding-right: 10px;
   position: relative;
   top: 5px;
 }
 
-.qrcode #main-content .body .qrcode-box-logo .qrcode-upload label {
+.qrcode #main-content .card .body .qrcode-box-logo .qrcode-upload label {
   font-size: 25px;
   color: #fff;
   cursor: pointer;
 }
 
-.qrcode #main-content .body .qrcode-box-logo .qrcode-upload #qrcodeFile,
-.qrcode #main-content .body .qrcode-box-logo .qrcode-upload #qrcodeProfileFile {
+.qrcode #main-content .card .body .qrcode-box-logo .qrcode-upload #qrcodeFile,
+.qrcode #main-content .card .body .qrcode-box-logo .qrcode-upload #qrcodeProfileFile {
   display: none;
 }
 
-.qrcode #main-content .body .qrcode-box-header {
+.qrcode #main-content .card .body .qrcode-box-header {
   font-size: 20px;
   color: #6c757d;
   border-top: 1px dotted #ACACAC;
   border-bottom: 1px dotted #ACACAC;
 }
 
-.qrcode #main-content .body .qrcode-box-header span {
+.qrcode #main-content .card .body .qrcode-box-header span {
   font-size: 32px;
   color: #fff;
   padding: 10px 0px;
@@ -11286,34 +11282,40 @@ main.dashboard {
   display: inline-block;
 }
 
-.qrcode #main-content .body .qrcode-box-body {
+.qrcode #main-content .card .body .qrcode-box-body {
   padding: 20px 0px;
   max-width: 400px;
   margin: 0 auto;
   background: #22ADE4;
 }
 
-.qrcode #main-content .body .qrcode-box-body .qrcode-img {
+.qrcode #main-content .card .body .qrcode-box-body .qrcode-img {
   border-radius: 25px;
   width: 300px;
 }
 
-.qrcode #main-content .body .qrcode-box-logos {
+.qrcode #main-content .card .body .qrcode-box-logos {
   border-top: 1px dotted #ACACAC;
   border-bottom: 1px dotted #ACACAC;
 }
 
-.qrcode #main-content .body .qrcode-logos {
+.qrcode #main-content .card .body .qrcode-logos {
   max-width: 400px;
 }
 
-.qrcode #main-content .body .qrcode-logos-div {
+.qrcode #main-content .card .body .qrcode-logos-div {
   border-top: 1px dotted #ACACAC;
   border-bottom: 1px dotted #ACACAC;
 }
 
-.qrcode #main-content .body p {
+.qrcode #main-content .card .body p {
   margin: 15px 0px 0px 0px;
+}
+
+.qrcode #main-content .imgPreview {
+  text-align: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
 }
 
 .qrcode #main-content .qrcode-customize {

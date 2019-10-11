@@ -218,8 +218,7 @@
             margin: 10px auto;
         }
     }
-    .body {
-        border-bottom: 1px solid #eee;
+    .card .body {
         .qrcode-box-logo {
             padding: 20px 0px;
             max-width: 400px;
@@ -292,6 +291,11 @@
         p {
             margin: 15px 0px 0px 0px;
         }
+    }
+    .imgPreview {
+        text-align: center;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #eee;
     }
     .qrcode-customize {
         padding: 20px;

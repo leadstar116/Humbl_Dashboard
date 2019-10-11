@@ -8,6 +8,11 @@
 <div id="wrapper" class="qrcode">
     @include('partials.sidebar')
 
+    <div style="display: none;">
+        <div id="printer" style="">
+
+        </div>
+    </div>
     <div id="main-content" class="all-selected">
         <div class="container-fluid">
             <div class="block-header">
@@ -28,7 +33,7 @@
                                 <p class="text-muted">Links to your business profile on HUMBL for users to rate, review and find out more about your company</p>
                             </div>
                         </div>
-                        <div class="body">
+                        <div class="body" style="background: black;">
                             <div class="qrcode-box-logo">
                                 <div class="qrcode-upload">
                                     <label for="qrcodeFile">
@@ -59,8 +64,8 @@
                                     Uneditable
                                 </span>
                             </div>
-                            <p>Image Preview</p>
                         </div>
+                        <p class="imgPreview">Image Preview</p>
                         <div class="qrcode-customize">
                             <div class="row">
                                 <div class="col-md-4 title">
@@ -124,8 +129,8 @@
                                     Uneditable
                                 </span>
                             </div>
-                            <p>Image Preview</p>
                         </div>
+                        <p class="imgPreview">Image Preview</p>
                         <div class="qrcode-customize">
                             <div class="row">
                                 <div class="col-md-4 title">
