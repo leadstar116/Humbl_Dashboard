@@ -10857,7 +10857,6 @@ main.dashboard {
 
 .top-navbar {
   background: #fff !important;
-  z-index: 99999 !important;
   width: 100% !important;
 }
 
@@ -11423,7 +11422,7 @@ main.dashboard {
 
 #accordion .panel-body input,
 #accordion .panel-body select {
-  max-width: 300px;
+  max-width: 340px;
 }
 
 #accordion .panel-body input {
@@ -11455,11 +11454,13 @@ main.dashboard {
   float: right;
 }
 
-.profile-complete {
+.profile-complete,
+.payment-complete {
   padding-top: 100px;
 }
 
-.profile-complete .profile-reset-btn {
+.profile-complete .profile-reset-btn,
+.payment-complete .profile-reset-btn {
   width: 46%;
   padding: 7px 15px;
   background-color: #22ade4;
@@ -11467,47 +11468,56 @@ main.dashboard {
   margin-top: 0px;
 }
 
-.profile-complete a {
+.profile-complete a,
+.payment-complete a {
   color: #fff !important;
   cursor: pointer;
 }
 
-.profile-complete .btn-save-continue {
+.profile-complete .btn-save-continue,
+.payment-complete .btn-save-continue {
   width: 100%;
   padding: 7px 15px;
   background-color: #22ade4;
   border: none;
 }
 
-.profile-complete .btn-add-department {
+.profile-complete .btn-add-department,
+.payment-complete .btn-add-department {
   width: 100%;
   padding: 7px;
   background-color: #22ade4;
   border: none;
 }
 
-.profile-complete .department-list {
+.profile-complete .department-list,
+.payment-complete .department-list {
   list-style: none;
   -moz-column-count: 3;
        column-count: 3;
 }
 
-.profile-complete .department-list input {
+.profile-complete .department-list input,
+.payment-complete .department-list input {
   width: 75%;
 }
 
-.profile-complete .department-list i {
+.profile-complete .department-list i,
+.payment-complete .department-list i {
   color: #f00;
   font-size: 25px;
   padding: 7px 15px;
 }
 
 .profile-complete #avatarFile,
-.profile-complete #backgroundFile {
+.profile-complete #backgroundFile,
+.payment-complete #avatarFile,
+.payment-complete #backgroundFile {
   display: none;
 }
 
-.profile-complete textarea {
+.profile-complete textarea,
+.payment-complete textarea {
   border-radius: 10px;
   padding: 10px;
   border-color: #DCDFE6;
@@ -11515,7 +11525,8 @@ main.dashboard {
   height: 100px;
 }
 
-.profile-complete .img_profile {
+.profile-complete .img_profile,
+.payment-complete .img_profile {
   width: 140px;
   height: 140px;
   border-radius: 50%;
@@ -11527,7 +11538,8 @@ main.dashboard {
   cursor: pointer;
 }
 
-.profile-complete .img_profile_btn {
+.profile-complete .img_profile_btn,
+.payment-complete .img_profile_btn {
   width: 33px;
   position: absolute;
   z-index: 9999;
@@ -11536,12 +11548,14 @@ main.dashboard {
   cursor: pointer;
 }
 
-.profile-complete .img_profile_btn img {
+.profile-complete .img_profile_btn img,
+.payment-complete .img_profile_btn img {
   width: 33px;
   border-radius: 50%;
 }
 
-.profile-complete .img_back_btn {
+.profile-complete .img_back_btn,
+.payment-complete .img_back_btn {
   width: 33px;
   position: absolute;
   z-index: 9999;
@@ -11550,24 +11564,28 @@ main.dashboard {
   cursor: pointer;
 }
 
-.profile-complete .img_back_btn img {
+.profile-complete .img_back_btn img,
+.payment-complete .img_back_btn img {
   width: 33px;
   border-radius: 50%;
 }
 
-.profile-complete .img_profile_back {
+.profile-complete .img_profile_back,
+.payment-complete .img_profile_back {
   width: 100%;
   opacity: 0.8;
 }
 
-.profile-complete .left-btn {
+.profile-complete .left-btn,
+.payment-complete .left-btn {
   width: 46%;
   padding: 7px 15px;
   background-color: #22ade4;
   border: none;
 }
 
-.profile-complete input {
+.profile-complete input,
+.payment-complete input {
   display: inline-block;
   height: 47px;
   width: 100%;
@@ -11580,13 +11598,62 @@ main.dashboard {
   height: 35px;
 }
 
-.profile-complete input:-webkit-autofill {
+.profile-complete input:-webkit-autofill,
+.payment-complete input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0px 1000px #fff inset !important;
   -webkit-text-fill-color: #000 !important;
 }
 
-.profile-header h3 {
+.profile-header h3,
+.payment-complete h3 {
   color: #000;
+}
+
+.payment-complete textarea {
+  margin-top: 20px;
+}
+
+.payment-complete .btn-save-continue {
+  width: auto;
+}
+
+.payment-complete #accordion .panel .panel-title.create-stripe-account {
+  color: #444444 !important;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.payment-complete #accordion .panel .panel-title.create-stripe-account a.btn-create-stripe-account {
+  background-color: #3490dc !important;
+  color: #fff !important;
+  border-radius: 6px;
+  font-size: 18px;
+  padding: 5px 15px;
+}
+
+#successModal .modal-dialog .modal-content,
+#failureModal .modal-dialog .modal-content {
+  background: #fff;
+}
+
+#successModal img,
+#failureModal img {
+  margin: 20px 0px;
+}
+
+#successModal h4,
+#successModal p,
+#failureModal h4,
+#failureModal p {
+  color: #444444;
+}
+
+#successModal a,
+#failureModal a {
+  color: #fff;
+  font-size: 18px;
 }
 
 .card .body,

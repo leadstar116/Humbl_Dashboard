@@ -31,7 +31,7 @@ class EmployeesController extends Controller
         $customer_rating = [];
         foreach($user->employees as $employee) {
             $result = DB::table('tips')
-                ->select(DB::raw('sum(fAmount) as sum, AVG(fAmount) as average, AVG(vRating) as customer_rating'))
+                ->select(DB::raw('sum(fTipAmount) as sum, AVG(fTipAmount) as average, AVG(vRating) as customer_rating'))
                 ->where('iToUserId', '=', $employee->iUserId)
                 ->where('tiIsActive', '=', '1')
                 ->get();

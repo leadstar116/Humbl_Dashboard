@@ -31,6 +31,8 @@ Route::get('/qrcode', 'AccountController@qrcode')->middleware('ProfileComplete')
 Route::get('/logout', 'Auth\LoginController@logout');
 
 Route::post('/saveComplete', 'ProfileController@saveComplete')->name('saveComplete');
+Route::post('/savePayment', 'PaymentsController@savePayment')->name('savePayment');
 Route::post('/updateProfile', 'ProfileController@update')->name('updateProfile');
 Route::post('/inviteNew', 'InvitesController@inviteNew')->name('inviteNew')->middleware('ProfileComplete');
 Route::post('/remove_staff', 'EmployeesController@removeStaff')->name('remove_staff')->middleware('ProfileComplete');
+Route::post('/create_stripe_account', 'PaymentsController@createAccount')->name('create_stripe_account');

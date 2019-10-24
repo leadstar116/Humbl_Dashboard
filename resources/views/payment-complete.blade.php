@@ -5,10 +5,10 @@
 <!-- Overlay For Sidebars -->
 <div class="overlay"></div>
 
-<div id="wrapper" class="container profile-complete">
+<div id="wrapper" class="container payment-complete">
     @include('partials.navbar')
     <div class="row clearfix">
-        <div class="col-md-12 profile-header">
+        <div class="col-md-12 payment-header">
         <h3>Connect Your Accounts to Begin Receiving Payments</h3>
         <p>We need to learn more about you and your business before you can process payments on HUMBL. Except where noted below, the information you provide will only be visible to the account owner and administrators.</p>
         </div>
@@ -16,15 +16,16 @@
             <div class="panel-group" id="accordion">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                    <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#business_details">
-                        1. Business Details for Primary Account <span class="required">REQUIRED</span>
-                        <span class="expand">+ Expand</span></a>
+                    <h4 class="panel-title create-stripe-account">
+                        {{-- <a data-toggle="collapse" data-parent="#accordion" href="#business_details"> --}}
+                        1. Create Stripe Account <span class="required">REQUIRED</span>
+                        <a class="btn btn-create-stripe-account pull-right">Create Account</a>
+                        {{-- </a> --}}
                     </h4>
                     </div>
-                    <div id="business_details" class="panel-collapse collapse in">
+                    <div id="business_details" class="panel-collapse collapse in" style="display:none;">
                         <div class="panel-body">
-                            <form method="POST" action="{{ route('saveComplete') }}" enctype="multipart/form-data">
+                            <form method="POST" action="{{ route('savePayment') }}" enctype="multipart/form-data">
                             @csrf
                                 <div class="form-group">
                                     <label>Country </label>
@@ -291,16 +292,16 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Business Phone </label>
-                                    <input type="text" placeholder="+1(555) 678-1212" name="phone" required>
+                                    <input type="text" placeholder="+1(555) 678-1212" name="business_phone" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Business Type </label>
-                                    <select class="form-control" name="country" required>
-                                        <option value="individual">Individual, Sole Proprietor, or Single-Member LLC</option>
+                                    <select class="form-control" name="business_type" required>
                                         <option value="corporation">Corporation</option>
-                                        <option value="llc">Limited liability company (LLC)</option>
+                                        <option value="sole_prop" selected="selected">Individual or Sole Proprietor</option>
                                         <option value="non_profit">Nonprofit organization</option>
                                         <option value="partnership">Partnership</option>
+                                        <option value="llc">Limited liability company (LLC)</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
@@ -315,13 +316,94 @@
                                 <div class="form-group">
                                     <label>Business Description </label>
                                     <select class="form-control" name="industry" required>
-                                        <option value="" disabled>Individual, Sole Proprietor, or Single-Member LLC</option>
+                                        <option value="" disabled selected>Individual, Sole Proprietor, or Single-Member LLC</option>
                                         <option value="individual">Individual</option>
                                         <option value="sole">Sole Proprietor</option>
                                         <option value="single">Single-Member LLC</option>
                                     </select>
-                                    <textarea name="biz_description" id="" cols="30" rows="10"></textarea>
+                                    <textarea name="biz_description" id="" cols="30" rows="10" placeholder="Describe what you sell, whom you sell to, and when you charge your customers."></textarea>
                                 </div>
+                                <div class="form-group">
+                                    <label>How Long After Paying Will Your Customers Typically Receive Their Goods or Services? </label>
+                                    <select class="form-control" name="receive_service" required>
+                                        <option value="" disabled selected>Choose…</option>
+                                        <option value="withinoneday">Within a day</option>
+                                        <option value="withintwoweeks">Within two weeks</option>
+                                        <option value="withinonemonth">Within a month</option>
+                                        <option value="multiplemonths">More than a month</option>
+                                    </select>
+                                    <textarea name="biz_description" id="" cols="30" rows="10" placeholder="Describe what you sell, whom you sell to, and when you charge your customers."></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Business representative </label>
+                                    <p>An individual or sole proprietor must activate their own account. If you’re trying to activate this account on someone's behalf, please invite them to become an administrator and transfer ownership of the account. You will still have administrator access, and any information you added will be saved.</p>
+                                    <label>Full name</label>
+                                    <input type="text" placeholder="First name" name="first_name" required>
+                                    <input type="text" placeholder="Last name" name="last_name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Email address</label>
+                                    <input type="text" placeholder="user@example.com" name="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Phone Number</label>
+                                    <input type="text" placeholder="+1 (555) 678-1212" name="phone" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Date of birth</label>
+                                    <input type="date" placeholder="MM/DD/YYYY" name="birthday" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Last 4 digits of Social Security number (SSN)</label>
+                                    <input type="text" placeholder="8888" name="ssn" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Home Address</label>
+                                    <input type="text" placeholder="Address Line1" name="home_address_1" required><br/>
+                                    <input type="text" placeholder="Address Line2" name="home_address_2"><br/>
+                                    <input type="text" placeholder="City" name="home_city" required><br/>
+                                    <input type="text" placeholder="State" name="home_state" required><br/>
+                                    <input type="text" placeholder="Zip Code" name="home_zipcode" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Credit card statement</label>
+                                    <p>This information may appear on your customers' credit card statements. Use recognizable information to prevent unintended chargebacks.</p>
+                                    <label>Statement descriptor</label>
+                                    <input type="text" placeholder="Your business name" name="card_state_descriptor" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Shortened descriptor</label>
+                                    <input type="text" placeholder="Business" name="card_shortend_descriptor" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Support phone number</label>
+                                    <input type="text" placeholder="+1 (555) 678-1212" name="support_phone" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Customer support address</label>
+                                    <input type="text" placeholder="Address Line1" name="customer_address_1" required><br/>
+                                    <input type="text" placeholder="Address Line2" name="customer_address_2"><br/>
+                                    <input type="text" placeholder="City" name="customer_city" required><br/>
+                                    <input type="text" placeholder="State" name="customer_state" required><br/>
+                                    <input type="text" placeholder="Zip Code" name="customer_zipcode" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Bank details</label>
+                                    <p>Provide your bank details so Stripe can make deposits to your checking account. Payments in other currencies will be converted and paid out in USD.</p>
+                                    <label>Routing number</label>
+                                    <input type="text" placeholder="110000000" name="routing_number" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Account number</label>
+                                    <input type="text" placeholder="000123456789" name="account_number" id="account_number" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Confirm account number</label>
+                                    <input type="text" placeholder="000123456789" name="confirm_account_number" id="confirm_account_number" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-save-continue">
+                                    Submit
+                                </button>
                             </form>
                         </div>
                     </div>
@@ -345,5 +427,45 @@
         </div>
     </div>
     </form>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="col-md-12 text-center mb-5">
+                    <img src="/img/humbl-success-mark.png" class="success-mark" alt="">
+                    <h4>Account Successfully Created!</h4>
+                    <p>Your account is ready to go, now let's add your bank.</p>
+                    <a class="btn btn-primary btn-continue-link">
+                        Continue
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="failureModal" tabindex="-1" role="dialog" aria-labelledby="failureModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="col-md-12 text-center mb-5">
+                    <img src="/img/humbl-error-mark.png" class="error-mark" alt="">
+                    <h4>Hmm, let's try that again!</h4>
+                    <p>There was an error setting up your account. If the error persis, please contact us.</p>
+                    <div>
+                        <a class="btn btn-primary btn-try-again">
+                            Try Again
+                        </a>
+                        <a class="btn btn-primary" data-dismiss="modal">
+                            Close
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 @endsection

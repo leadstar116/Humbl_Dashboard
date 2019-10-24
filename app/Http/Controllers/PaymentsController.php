@@ -4,9 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Input;
-use App\Profile;
-use App\Departments;
+use App\Payment;
 
 class PaymentsController extends Controller
 {
@@ -37,50 +35,226 @@ class PaymentsController extends Controller
      */
     public function complete()
     {
+        // echo '<pre>';
+
+        /*
+        $user = Auth::user();
+        $payment = $user->payment;
+        try {
+            \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+
+            $result = \Stripe\AccountLink::create([
+                "account" => "acct_1FW2kkISdn2eWnOL",
+                "failure_url" => "https://example.com/failure",
+                "success_url" => "https://example.com/success",
+                "type" => "custom_account_verification",
+              ]);
+            print_r($result);
+            if($payment->biz_type != 'sole_prop') {
+                \Stripe\Account::create([
+                    "type" => "custom",
+                    "country" => $payment->country,
+                    "email" => $payment->email,
+                    "requested_capabilities" => ["card_payments", "transfers"],
+                    "business_profile" => [
+                        'name' => $user->BusinessName,
+                        'product_description' => $payment->biz_description,
+                        'support_address' => $payment->customer_address_1,
+                        'support_email' => $payment->email,
+                        'support_phone' => $payment->support_phone,
+                        'support_url' => $payment->website,
+                        'url' => $payment->website
+                    ],
+                    "business_type" => $payment->biz_type,
+                ]);
+            } else {
+                $account = \Stripe\Account::create([
+                    "type" => "custom",
+                    "country" => $payment->country,
+                    "email" => $payment->email,
+                    "requested_capabilities" => ["card_payments", "transfers"],
+                    "business_profile" => [
+                        'name' => $user->BusinessName,
+                        'product_description' => $payment->biz_description,
+                        'support_email' => $payment->email,
+                        'support_phone' => $payment->support_phone,
+                        'support_url' => $payment->website,
+                        'url' => $payment->website
+                    ],
+                    "business_type" => $payment->biz_type,
+                    "individual" => [
+                        'address' => [
+                            'city' => $payment->home_city,
+                            'line1' => $payment->home_address_1,
+                            'line2' => $payment->home_address_2,
+                            'postal_code' => $payment->home_zipcode,
+                            'state' => $payment->home_state,
+                        ],
+                        'first_name' => $payment->first_name,
+                        'last_name' => $payment->last_name,
+                        'phone' => $payment->phone,
+                        'ssn_last_4' => $payment->ssn,
+                    ]
+                ]);
+                print_r($account);
+            }
+            print_r(\Stripe\Account::all());
+        } catch (\Stripe\Exception\CardException $e) {
+            // Since it's a decline, \Stripe\Exception\CardException will be caught
+            echo 'Status is:' . $e->getHttpStatus() . '\n';
+            echo 'Type is:' . $e->getError()->type . '\n';
+            echo 'Code is:' . $e->getError()->code . '\n';
+            // param is '' in this case
+            echo 'Param is:' . $e->getError()->param . '\n';
+            echo 'Message is:' . $e->getError()->message . '\n';
+        } catch (\Stripe\Exception\RateLimitException $e) {
+            echo 'Too many requests made to the API too quickly';
+            print_r($e->getError());
+        } catch (\Stripe\Exception\InvalidRequestException $e) {
+            echo "Invalid parameters were supplied to Stripe's API";
+            print_r($e->getError());
+        } catch (\Stripe\Exception\AuthenticationException $e) {
+            echo "Authentication with Stripe's API failed
+             (maybe you changed API keys recently)";
+             print_r($e->getError());
+        } catch (\Stripe\Exception\ApiConnectionException $e) {
+            echo "Network communication with Stripe failed";
+            print_r($e->getError());
+        } catch (\Stripe\Exception\ApiErrorException $e) {
+            echo "Display a very generic error to the user, and maybe send
+             yourself an email";
+             print_r($e->getError());
+        } catch (Exception $e) {
+            echo "Something else happened, completely unrelated to Stripe";
+            print_r($e->getError());
+        }
+            */
+        // exit;
         return view('payment-complete')->with('user', Auth::user());
     }
 
-    public function saveComplete(Request $request) {
+    public function createAccount() {
         $user = Auth::user();
+        $result = [];
+        try{
+            \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
 
-        if ($request->hasFile('avatar')) {
-            $avatarName = $user->id.'_avatar'.time().'.'.request()->avatar->getClientOriginalExtension();
-            $request->avatar->storeAs('avatars', $avatarName);
-            $user->ProfilePic = $avatarName;
-        }
-        if ($request->hasFile('avatar_back')) {
-            $avatarBackName = $user->id.'_avatar_back'.time().'.'.request()->avatar_back->getClientOriginalExtension();
-            $request->avatar_back->storeAs('avatars', $avatarBackName);
-            $user->ProfilePic_back = $avatarBackName;
-        }
+            $payment = $user->payment;
+            $create_flag = false;
+            if(!$payment) {
+                $payment = new Payment;
+                $create_flag = true;
+            } else {
+                if(!$payment->account_id) {
+                    $create_flag = true;
+                }
+            }
 
-        $profile = $user->profile;
-        if(!$profile) {
-            $profile = new Profile;
-        }
-        $profile->name = $request->input('name');
-        $profile->tagline = $request->input('tagline');
-        $profile->email = $request->input('email');
-        $profile->phone = $request->input('phone');
-        $profile->address = $request->input('address');
-        $profile->city = $request->input('city');
-        $profile->country = $request->input('country');
-        $profile->state = $request->input('state');
-        $profile->zipcode = $request->input('zipcode');
-        $profile->biz_description = $request->input('business');
-        $user->profile()->save($profile);
+            if($create_flag) {
+                $account = \Stripe\Account::create([
+                    "type" => "custom",
+                    "country" => 'US',
+                    "email" => $user->email,
+                    "requested_capabilities" => ["card_payments", "transfers"],
+                ]);
+                $payment->account_id = $account['id'];
+            }
 
-        $departments = [];
-        foreach($request->department as $depart) {
-            $department = new Departments;
-            $department->department = $depart;
-            $departments[] = $department;
-        }
-        $user->departments()->saveMany($departments);
+            $link = \Stripe\AccountLink::create([
+                "account" => $payment->account_id,
+                "failure_url" => "http://example.com/failure",
+                "success_url" => "http://example.com/success",
+                "type" => "custom_account_verification",
+            ]);
+            $payment->account_link = $link['url'];
+            $payment->account_status = 'link';
+            $user->payment()->save($payment);
 
-        $user->profile_completed = 1;
+            $result['success'] = true;
+            $result['link'] = $link['url'];
+        } catch (\Stripe\Exception\CardException $e) {
+            // Since it's a decline, \Stripe\Exception\CardException will be caught
+            // echo 'Status is:' . $e->getHttpStatus() . '\n';
+            // echo 'Type is:' . $e->getError()->type . '\n';
+            // echo 'Code is:' . $e->getError()->code . '\n';
+            // param is '' in this case
+            // echo 'Param is:' . $e->getError()->param . '\n';
+            // echo 'Message is:' . $e->getError()->message . '\n';
+            $result['success'] = false;
+            $result['error_message'] = $e->getError();
+        } catch (\Stripe\Exception\RateLimitException $e) {
+            // echo 'Too many requests made to the API too quickly';
+            $result['success'] = false;
+            $result['error_message'] = $e->getError();
+        } catch (\Stripe\Exception\InvalidRequestException $e) {
+            // echo "Invalid parameters were supplied to Stripe's API";
+            $result['success'] = false;
+            $result['error_message'] = $e->getError();
+        } catch (\Stripe\Exception\AuthenticationException $e) {
+            // echo "Authentication with Stripe's API failed
+            // (maybe you changed API keys recently)";
+            $result['success'] = false;
+            $result['error_message'] = $e->getError();
+        } catch (\Stripe\Exception\ApiConnectionException $e) {
+            // echo "Network communication with Stripe failed";
+            $result['success'] = false;
+            $result['error_message'] = $e->getError();
+        } catch (\Stripe\Exception\ApiErrorException $e) {
+            // echo "Display a very generic error to the user, and maybe send
+            // yourself an email";
+            $result['success'] = false;
+            $result['error_message'] = $e->getError();
+        } catch (Exception $e) {
+            // echo "Something else happened, completely unrelated to Stripe";
+            $result['success'] = false;
+            $result['error_message'] = $e->getError();
+        }
+        return response($result, 200);
+    }
+
+    public function savePayment(Request $request) {
+        $user = Auth::user();
+        $payment = $user->payment;
+        if(!$payment) {
+            $payment = new Payment;
+        }
+        $payment->country = $request->input('country');
+        $payment->biz_address_1 = $request->input('address_1');
+        $payment->biz_address_2 = $request->input('address_2');
+        $payment->biz_city = $request->input('city');
+        $payment->biz_state = $request->input('state');
+        $payment->biz_zipcode = $request->input('zipcode');
+        $payment->biz_phone = $request->input('business_phone');
+        $payment->biz_type = $request->input('business_type');
+        $payment->ein = $request->input('ein');
+        $payment->website = $request->input('website');
+        $payment->industry = $request->input('industry');
+        $payment->biz_description = $request->input('biz_description');
+        $payment->first_name = $request->input('first_name');
+        $payment->last_name = $request->input('last_name');
+        $payment->email = $request->input('email');
+        $payment->phone = $request->input('phone');
+        $payment->birthday = $request->input('birthday');
+        $payment->ssn = $request->input('ssn');
+        $payment->home_address_1 = $request->input('home_address_1');
+        $payment->home_address_2 = $request->input('home_address_2');
+        $payment->home_city = $request->input('home_city');
+        $payment->home_state = $request->input('home_state');
+        $payment->home_zipcode = $request->input('home_zipcode');
+        $payment->card_state_descriptor = $request->input('card_state_descriptor');
+        $payment->card_shortend_descriptor = $request->input('card_shortend_descriptor');
+        $payment->support_phone = $request->input('support_phone');
+        $payment->customer_address_1 = $request->input('customer_address_1');
+        $payment->customer_address_2 = $request->input('customer_address_2');
+        $payment->customer_city = $request->input('customer_city');
+        $payment->customer_state = $request->input('customer_state');
+        $payment->customer_zipcode = $request->input('customer_zipcode');
+        $payment->routing_number = $request->input('routing_number');
+        $payment->account_number = $request->input('account_number');
+        $user->payment()->save($payment);
+
+        $user->payment_completed = 1;
         $user->save();
-
-        return view('home')->with('user', Auth::user());
+        return redirect()->intended('profile-complete');
     }
 }

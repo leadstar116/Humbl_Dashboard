@@ -278,6 +278,34 @@ $('.business .submit-btn').on('click', function(){
     });
 });
 
+$('.btn-create-stripe-account').on('click', function(){
+    $.ajax({
+        url: '/create_stripe_account',
+        type: 'POST',
+        data: {
+            "_token": $('meta[name="csrf-token"]').attr('content'),
+            },
+        success: function (data, textStatus, jqXHR) {
+            if (typeof data.error === 'undefined') {
+                if(data.success) {
+                //     $('#successModal').modal('show');
+                // } else {
+                    $('#failureModal').modal('show');
+                }
+            }
+            else {
+                // Handle errors here
+                alert('ERRORS: ' + data.error);
+            }
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            // Handle errors here
+            alert('ERRORS: ' + textStatus);
+            // STOP LOADING SPINNER
+        }
+    });
+});
+
 $('.profileqr .submit-btn').on('click', function(){
     html2canvas(document.querySelector(".qrcode .profileqr .body"), {
         y: getOffsetTop(document.querySelector(".qrcode .profileqr .body"))
@@ -292,6 +320,22 @@ $('.profileqr .submit-btn').on('click', function(){
         $('#printer').printThis({canvas: true});
     });
 });
+
+if($('.payment-complete').length) {
+    var password = document.getElementById("account_number")
+        ,confirm_password = document.getElementById("confirm_account_number");
+
+    function validatePassword(){
+        if(password.value != confirm_password.value) {
+        confirm_password.setCustomValidity("Passwords Don't Match");
+        } else {
+        confirm_password.setCustomValidity('');
+        }
+    }
+
+    password.onchange = validatePassword;
+    confirm_password.onkeyup = validatePassword;
+}
 
 setTimeout(function(){
     if($('#customer_ratings').length) {

@@ -41,7 +41,7 @@ class HomeController extends Controller
             $total_rating += $result[0]->customer_rating;
 
             $result = DB::table('tips')
-                ->select(DB::raw('sum(fAmount) as sum'))
+                ->select(DB::raw('sum(fTipAmount) as sum'))
                 ->where('iToUserId', '=', $employee->iUserId)
                 ->where('tiIsActive', '=', '1')
                 ->where('payment_type', '=', 'tips')
@@ -49,7 +49,7 @@ class HomeController extends Controller
             $total_tips += $result[0]->sum;
 
             $result = DB::table('tips')
-                ->select(DB::raw('sum(fAmount) as sum'))
+                ->select(DB::raw('sum(fTipAmount) as sum'))
                 ->where('iToUserId', '=', $employee->iUserId)
                 ->where('tiIsActive', '=', '1')
                 ->where('payment_type', '=', 'payment')
