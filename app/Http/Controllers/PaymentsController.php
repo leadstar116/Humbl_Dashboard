@@ -70,6 +70,8 @@ class PaymentsController extends Controller
             $payment->account_status = 'created';
             $user->payment()->save($payment);
 
+            $user->payment_completed = 1;
+            $user->save();
             return redirect('verify_success');
         }
     }
@@ -80,51 +82,5 @@ class PaymentsController extends Controller
 
     public function verifySuccess() {
         return view('verify-success')->with('user', Auth::user());
-    }
-
-    public function savePayment(Request $request) {
-        $user = Auth::user();
-        $payment = $user->payment;
-        if(!$payment) {
-            $payment = new Payment;
-        }
-        $payment->country = $request->input('country');
-        $payment->biz_address_1 = $request->input('address_1');
-        $payment->biz_address_2 = $request->input('address_2');
-        $payment->biz_city = $request->input('city');
-        $payment->biz_state = $request->input('state');
-        $payment->biz_zipcode = $request->input('zipcode');
-        $payment->biz_phone = $request->input('business_phone');
-        $payment->biz_type = $request->input('business_type');
-        $payment->ein = $request->input('ein');
-        $payment->website = $request->input('website');
-        $payment->industry = $request->input('industry');
-        $payment->biz_description = $request->input('biz_description');
-        $payment->first_name = $request->input('first_name');
-        $payment->last_name = $request->input('last_name');
-        $payment->email = $request->input('email');
-        $payment->phone = $request->input('phone');
-        $payment->birthday = $request->input('birthday');
-        $payment->ssn = $request->input('ssn');
-        $payment->home_address_1 = $request->input('home_address_1');
-        $payment->home_address_2 = $request->input('home_address_2');
-        $payment->home_city = $request->input('home_city');
-        $payment->home_state = $request->input('home_state');
-        $payment->home_zipcode = $request->input('home_zipcode');
-        $payment->card_state_descriptor = $request->input('card_state_descriptor');
-        $payment->card_shortend_descriptor = $request->input('card_shortend_descriptor');
-        $payment->support_phone = $request->input('support_phone');
-        $payment->customer_address_1 = $request->input('customer_address_1');
-        $payment->customer_address_2 = $request->input('customer_address_2');
-        $payment->customer_city = $request->input('customer_city');
-        $payment->customer_state = $request->input('customer_state');
-        $payment->customer_zipcode = $request->input('customer_zipcode');
-        $payment->routing_number = $request->input('routing_number');
-        $payment->account_number = $request->input('account_number');
-        $user->payment()->save($payment);
-
-        $user->payment_completed = 1;
-        $user->save();
-        return redirect()->intended('profile-complete');
     }
 }

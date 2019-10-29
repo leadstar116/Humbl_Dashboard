@@ -330,6 +330,13 @@ $('.business .submit-btn').on('click', function () {
     });
   });
 });
+$('.btn-continue-profile').on('click', function () {
+  if ($(this).hasClass('disabled')) {
+    return;
+  } else {
+    window.location = '/profile-complete';
+  }
+});
 /*
 $('.btn-create-stripe-account').on('click', function(){
     $.ajax({

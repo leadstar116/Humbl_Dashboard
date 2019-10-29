@@ -277,6 +277,15 @@ $('.business .submit-btn').on('click', function(){
         $('#printer').printThis({canvas: true});
     });
 });
+
+$('.btn-continue-profile').on('click', function(){
+    if($(this).hasClass('disabled')) {
+        return;
+    } else {
+        window.location = '/profile-complete';
+    }
+});
+
 /*
 $('.btn-create-stripe-account').on('click', function(){
     $.ajax({

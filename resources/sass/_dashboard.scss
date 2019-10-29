@@ -15,6 +15,15 @@ body {
 .invite-new .profile-header {
     margin-top: 0px;
 }
+
+.btn-continue-profile {
+    background-color: #3490dc !important;
+    color: #fff !important;
+    border-radius: 6px;
+    font-size: 18px !important;
+    padding: 5px 15px;
+    margin-top: 40px;
+}
 .review-rating {
     list-style-type: none;
     padding-left: 0px;
@@ -535,6 +544,10 @@ body {
     textarea {
         margin-top: 20px;
     }
+    .panel.panel-default {
+        border: 1px solid #eee;
+        padding: 20px;
+    }
     .btn-save-continue {
         width: auto;
     }
@@ -548,7 +561,7 @@ body {
             background-color: #3490dc !important;
             color: #fff !important;
             border-radius: 6px;
-            font-size: 18px;
+            font-size: 15px;
             padding: 5px 15px;
         }
     }

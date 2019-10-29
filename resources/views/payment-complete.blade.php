@@ -14,7 +14,7 @@
         </div>
         <div class="col-md-12">
             <div class="panel-group" id="accordion">
-                <div class="panel panel-default">
+                <div class="panel panel-default mb-3">
                     <div class="panel-heading">
                         <h4 class="panel-title create-stripe-account">
                             {{-- <a data-toggle="collapse" data-parent="#accordion" href="#business_details"> --}}
@@ -414,24 +414,7 @@
                         </div>
                     </div>
                 </div>
-                {{-- <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#connect_bank">
-                            2. Connect Your Bank Account<span class="recommended">RECOMMENDED</span>
-                            <span class="expand">+ Expand</span></a>
-                        </h4>
-                    </div>
-                    <div id="connect_bank" class="panel-collapse collapse">
-                        <div class="panel-body">
-                            <p>Getting paid has never been easier. Connect your bank account to start accepting your favorite forms of payment with HUMBL</p>
-                            <h4>Bank Details</h4>
-                            <p>You must provide a checking account. If you'd like to accept currencies other than USD, you will need to provide an account for each one.</p>
-                            <h5>Routing Number</h5>
-                        </div>
-                    </div>
-                </div> --}}
-                <div class="panel panel-default">
+                <div class="panel panel-default mb-3">
                     <div class="panel-heading">
                     <h4 class="panel-title">
                         <a data-toggle="collapse" data-parent="#accordion" href="#additional_payment">
@@ -445,6 +428,9 @@
                     minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
                     commodo consequat.</div>
                     </div>
+                </div>
+                <div class="text-center">
+                    <a class="btn btn-continue-profile <?= ($account_status == 'none' || $account_status == null)? 'disabled':''; ?>">Continue</a>
                 </div>
             </div>
         </div>
