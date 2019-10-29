@@ -48,7 +48,7 @@ class PaymentsController extends Controller
     public function redirect() {
         if(request()->error) {
             print_r(request()->error);
-            return redirect('verify-failure');
+            return redirect('verify_failure');
         } else {
             $code = request()->code;
             \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
@@ -70,7 +70,7 @@ class PaymentsController extends Controller
             $payment->account_status = 'created';
             $user->payment()->save($payment);
 
-            return redirect('verify-success');
+            return redirect('verify_success');
         }
     }
 
