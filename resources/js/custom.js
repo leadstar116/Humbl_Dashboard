@@ -288,8 +288,75 @@ $('.btn-create-stripe-account').on('click', function(){
         success: function (data, textStatus, jqXHR) {
             if (typeof data.error === 'undefined') {
                 if(data.success) {
-                //     $('#successModal').modal('show');
-                // } else {
+                    $('.stripe-btn-div').empty();
+                    $('.stripe-btn-div').append('<a class="btn btn-link-stripe-account pull-right">Verify Account</a>');
+                    $('#successModal .btn-continue-link').attr('type', 'created');
+                    $('#successModal').modal('show');
+                } else {
+                    $('#failureModal .btn-try-again').attr('type', 'none');
+                    $('#failureModal').modal('show');
+                }
+            }
+            else {
+                // Handle errors here
+                alert('ERRORS: ' + data.error);
+            }
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            // Handle errors here
+            alert('ERRORS: ' + textStatus);
+            // STOP LOADING SPINNER
+        }
+    });
+});
+
+$('#successModal .btn-continue-link').on('click', function(){
+    var type = $(this).attr('type');
+    if(type == 'created') {
+        $.ajax({
+            url: '/verify_stripe_account',
+            type: 'POST',
+            data: {
+                "_token": $('meta[name="csrf-token"]').attr('content'),
+                },
+            success: function (data, textStatus, jqXHR) {
+                if (typeof data.error === 'undefined') {
+                    if(data.success) {
+                        // console.log(data.link);
+                        window.location = data.link;
+                    } else {
+                        $('#failureModal .btn-try-again').attr('type', 'created');
+                        $('#failureModal').modal('show');
+                    }
+                }
+                else {
+                    // Handle errors here
+                    alert('ERRORS: ' + data.error);
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                // Handle errors here
+                alert('ERRORS: ' + textStatus);
+                // STOP LOADING SPINNER
+            }
+        });
+    }
+});
+
+$('.btn-verify-stripe-account').on('click', function(){
+    $.ajax({
+        url: '/verify_stripe_account',
+        type: 'POST',
+        data: {
+            "_token": $('meta[name="csrf-token"]').attr('content'),
+            },
+        success: function (data, textStatus, jqXHR) {
+            if (typeof data.error === 'undefined') {
+                if(data.success) {
+                    // console.log(data.link);
+                    window.location = data.link;
+                } else {
+                    $('#failureModal .btn-try-again').attr('type', 'created');
                     $('#failureModal').modal('show');
                 }
             }

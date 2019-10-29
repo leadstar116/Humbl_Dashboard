@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 use App\Payment;
 
 class PaymentsController extends Controller
@@ -35,102 +36,13 @@ class PaymentsController extends Controller
      */
     public function complete()
     {
-        // echo '<pre>';
-
-        /*
         $user = Auth::user();
         $payment = $user->payment;
-        try {
-            \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
-
-            $result = \Stripe\AccountLink::create([
-                "account" => "acct_1FW2kkISdn2eWnOL",
-                "failure_url" => "https://example.com/failure",
-                "success_url" => "https://example.com/success",
-                "type" => "custom_account_verification",
-              ]);
-            print_r($result);
-            if($payment->biz_type != 'sole_prop') {
-                \Stripe\Account::create([
-                    "type" => "custom",
-                    "country" => $payment->country,
-                    "email" => $payment->email,
-                    "requested_capabilities" => ["card_payments", "transfers"],
-                    "business_profile" => [
-                        'name' => $user->BusinessName,
-                        'product_description' => $payment->biz_description,
-                        'support_address' => $payment->customer_address_1,
-                        'support_email' => $payment->email,
-                        'support_phone' => $payment->support_phone,
-                        'support_url' => $payment->website,
-                        'url' => $payment->website
-                    ],
-                    "business_type" => $payment->biz_type,
-                ]);
-            } else {
-                $account = \Stripe\Account::create([
-                    "type" => "custom",
-                    "country" => $payment->country,
-                    "email" => $payment->email,
-                    "requested_capabilities" => ["card_payments", "transfers"],
-                    "business_profile" => [
-                        'name' => $user->BusinessName,
-                        'product_description' => $payment->biz_description,
-                        'support_email' => $payment->email,
-                        'support_phone' => $payment->support_phone,
-                        'support_url' => $payment->website,
-                        'url' => $payment->website
-                    ],
-                    "business_type" => $payment->biz_type,
-                    "individual" => [
-                        'address' => [
-                            'city' => $payment->home_city,
-                            'line1' => $payment->home_address_1,
-                            'line2' => $payment->home_address_2,
-                            'postal_code' => $payment->home_zipcode,
-                            'state' => $payment->home_state,
-                        ],
-                        'first_name' => $payment->first_name,
-                        'last_name' => $payment->last_name,
-                        'phone' => $payment->phone,
-                        'ssn_last_4' => $payment->ssn,
-                    ]
-                ]);
-                print_r($account);
-            }
-            print_r(\Stripe\Account::all());
-        } catch (\Stripe\Exception\CardException $e) {
-            // Since it's a decline, \Stripe\Exception\CardException will be caught
-            echo 'Status is:' . $e->getHttpStatus() . '\n';
-            echo 'Type is:' . $e->getError()->type . '\n';
-            echo 'Code is:' . $e->getError()->code . '\n';
-            // param is '' in this case
-            echo 'Param is:' . $e->getError()->param . '\n';
-            echo 'Message is:' . $e->getError()->message . '\n';
-        } catch (\Stripe\Exception\RateLimitException $e) {
-            echo 'Too many requests made to the API too quickly';
-            print_r($e->getError());
-        } catch (\Stripe\Exception\InvalidRequestException $e) {
-            echo "Invalid parameters were supplied to Stripe's API";
-            print_r($e->getError());
-        } catch (\Stripe\Exception\AuthenticationException $e) {
-            echo "Authentication with Stripe's API failed
-             (maybe you changed API keys recently)";
-             print_r($e->getError());
-        } catch (\Stripe\Exception\ApiConnectionException $e) {
-            echo "Network communication with Stripe failed";
-            print_r($e->getError());
-        } catch (\Stripe\Exception\ApiErrorException $e) {
-            echo "Display a very generic error to the user, and maybe send
-             yourself an email";
-             print_r($e->getError());
-        } catch (Exception $e) {
-            echo "Something else happened, completely unrelated to Stripe";
-            print_r($e->getError());
+        $account_status = 'none';
+        if($payment) {
+            $account_status = $payment->account_status;
         }
-            */
-        // exit;
-        return view('payment-complete')->with('user', Auth::user());
+        return view('payment-complete')->with('user', Auth::user())->with('account_status', $account_status)->with('payment', $payment);
     }
 
     public function createAccount() {
@@ -162,12 +74,12 @@ class PaymentsController extends Controller
 
             $link = \Stripe\AccountLink::create([
                 "account" => $payment->account_id,
-                "failure_url" => "http://example.com/failure",
-                "success_url" => "http://example.com/success",
+                "failure_url" => "http://localhost:8000/verify_failure",
+                "success_url" => "http://localhost:8000/verify_success",
                 "type" => "custom_account_verification",
             ]);
             $payment->account_link = $link['url'];
-            $payment->account_status = 'link';
+            $payment->account_status = 'created';
             $user->payment()->save($payment);
 
             $result['success'] = true;
@@ -210,6 +122,80 @@ class PaymentsController extends Controller
             $result['error_message'] = $e->getError();
         }
         return response($result, 200);
+    }
+
+    public function verifyAccount() {
+        $user = Auth::user();
+        $result = [];
+        try{
+            \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+
+            $payment = $user->payment;
+
+            $link = \Stripe\AccountLink::create([
+                "account" => $payment->account_id,
+                "failure_url" => "http://localhost:8000/verify_failure",
+                "success_url" => "http://localhost:8000/verify_success",
+                "type" => "custom_account_verification",
+            ]);
+            $payment->account_link = $link['url'];
+            $payment->account_status = 'created';
+            $user->payment()->save($payment);
+
+            $result['success'] = true;
+            $result['link'] = $link['url'];
+        } catch (\Stripe\Exception\CardException $e) {
+            // Since it's a decline, \Stripe\Exception\CardException will be caught
+            // echo 'Status is:' . $e->getHttpStatus() . '\n';
+            // echo 'Type is:' . $e->getError()->type . '\n';
+            // echo 'Code is:' . $e->getError()->code . '\n';
+            // param is '' in this case
+            // echo 'Param is:' . $e->getError()->param . '\n';
+            // echo 'Message is:' . $e->getError()->message . '\n';
+            $result['success'] = false;
+            $result['error_message'] = $e->getError();
+        } catch (\Stripe\Exception\RateLimitException $e) {
+            // echo 'Too many requests made to the API too quickly';
+            $result['success'] = false;
+            $result['error_message'] = $e->getError();
+        } catch (\Stripe\Exception\InvalidRequestException $e) {
+            // echo "Invalid parameters were supplied to Stripe's API";
+            $result['success'] = false;
+            $result['error_message'] = $e->getError();
+        } catch (\Stripe\Exception\AuthenticationException $e) {
+            // echo "Authentication with Stripe's API failed
+            // (maybe you changed API keys recently)";
+            $result['success'] = false;
+            $result['error_message'] = $e->getError();
+        } catch (\Stripe\Exception\ApiConnectionException $e) {
+            // echo "Network communication with Stripe failed";
+            $result['success'] = false;
+            $result['error_message'] = $e->getError();
+        } catch (\Stripe\Exception\ApiErrorException $e) {
+            // echo "Display a very generic error to the user, and maybe send
+            // yourself an email";
+            $result['success'] = false;
+            $result['error_message'] = $e->getError();
+        } catch (Exception $e) {
+            // echo "Something else happened, completely unrelated to Stripe";
+            $result['success'] = false;
+            $result['error_message'] = $e->getError();
+        }
+        return response($result, 200);
+    }
+
+    public function verifyFailure() {
+        return view('verify-failure')->with('user', Auth::user());
+    }
+
+    public function verifySuccess() {
+        $user = Auth::user();
+        $payment = $user->payment;
+        $payment->account_status = 'verified';
+        $user->payment()->save($payment);
+        echo '<pre>';
+        print_r(request()->authorization_code); exit;
+        return view('verify-success')->with('user', Auth::user());
     }
 
     public function savePayment(Request $request) {

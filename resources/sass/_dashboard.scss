@@ -1,6 +1,9 @@
 .pt-4, .py-4 {
     padding-top: 0px !important;
 }
+body {
+    background-color: #fff !important;
+}
 .top-navbar {
     background: $white !important;
     // z-index: 99999 !important;
@@ -541,7 +544,7 @@
         font-size: 20px;
         padding: 10px 15px;
         cursor: pointer;
-        a.btn-create-stripe-account {
+        a {
             background-color: #3490dc !important;
             color: #fff !important;
             border-radius: 6px;
@@ -554,6 +557,19 @@
     .modal-dialog .modal-content {
         background: #fff;
     }
+    img {
+        margin: 20px 0px;
+    }
+    h4, p {
+        color: #444444;
+    }
+    a {
+        color: #fff;
+        font-size: 18px;
+    }
+}
+.success-div, .failure-div {
+    background: #fff;
     img {
         margin: 20px 0px;
     }

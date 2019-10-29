@@ -25,7 +25,9 @@ Route::get('/invite-new', 'InvitesController@new')->middleware('ProfileComplete'
 Route::get('/messages', 'MessagesController@index')->middleware('ProfileComplete');
 Route::get('/payments', 'PaymentsController@index')->middleware('ProfileComplete');
 Route::get('/profile-complete', 'ProfileController@complete');
-Route::get('/payment-complete', 'PaymentsController@complete')->middleware('ProfileComplete');
+Route::get('/payment-complete', 'PaymentsController@complete');
+Route::get('/verify_failure', 'PaymentsController@verifyFailure');
+Route::get('/verify_success', 'PaymentsController@verifySuccess');
 Route::get('/account', 'AccountController@index')->middleware('ProfileComplete');
 Route::get('/qrcode', 'AccountController@qrcode')->middleware('ProfileComplete');
 Route::get('/logout', 'Auth\LoginController@logout');
@@ -36,3 +38,4 @@ Route::post('/updateProfile', 'ProfileController@update')->name('updateProfile')
 Route::post('/inviteNew', 'InvitesController@inviteNew')->name('inviteNew')->middleware('ProfileComplete');
 Route::post('/remove_staff', 'EmployeesController@removeStaff')->name('remove_staff')->middleware('ProfileComplete');
 Route::post('/create_stripe_account', 'PaymentsController@createAccount')->name('create_stripe_account');
+Route::post('/verify_stripe_account', 'PaymentsController@verifyAccount')->name('verify_stripe_account');

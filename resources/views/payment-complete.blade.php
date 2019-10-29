@@ -16,12 +16,20 @@
             <div class="panel-group" id="accordion">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                    <h4 class="panel-title create-stripe-account">
-                        {{-- <a data-toggle="collapse" data-parent="#accordion" href="#business_details"> --}}
-                        1. Create Stripe Account <span class="required">REQUIRED</span>
-                        <a class="btn btn-create-stripe-account pull-right">Create Account</a>
-                        {{-- </a> --}}
-                    </h4>
+                        <h4 class="panel-title create-stripe-account">
+                            {{-- <a data-toggle="collapse" data-parent="#accordion" href="#business_details"> --}}
+                            1. Create Stripe Account <span class="required">REQUIRED</span>
+                            <div class="pull-right stripe-btn-div">
+                            <?php if($account_status == 'none') { ?>
+                                <a href="" class="btn btn-create-stripe-account pull-right">Create Account</a>
+                            <?php } else if($account_status == 'created') { ?>
+                                <a class="btn btn-verify-stripe-account pull-right">Verify Account</a>
+                            <?php } else if($account_status == 'verified') { ?>
+                                <a class="btn pull-right">Completed</a>
+                            <?php } ?>
+                            </div>
+                            {{-- </a> --}}
+                        </h4>
                     </div>
                     <div id="business_details" class="panel-collapse collapse in" style="display:none;">
                         <div class="panel-body">
@@ -408,6 +416,23 @@
                         </div>
                     </div>
                 </div>
+                {{-- <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#connect_bank">
+                            2. Connect Your Bank Account<span class="recommended">RECOMMENDED</span>
+                            <span class="expand">+ Expand</span></a>
+                        </h4>
+                    </div>
+                    <div id="connect_bank" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <p>Getting paid has never been easier. Connect your bank account to start accepting your favorite forms of payment with HUMBL</p>
+                            <h4>Bank Details</h4>
+                            <p>You must provide a checking account. If you'd like to accept currencies other than USD, you will need to provide an account for each one.</p>
+                            <h5>Routing Number</h5>
+                        </div>
+                    </div>
+                </div> --}}
                 <div class="panel panel-default">
                     <div class="panel-heading">
                     <h4 class="panel-title">

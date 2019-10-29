@@ -10855,6 +10855,10 @@ main.dashboard {
   padding-top: 0px !important;
 }
 
+body {
+  background-color: #fff !important;
+}
+
 .top-navbar {
   background: #fff !important;
   width: 100% !important;
@@ -11625,7 +11629,7 @@ main.dashboard {
   cursor: pointer;
 }
 
-.payment-complete #accordion .panel .panel-title.create-stripe-account a.btn-create-stripe-account {
+.payment-complete #accordion .panel .panel-title.create-stripe-account a {
   background-color: #3490dc !important;
   color: #fff !important;
   border-radius: 6px;
@@ -11652,6 +11656,29 @@ main.dashboard {
 
 #successModal a,
 #failureModal a {
+  color: #fff;
+  font-size: 18px;
+}
+
+.success-div,
+.failure-div {
+  background: #fff;
+}
+
+.success-div img,
+.failure-div img {
+  margin: 20px 0px;
+}
+
+.success-div h4,
+.success-div p,
+.failure-div h4,
+.failure-div p {
+  color: #444444;
+}
+
+.success-div a,
+.failure-div a {
   color: #fff;
   font-size: 18px;
 }
