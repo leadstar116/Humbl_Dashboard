@@ -46,7 +46,12 @@ class PaymentsController extends Controller
     }
 
     public function redirect() {
-
+        if(request()->error) {
+            print_r(request()->error);
+            //return redirect('/verify-failure');
+        } else {
+            //return redirect('/verify-success');
+        }
     }
 
     public function createAccount() {
