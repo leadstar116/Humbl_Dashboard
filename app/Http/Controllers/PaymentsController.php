@@ -50,6 +50,18 @@ class PaymentsController extends Controller
             print_r(request()->error);
             //return redirect('/verify-failure');
         } else {
+            $code = request()->code;
+            \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+
+            $response = \Stripe\OAuth::token([
+                'grant_type' => 'authorization_code',
+                'code' => $code,
+            ]);
+
+            // Access the connected account id in the response
+            $connected_account_id = $response->stripe_user_id;
+            $user = Auth::user();
+            print_r($user);
             //return redirect('/verify-success');
         }
     }
