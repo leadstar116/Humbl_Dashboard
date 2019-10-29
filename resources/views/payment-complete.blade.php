@@ -20,8 +20,9 @@
                             {{-- <a data-toggle="collapse" data-parent="#accordion" href="#business_details"> --}}
                             1. Create Stripe Account <span class="required">REQUIRED</span>
                             <div class="pull-right stripe-btn-div">
-                            <?php if($account_status == 'none') { ?>
-                                <a href="" class="btn btn-create-stripe-account pull-right">Create Account</a>
+                            <?php if($account_status == 'none' || $account_status == null) { ?>
+                            {{-- <a href="https://connect.stripe.com/oauth/authorize?response_type=code&state={{ csrf_token() }}&client_id={{ env('STRIPE_CLIENT_ID') }}&scope=read_write" class="btn btn-create-stripe-account pull-right">Create Account</a> --}}
+                            <a href="https://dashboard.stripe.com/oauth/authorize?response_type=code&client_id=ca_F69o30vDwxdfNrpBjWg2KDnZ8DW70knC&scope=read_write" class="btn btn-create-stripe-account pull-right">Create Account</a>
                             <?php } else if($account_status == 'created') { ?>
                                 <a class="btn btn-verify-stripe-account pull-right">Verify Account</a>
                             <?php } else if($account_status == 'verified') { ?>

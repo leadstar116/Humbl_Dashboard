@@ -26,6 +26,7 @@ Route::get('/messages', 'MessagesController@index')->middleware('ProfileComplete
 Route::get('/payments', 'PaymentsController@index')->middleware('ProfileComplete');
 Route::get('/profile-complete', 'ProfileController@complete');
 Route::get('/payment-complete', 'PaymentsController@complete');
+Route::get('/account_redirect', 'PaymentsController@redirect');
 Route::get('/verify_failure', 'PaymentsController@verifyFailure');
 Route::get('/verify_success', 'PaymentsController@verifySuccess');
 Route::get('/account', 'AccountController@index')->middleware('ProfileComplete');

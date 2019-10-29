@@ -45,6 +45,10 @@ class PaymentsController extends Controller
         return view('payment-complete')->with('user', Auth::user())->with('account_status', $account_status)->with('payment', $payment);
     }
 
+    public function redirect() {
+
+    }
+
     public function createAccount() {
         $user = Auth::user();
         $result = [];

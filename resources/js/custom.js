@@ -277,7 +277,7 @@ $('.business .submit-btn').on('click', function(){
         $('#printer').printThis({canvas: true});
     });
 });
-
+/*
 $('.btn-create-stripe-account').on('click', function(){
     $.ajax({
         url: '/create_stripe_account',
@@ -309,7 +309,7 @@ $('.btn-create-stripe-account').on('click', function(){
         }
     });
 });
-
+*/
 $('#successModal .btn-continue-link').on('click', function(){
     var type = $(this).attr('type');
     if(type == 'created') {

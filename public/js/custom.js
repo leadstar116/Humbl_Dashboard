@@ -330,35 +330,40 @@ $('.business .submit-btn').on('click', function () {
     });
   });
 });
-$('.btn-create-stripe-account').on('click', function () {
-  $.ajax({
-    url: '/create_stripe_account',
-    type: 'POST',
-    data: {
-      "_token": $('meta[name="csrf-token"]').attr('content')
-    },
-    success: function success(data, textStatus, jqXHR) {
-      if (typeof data.error === 'undefined') {
-        if (data.success) {
-          $('.stripe-btn-div').empty();
-          $('.stripe-btn-div').append('<a class="btn btn-link-stripe-account pull-right">Verify Account</a>');
-          $('#successModal .btn-continue-link').attr('type', 'created');
-          $('#successModal').modal('show');
-        } else {
-          $('#failureModal .btn-try-again').attr('type', 'none');
-          $('#failureModal').modal('show');
+/*
+$('.btn-create-stripe-account').on('click', function(){
+    $.ajax({
+        url: '/create_stripe_account',
+        type: 'POST',
+        data: {
+            "_token": $('meta[name="csrf-token"]').attr('content'),
+            },
+        success: function (data, textStatus, jqXHR) {
+            if (typeof data.error === 'undefined') {
+                if(data.success) {
+                    $('.stripe-btn-div').empty();
+                    $('.stripe-btn-div').append('<a class="btn btn-link-stripe-account pull-right">Verify Account</a>');
+                    $('#successModal .btn-continue-link').attr('type', 'created');
+                    $('#successModal').modal('show');
+                } else {
+                    $('#failureModal .btn-try-again').attr('type', 'none');
+                    $('#failureModal').modal('show');
+                }
+            }
+            else {
+                // Handle errors here
+                alert('ERRORS: ' + data.error);
+            }
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            // Handle errors here
+            alert('ERRORS: ' + textStatus);
+            // STOP LOADING SPINNER
         }
-      } else {
-        // Handle errors here
-        alert('ERRORS: ' + data.error);
-      }
-    },
-    error: function error(jqXHR, textStatus, errorThrown) {
-      // Handle errors here
-      alert('ERRORS: ' + textStatus); // STOP LOADING SPINNER
-    }
-  });
+    });
 });
+*/
+
 $('#successModal .btn-continue-link').on('click', function () {
   var type = $(this).attr('type');
 
