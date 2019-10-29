@@ -10862,6 +10862,7 @@ body {
 .top-navbar {
   background: #fff !important;
   width: 100% !important;
+  z-index: 99 !important;
 }
 
 .top-navbar .navbar-btn {
@@ -11545,7 +11546,7 @@ body {
   border-radius: 50%;
   border: 3px solid #eee;
   position: absolute;
-  z-index: 999;
+  z-index: 9;
   top: 10%;
   left: 27%;
   cursor: pointer;
@@ -11555,7 +11556,7 @@ body {
 .payment-complete .img_profile_btn {
   width: 33px;
   position: absolute;
-  z-index: 9999;
+  z-index: 9;
   top: 19%;
   left: 60%;
   cursor: pointer;
@@ -11571,7 +11572,7 @@ body {
 .payment-complete .img_back_btn {
   width: 33px;
   position: absolute;
-  z-index: 9999;
+  z-index: 9;
   bottom: 7%;
   right: 7%;
   cursor: pointer;
