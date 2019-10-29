@@ -61,7 +61,15 @@ class PaymentsController extends Controller
             // Access the connected account id in the response
             $connected_account_id = $response->stripe_user_id;
             $user = Auth::user();
-            print_r($user);
+            $payment = $user->payment;
+            if(!$payment) {
+                $payment = new Payment;
+            }
+
+            $payment->account_id = $connected_account_id;
+            $payment->account_status = 'created';
+            $user->payment()->save($payment);
+            print_r($user->payment);
             //return redirect('/verify-success');
         }
     }
