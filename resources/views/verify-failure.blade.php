@@ -13,7 +13,7 @@
             <h4>Hmm, let's try that again!</h4>
             <p>There was an error setting up your account. If the error persis, please contact us.</p>
             <div>
-                <a class="btn btn-primary btn-verify-stripe-account">
+                <a class="btn btn-primary" href="https://connect.stripe.com/oauth/authorize?response_type=code&state={{ csrf_token() }}&client_id={{ env('STRIPE_CLIENT_ID') }}&scope=read_write">
                     Try Again
                 </a>
                 <a href="/payment-complete" class="btn btn-primary" data-dismiss="modal">

@@ -309,7 +309,7 @@ $('.btn-create-stripe-account').on('click', function(){
         }
     });
 });
-*/
+
 $('#successModal .btn-continue-link').on('click', function(){
     var type = $(this).attr('type');
     if(type == 'created') {
@@ -372,7 +372,7 @@ $('.btn-verify-stripe-account').on('click', function(){
         }
     });
 });
-
+*/
 $('.profileqr .submit-btn').on('click', function(){
     html2canvas(document.querySelector(".qrcode .profileqr .body"), {
         y: getOffsetTop(document.querySelector(".qrcode .profileqr .body"))
