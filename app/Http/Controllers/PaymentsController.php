@@ -48,7 +48,7 @@ class PaymentsController extends Controller
     public function redirect() {
         if(request()->error) {
             print_r(request()->error);
-            //return redirect('/verify-failure');
+            return redirect('verify-failure');
         } else {
             $code = request()->code;
             \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
@@ -69,148 +69,9 @@ class PaymentsController extends Controller
             $payment->account_id = $connected_account_id;
             $payment->account_status = 'created';
             $user->payment()->save($payment);
-            print_r($user->payment);
-            //return redirect('/verify-success');
+
+            return redirect('verify-success');
         }
-    }
-
-    public function createAccount() {
-        $user = Auth::user();
-        $result = [];
-        try{
-            \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
-
-            $payment = $user->payment;
-            $create_flag = false;
-            if(!$payment) {
-                $payment = new Payment;
-                $create_flag = true;
-            } else {
-                if(!$payment->account_id) {
-                    $create_flag = true;
-                }
-            }
-
-            if($create_flag) {
-                $account = \Stripe\Account::create([
-                    "type" => "custom",
-                    "country" => 'US',
-                    "email" => $user->email,
-                    "requested_capabilities" => ["card_payments", "transfers"],
-                ]);
-                $payment->account_id = $account['id'];
-            }
-
-            $link = \Stripe\AccountLink::create([
-                "account" => $payment->account_id,
-                "failure_url" => "http://localhost:8000/verify_failure",
-                "success_url" => "http://localhost:8000/verify_success",
-                "type" => "custom_account_verification",
-            ]);
-            $payment->account_link = $link['url'];
-            $payment->account_status = 'created';
-            $user->payment()->save($payment);
-
-            $result['success'] = true;
-            $result['link'] = $link['url'];
-        } catch (\Stripe\Exception\CardException $e) {
-            // Since it's a decline, \Stripe\Exception\CardException will be caught
-            // echo 'Status is:' . $e->getHttpStatus() . '\n';
-            // echo 'Type is:' . $e->getError()->type . '\n';
-            // echo 'Code is:' . $e->getError()->code . '\n';
-            // param is '' in this case
-            // echo 'Param is:' . $e->getError()->param . '\n';
-            // echo 'Message is:' . $e->getError()->message . '\n';
-            $result['success'] = false;
-            $result['error_message'] = $e->getError();
-        } catch (\Stripe\Exception\RateLimitException $e) {
-            // echo 'Too many requests made to the API too quickly';
-            $result['success'] = false;
-            $result['error_message'] = $e->getError();
-        } catch (\Stripe\Exception\InvalidRequestException $e) {
-            // echo "Invalid parameters were supplied to Stripe's API";
-            $result['success'] = false;
-            $result['error_message'] = $e->getError();
-        } catch (\Stripe\Exception\AuthenticationException $e) {
-            // echo "Authentication with Stripe's API failed
-            // (maybe you changed API keys recently)";
-            $result['success'] = false;
-            $result['error_message'] = $e->getError();
-        } catch (\Stripe\Exception\ApiConnectionException $e) {
-            // echo "Network communication with Stripe failed";
-            $result['success'] = false;
-            $result['error_message'] = $e->getError();
-        } catch (\Stripe\Exception\ApiErrorException $e) {
-            // echo "Display a very generic error to the user, and maybe send
-            // yourself an email";
-            $result['success'] = false;
-            $result['error_message'] = $e->getError();
-        } catch (Exception $e) {
-            // echo "Something else happened, completely unrelated to Stripe";
-            $result['success'] = false;
-            $result['error_message'] = $e->getError();
-        }
-        return response($result, 200);
-    }
-
-    public function verifyAccount() {
-        $user = Auth::user();
-        $result = [];
-        try{
-            \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
-
-            $payment = $user->payment;
-
-            $link = \Stripe\AccountLink::create([
-                "account" => $payment->account_id,
-                "failure_url" => "http://localhost:8000/verify_failure",
-                "success_url" => "http://localhost:8000/verify_success",
-                "type" => "custom_account_verification",
-            ]);
-            $payment->account_link = $link['url'];
-            $payment->account_status = 'created';
-            $user->payment()->save($payment);
-
-            $result['success'] = true;
-            $result['link'] = $link['url'];
-        } catch (\Stripe\Exception\CardException $e) {
-            // Since it's a decline, \Stripe\Exception\CardException will be caught
-            // echo 'Status is:' . $e->getHttpStatus() . '\n';
-            // echo 'Type is:' . $e->getError()->type . '\n';
-            // echo 'Code is:' . $e->getError()->code . '\n';
-            // param is '' in this case
-            // echo 'Param is:' . $e->getError()->param . '\n';
-            // echo 'Message is:' . $e->getError()->message . '\n';
-            $result['success'] = false;
-            $result['error_message'] = $e->getError();
-        } catch (\Stripe\Exception\RateLimitException $e) {
-            // echo 'Too many requests made to the API too quickly';
-            $result['success'] = false;
-            $result['error_message'] = $e->getError();
-        } catch (\Stripe\Exception\InvalidRequestException $e) {
-            // echo "Invalid parameters were supplied to Stripe's API";
-            $result['success'] = false;
-            $result['error_message'] = $e->getError();
-        } catch (\Stripe\Exception\AuthenticationException $e) {
-            // echo "Authentication with Stripe's API failed
-            // (maybe you changed API keys recently)";
-            $result['success'] = false;
-            $result['error_message'] = $e->getError();
-        } catch (\Stripe\Exception\ApiConnectionException $e) {
-            // echo "Network communication with Stripe failed";
-            $result['success'] = false;
-            $result['error_message'] = $e->getError();
-        } catch (\Stripe\Exception\ApiErrorException $e) {
-            // echo "Display a very generic error to the user, and maybe send
-            // yourself an email";
-            $result['success'] = false;
-            $result['error_message'] = $e->getError();
-        } catch (Exception $e) {
-            // echo "Something else happened, completely unrelated to Stripe";
-            $result['success'] = false;
-            $result['error_message'] = $e->getError();
-        }
-        return response($result, 200);
     }
 
     public function verifyFailure() {
@@ -218,12 +79,6 @@ class PaymentsController extends Controller
     }
 
     public function verifySuccess() {
-        $user = Auth::user();
-        $payment = $user->payment;
-        $payment->account_status = 'verified';
-        $user->payment()->save($payment);
-        echo '<pre>';
-        print_r(request()->authorization_code); exit;
         return view('verify-success')->with('user', Auth::user());
     }
 
