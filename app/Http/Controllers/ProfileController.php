@@ -94,7 +94,7 @@ class ProfileController extends Controller
             $user->ProfilePic_back = $avatarBackName;
         }
 
-        $user->BusinessName = $request->input('name');
+        $user->BusinessName = 'Business-'.$request->input('name');
         $user->TagLine = $request->input('tagline');
         $user->biz_email = $request->input('email');
         $user->phone = $request->input('phone');
