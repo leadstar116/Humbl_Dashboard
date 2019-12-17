@@ -77,7 +77,7 @@ class ProfileController extends Controller
         $user->profile_completed = 1;
         $user->save();
 
-        return view('invite-new')->with('user', Auth::user());
+        return Redirect::route('invite-new');
     }
 
     public function update(Request $request) {
