@@ -39,6 +39,7 @@ class HomeController extends Controller
                 ->where('tiIsActive', '=', '1')
                 ->get();
             if(!empty($result)) {
+                print_r($result);
                 $total_rating += $result[0]->customer_rating;
             }
 
