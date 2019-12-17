@@ -117,10 +117,10 @@ class HomeController extends Controller
                 $activities[] = [
                     'activity' => $item,
                     'print_rating' => $print_rate,
-                    'employee_name' => $employ[0]->vFirstName. ' ' .$employ[0]->vLastName,
-                    'employee_email' => $employ[0]->vEmailId,
-                    'guest_name' => $guest[0]->vFirstName. ' ' .$guest[0]->vLastName,
-                    'guest_email' => $guest[0]->vEmailId,
+                    'employee_name' => $employ[0]['vFirstName']. ' ' .$employ[0]['vLastName'],
+                    'employee_email' => $employ[0]['vEmailId'],
+                    'guest_name' => $guest[0]['vFirstName']. ' ' .$guest[0]['vLastName'],
+                    'guest_email' => $guest[0]['vEmailId'],
                 ];
             }
         }
