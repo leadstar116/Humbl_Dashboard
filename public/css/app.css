@@ -11302,9 +11302,8 @@ body {
   background: #22ADE4;
 }
 
-.qrcode #main-content .card .body .qrcode-box-body .qrcode-img {
+.qrcode #main-content .card .body .qrcode-box-body svg {
   border-radius: 25px;
-  width: 300px;
 }
 
 .qrcode #main-content .card .body .qrcode-box-logos {

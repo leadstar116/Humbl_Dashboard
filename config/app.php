@@ -176,6 +176,8 @@ return [
         App\Providers\RouteServiceProvider::class,
         Anam\PhantomMagick\ConverterServiceProvider::class,
         Cartalyst\Stripe\Laravel\StripeServiceProvider::class,
+
+        SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
     ],
 
     /*
@@ -228,6 +230,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Converter' => Anam\PhantomMagick\Facades\Converter::class,
         'Stripe' => Cartalyst\Stripe\Laravel\Facades\Stripe::class,
+        'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
     ],
 
 ];
