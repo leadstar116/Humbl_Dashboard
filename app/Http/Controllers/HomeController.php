@@ -38,7 +38,9 @@ class HomeController extends Controller
                 ->where('iToUserId', '=', $employee->iUserId)
                 ->where('tiIsActive', '=', '1')
                 ->get();
-            $total_rating += $result[0]->customer_rating;
+            if(!empty($result)) {
+                $total_rating += $result[0]->customer_rating;
+            }
 
             $result = DB::table('tips')
                 ->select(DB::raw('sum(fTipAmount) as sum'))
@@ -46,7 +48,9 @@ class HomeController extends Controller
                 ->where('tiIsActive', '=', '1')
                 ->where('payment_type', '=', 'tips')
                 ->get();
-            $total_tips += $result[0]->sum;
+            if(!empty($result)) {
+                $total_tips += $result[0]->sum;
+            }
 
             $result = DB::table('tips')
                 ->select(DB::raw('sum(fTipAmount) as sum'))
@@ -54,7 +58,9 @@ class HomeController extends Controller
                 ->where('tiIsActive', '=', '1')
                 ->where('payment_type', '=', 'payment')
                 ->get();
-            $total_payment += $result[0]->sum;
+            if(!empty($result)) {
+                $total_payment += $result[0]->sum;
+            }
         }
         $months = [];
         $reviews_count = [];
@@ -76,7 +82,9 @@ class HomeController extends Controller
                     ->where('iCreatedAt', '>=', $first_time)
                     ->where('iCreatedAt', '<=', $last_time)
                     ->get();
-                $ratings += $result[0]->customer_rating;
+                if(!empty($result)) {
+                    $ratings += $result[0]->customer_rating;
+                }
 
                 $result = DB::table('tips')
                     ->select(DB::raw('count(*) as count'))
@@ -86,7 +94,9 @@ class HomeController extends Controller
                     ->where('iCreatedAt', '>=', $first_time)
                     ->where('iCreatedAt', '<=', $last_time)
                     ->get();
-                $count += $result[0]->count;
+                if(!empty($result)) {
+                    $count += $result[0]->count;
+                }
             }
             $customer_ratings[] = number_format($ratings / 3, 2, '.', '');
             $reviews_count[] = $count;
