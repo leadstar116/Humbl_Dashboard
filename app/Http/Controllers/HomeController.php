@@ -110,8 +110,8 @@ class HomeController extends Controller
         foreach($result as $item) {
             $print_rate = self::print_stars(self::round_half($item->vRating));
 
-            $employ = Users::where('iUserId', $item->iToUserId)->get();
-            $guest = Users::where('iUserId', $item->iFromUserId)->get();
+            $employ = Users::where('iUserId', $item->iToUserId)->get()->toArray();
+            $guest = Users::where('iUserId', $item->iFromUserId)->get()->toArray();
             print_r($employ);
             print_r($guest);
             exit;
