@@ -112,6 +112,9 @@ class HomeController extends Controller
 
             $employ = Users::where('iUserId', $item->iToUserId)->get();
             $guest = Users::where('iUserId', $item->iFromUserId)->get();
+            print_r($employ);
+            print_r($guest);
+            exit;
             if(!empty($employ) && !empty($guest)) {
                 $activities[] = [
                     'activity' => $item,
