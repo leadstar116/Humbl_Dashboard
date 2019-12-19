@@ -55,7 +55,7 @@
                                 Uneditable
                             </div>
                             <div class="qrcode-box-body">
-                                {!! QrCode::size(300)->generate($user->BusinessName); !!}
+                                {!! QrCode::size(300)->generate('Business-'.$user->id); !!}
                             </div>
                             <div class="qrcode-box-logos">
                                 <span class="text-muted">
@@ -120,7 +120,7 @@
                                 Uneditable
                             </div>
                             <div class="qrcode-box-body">
-                                {!! QrCode::size(300)->generate($user->BusinessName); !!}
+                                {!! QrCode::size(300)->generate('Business-'.$user->id); !!}
                             </div>
                             <div class="qrcode-box-logos">
                                 <span class="text-muted">
