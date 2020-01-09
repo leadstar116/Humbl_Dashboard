@@ -196,6 +196,7 @@
                                         <th>Guest Name</th>
                                         <th>Date</th>
                                         <th>Feedback</th>
+                                        <th>Rating</th>
                                         <th>Type</th>
                                         <th>Amount</th>
                                     </tr>
@@ -224,6 +225,7 @@
                                                 </div>
                                             </td>
                                             <td><span><?= date('d M, Y', $activity['activity']->iCreatedAt) ?></span></td>
+                                            <td><?= $activity['activity']->vMessage; ?></td>
                                             <td><?= $activity['print_rating'] ?></td>
                                             <td><?= ucwords($activity['activity']->payment_type) ?></td>
                                             <td>
