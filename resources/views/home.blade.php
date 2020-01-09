@@ -143,7 +143,7 @@
                                         <td><?= $activity['print_rating'] ?></td>
                                         <td><?= ucwords($activity['activity']->payment_type) ?></td>
                                         <td>
-                                            <span class="chart">$ <?= number_format($activity['activity']->fTipAmount, 2, '.', '') ?></span>
+                                            <span class="chart">$ <?= ($activity['activity']->payment_type == 'tips')? number_format($activity['activity']->fTipAmount, 2, '.', '') : number_format($activity['activity']->fPaymentAmount, 2, '.', '') ?></span>
                                         </td>
                                     </tr>
                                     @endforeach
