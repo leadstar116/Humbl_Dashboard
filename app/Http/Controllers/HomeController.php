@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Tips;
 use App\Users;
+use App\BusinessUser;
 
 class HomeController extends Controller
 {
@@ -117,7 +118,7 @@ class HomeController extends Controller
             if($item->payment_type == 'tips') {
                 $employ = Users::where('iUserId', $item->iToUserId)->get()->toArray();
             } else {
-                $employ = Business::where('id', $item->iToUserId)->get()->toArray();
+                $employ = BusinessUser::where('id', $item->iToUserId)->get()->toArray();
             }
             $guest = Users::where('iUserId', $item->iFromUserId)->get()->toArray();
 
