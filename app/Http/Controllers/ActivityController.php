@@ -37,14 +37,16 @@ class ActivityController extends Controller
             $employ = Users::where('iUserId', $item->iToUserId)->get();
             $guest = Users::where('iUserId', $item->iFromUserId)->get();
 
-            $activities[] = [
-                'activity' => $item,
-                'print_rating' => $print_rate,
-                'employee_name' => $employ[0]->vFirstName. ' ' .$employ[0]->vLastName,
-                'employee_email' => $employ[0]->vEmailId,
-                'guest_name' => $guest[0]->vFirstName. ' ' .$guest[0]->vLastName,
-                'guest_email' => $guest[0]->vEmailId,
-            ];
+            if(!empty($employ) && !empty($guest)) {
+                $activities[] = [
+                    'activity' => $item,
+                    'print_rating' => $print_rate,
+                    'employee_name' => $employ[0]->vFirstName. ' ' .$employ[0]->vLastName,
+                    'employee_email' => $employ[0]->vEmailId,
+                    'guest_name' => $guest[0]->vFirstName. ' ' .$guest[0]->vLastName,
+                    'guest_email' => $guest[0]->vEmailId,
+                ];
+            }
         }
 
         return view('activity')->with('user', Auth::user())->with('activities', $activities);

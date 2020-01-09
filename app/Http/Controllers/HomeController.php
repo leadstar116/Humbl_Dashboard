@@ -51,16 +51,15 @@ class HomeController extends Controller
             if(!empty($result)) {
                 $total_tips += $result[0]->sum;
             }
-
-            $result = DB::table('tips')
-                ->select(DB::raw('sum(fTipAmount) as sum'))
-                ->where('iToUserId', '=', $employee->iUserId)
+        }
+        $result = DB::table('tips')
+                ->select(DB::raw('sum(fPaymentAmount) as sum'))
+                ->where('iToUserId', '=', $user->id)
                 ->where('tiIsActive', '=', '1')
                 ->where('payment_type', '=', 'payment')
                 ->get();
-            if(!empty($result)) {
-                $total_payment += $result[0]->sum;
-            }
+        if(!empty($result)) {
+            $total_payment += $result[0]->sum;
         }
         $months = [];
         $reviews_count = [];
