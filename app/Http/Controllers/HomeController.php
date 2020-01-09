@@ -114,7 +114,7 @@ class HomeController extends Controller
         foreach($result as $item) {
             $print_rate = self::print_stars(self::round_half($item->vRating));
 
-            if($item->payment_method == 'tips') {
+            if($item->payment_type == 'tips') {
                 $employ = Users::where('iUserId', $item->iToUserId)->get()->toArray();
             } else {
                 $employ = Business::where('id', $item->iToUserId)->get()->toArray();
