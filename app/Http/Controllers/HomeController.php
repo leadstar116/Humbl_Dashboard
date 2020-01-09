@@ -123,14 +123,25 @@ class HomeController extends Controller
             $guest = Users::where('iUserId', $item->iFromUserId)->get()->toArray();
 
             if(!empty($employ) && !empty($guest)) {
-                $activities[] = [
-                    'activity' => $item,
-                    'print_rating' => $print_rate,
-                    'employee_name' => $employ[0]['vFirstName']. ' ' .$employ[0]['vLastName'],
-                    'employee_email' => $employ[0]['vEmailId'],
-                    'guest_name' => $guest[0]['vFirstName']. ' ' .$guest[0]['vLastName'],
-                    'guest_email' => $guest[0]['vEmailId'],
-                ];
+                if($item->payment_type == 'payment') {
+                    $activities[] = [
+                        'activity' => $item,
+                        'print_rating' => $print_rate,
+                        'employee_name' => $employ[0]['FirstName']. ' ' .$employ[0]['LastName'],
+                        'employee_email' => $employ[0]['email'],
+                        'guest_name' => $guest[0]['vFirstName']. ' ' .$guest[0]['vLastName'],
+                        'guest_email' => $guest[0]['vEmailId'],
+                    ];
+                } else {
+                    $activities[] = [
+                        'activity' => $item,
+                        'print_rating' => $print_rate,
+                        'employee_name' => $employ[0]['vFirstName']. ' ' .$employ[0]['vLastName'],
+                        'employee_email' => $employ[0]['vEmailId'],
+                        'guest_name' => $guest[0]['vFirstName']. ' ' .$guest[0]['vLastName'],
+                        'guest_email' => $guest[0]['vEmailId'],
+                    ];
+                }
             }
         }
 
