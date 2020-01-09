@@ -32,7 +32,10 @@ class HomeController extends Controller
         $total_payment = 0;
         $total_tips = 0;
         $customer_ratings = [];
+        $user_ids = [];
+        $user_ids[] = $user->id;
         foreach($user->employees as $employee) {
+            $user_ids[] = $employee->iUserId;
             $result = DB::table('tips')
                 ->select(DB::raw('sum(vRating) as customer_rating'))
                 ->where('iToUserId', '=', $employee->iUserId)
@@ -102,6 +105,7 @@ class HomeController extends Controller
         }
 
         $result = DB::table('tips')
+            ->whereIn('iToUserId', $user_ids)
             ->where('tiIsActive', '=', '1')
             ->limit(20)
             ->orderBy('iCreatedAt', 'desc')->get();
