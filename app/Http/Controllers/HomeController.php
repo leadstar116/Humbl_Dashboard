@@ -109,8 +109,7 @@ class HomeController extends Controller
             ->where('tiIsActive', '=', '1')
             ->limit(20)
             ->orderBy('iCreatedAt', 'desc')->get();
-        print_r($user_ids);
-        print_r($result); exit;
+
         $activities = [];
         foreach($result as $item) {
             $print_rate = self::print_stars(self::round_half($item->vRating));
